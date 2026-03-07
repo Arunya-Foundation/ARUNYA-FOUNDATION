@@ -1,0 +1,9 @@
+OUR WORK IMAGES
+loading screen Images
+*.enc
+.git
+.vercel
+node_modules
+dist
+*.md
+!README.md
