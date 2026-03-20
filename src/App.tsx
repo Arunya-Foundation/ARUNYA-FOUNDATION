@@ -1,14 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoadingScreen from './components/LoadingScreen';
 import { MainLayout } from './components/layout/MainLayout';
-import { HomePage } from './pages/HomePage';
-import { AboutPage } from './pages/AboutPage';
-import { CausesPage } from './pages/CausesPage';
-import { GalleryPage } from './pages/GalleryPage';
-import { BlogPage } from './pages/BlogPage';
-import { ContactPage } from './pages/ContactPage';
-import { LoginPage } from './pages/LoginPage';
+
+// Lazy load pages for better performance
+const HomePage = lazy(() => import('./pages/HomePage').then(module => ({ default: module.HomePage })));
+const AboutPage = lazy(() => import('./pages/AboutPage').then(module => ({ default: module.AboutPage })));
+const CausesPage = lazy(() => import('./pages/CausesPage').then(module => ({ default: module.CausesPage })));
+const GalleryPage = lazy(() => import('./pages/GalleryPage').then(module => ({ default: module.GalleryPage })));
+const BlogPage = lazy(() => import('./pages/BlogPage').then(module => ({ default: module.BlogPage })));
+const ContactPage = lazy(() => import('./pages/ContactPage').then(module => ({ default: module.ContactPage })));
+const LoginPage = lazy(() => import('./pages/LoginPage').then(module => ({ default: module.LoginPage })));
 
 function App() {
     const [isLoading, setIsLoading] = useState(() => {
@@ -40,17 +42,19 @@ function App() {
             {isLoading ? (
                 <LoadingScreen onComplete={handleLoadingComplete} />
             ) : (
-                <Routes>
-                    <Route element={<MainLayout theme={theme} toggleTheme={toggleTheme} />}>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/about" element={<AboutPage />} />
-                        <Route path="/causes" element={<CausesPage />} />
-                        <Route path="/gallery" element={<GalleryPage />} />
-                        <Route path="/blog" element={<BlogPage />} />
-                        <Route path="/contact" element={<ContactPage />} />
-                        <Route path="/login" element={<LoginPage />} />
-                    </Route>
-                </Routes>
+                <Suspense fallback={null}>
+                    <Routes>
+                        <Route element={<MainLayout theme={theme} toggleTheme={toggleTheme} />}>
+                            <Route path="/" element={<HomePage />} />
+                            <Route path="/about" element={<AboutPage />} />
+                            <Route path="/causes" element={<CausesPage />} />
+                            <Route path="/gallery" element={<GalleryPage />} />
+                            <Route path="/blog" element={<BlogPage />} />
+                            <Route path="/contact" element={<ContactPage />} />
+                            <Route path="/login" element={<LoginPage />} />
+                        </Route>
+                    </Routes>
+                </Suspense>
             )}
         </BrowserRouter>
     );

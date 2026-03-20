@@ -176,7 +176,7 @@ const LandingPage = ({ theme, toggleTheme }: LandingPageProps) => {
             {/* Hero Gallery (New Top Layout) */}
             <main className="hero-gallery relative mt-24 mx-4 md:mx-8 rounded-3xl overflow-hidden" style={{ height: '80vh', zIndex: 1, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}>
                 <RevealWaveImage
-                    src="/loading-images/1.png"
+                    src="/assets/loading-screen/1.png"
                     waveSpeed={0.2}
                     waveFrequency={0.7}
                     waveAmplitude={0.5}

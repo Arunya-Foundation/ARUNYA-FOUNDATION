@@ -14,8 +14,8 @@ const images = [
     '/assets/loading-screen/7.png',
 ];
 
-const IMAGE_DURATION = 7000; // 7 seconds per image
-const TOTAL_DURATION = IMAGE_DURATION * images.length; // 49 seconds total
+const IMAGE_DURATION = 1000; // 1 second per image
+const TOTAL_DURATION = IMAGE_DURATION * images.length; // 7 seconds total
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
     const [progress, setProgress] = useState(0);
