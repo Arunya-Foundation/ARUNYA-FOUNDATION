@@ -173,9 +173,14 @@ const LandingPage = () => {
                     pixelSize={2}
                     mouseRadius={0.4}
                 />
-                <h1 className="hero-title absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none select-none drop-shadow-2xl" style={{ fontSize: '10vw', whiteSpace: 'nowrap', color: 'white', letterSpacing: '0.05em' }}>
-                    ARUNYA
-                </h1>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none select-none drop-shadow-2xl">
+                    <h1 style={{ fontSize: '10vw', whiteSpace: 'nowrap', color: 'white', letterSpacing: '0.05em', margin: 0 }}>
+                        ARUNYA
+                    </h1>
+                    <p style={{ fontSize: '3vw', color: 'rgba(255,255,255,0.9)', fontStyle: 'italic', marginTop: '-1vw' }}>
+                        शिक्षा सर्वार्थसाधिका
+                    </p>
+                </div>
             </main>
 
             {/* Mission Section (Moved down) */}
