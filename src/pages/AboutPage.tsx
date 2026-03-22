@@ -83,21 +83,52 @@ export const AboutPage = () => {
                     <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #d4a847, #b8922e)', borderRadius: 2, margin: '0 auto 3rem' }} />
                     <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                         {[
-                            { name: 'Prabal', role: 'Founder', img: '/assets/work/20251102_131451.jpg', quote: 'Every child we teach is a future we build together.' },
-                            { name: 'Prateek Sharma', role: 'VICE PRESIDENT', img: '/assets/work/20251102_131454.jpg', quote: 'Education is the one gift that keeps multiplying.' },
+                            { name: 'Prabal', role: 'Founder', img: '/assets/work/20251102_131451.jpg', quote: 'Every child we teach is a future we build together.', instagram: 'https://www.instagram.com/withprabal_/' },
                             { name: 'Anjali Mishra', role: 'President', img: '/assets/work/20251102_131457.jpg', quote: 'We believe every child deserves the chance to learn, grow, and dream.' },
+                            { name: 'Prateek Sharma', role: 'VICE PRESIDENT', img: '/assets/work/20251102_131454.jpg', quote: 'Education is the one gift that keeps multiplying.' },
                             { name: 'Aaleya', role: 'Social Media Head', img: '/assets/work/20251102_131502.jpg', quote: 'Every story we share reaches someone who wants to help.' },
                         ].map((member, idx) => (
-                            <motion.div key={idx} {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 + idx * 0.08 }} style={{
-                                width: 280, padding: '1.5rem', borderRadius: 20, textAlign: 'center',
-                                background: 'white', border: '1px solid rgba(30,58,95,0.08)',
-                                boxShadow: '0 4px 24px rgba(30,58,95,0.06)',
-                                transition: 'transform 0.3s, box-shadow 0.3s',
-                            }}>
-                                <img src={member.img} alt={member.name} style={{ width: 120, height: 120, borderRadius: '50%', objectFit: 'cover', margin: '0 auto 1rem', border: '3px solid #f5e6b8' }} />
-                                <h4 style={{ fontSize: '1.3rem', marginBottom: '0.25rem', color: '#1e3a5f' }}>{member.name}</h4>
-                                <p style={{ color: '#2563eb', fontSize: '0.95rem', fontWeight: 600, marginBottom: '1rem' }}>{member.role}</p>
-                                <p style={{ color: '#6b7280', fontSize: '0.85rem', fontStyle: 'italic', lineHeight: 1.4 }}>"{member.quote}"</p>
+                            <motion.div
+                                key={idx}
+                                {...fadeUp}
+                                transition={{ ...fadeUp.transition, delay: 0.1 + idx * 0.08 }}
+                                style={{
+                                    width: 280,
+                                    borderRadius: 32,
+                                    textAlign: 'left',
+                                    background: 'white',
+                                    overflow: 'hidden',
+                                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                                }}
+                                whileHover={{ y: -10 }}
+                            >
+                                <div style={{ position: 'relative', borderRadius: 24, overflow: 'hidden', height: 320, marginBottom: '1.25rem' }}>
+                                    <motion.img
+                                        src={member.img}
+                                        alt={member.name}
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'cover',
+                                            filter: 'grayscale(100%)',
+                                            transition: 'filter 0.4s ease, transform 0.4s ease',
+                                        }}
+                                        whileHover={{ filter: 'grayscale(0%)', scale: 1.05 }}
+                                    />
+                                    <div style={{ position: 'absolute', bottom: 12, right: 12, display: 'flex', gap: '8px' }}>
+                                        {member.instagram && (
+                                            <a href={member.instagram} target="_blank" rel="noopener noreferrer" style={{ width: 32, height: 32, borderRadius: 8, background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', textDecoration: 'none', color: 'inherit' }}>
+                                                📸
+                                            </a>
+                                        )}
+                                        <div style={{ width: 32, height: 32, borderRadius: 8, background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>💼</div>
+                                    </div>
+                                </div>
+                                <div style={{ padding: '0 0.5rem 1rem' }}>
+                                    <h4 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '0.25rem', color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif' }}>{member.name}</h4>
+                                    <p style={{ color: '#6b7280', fontSize: '0.9rem', fontWeight: 500, marginBottom: '0.75rem' }}>{member.role}</p>
+                                    <p style={{ color: '#9ca3af', fontSize: '0.8rem', fontStyle: 'italic', lineHeight: 1.4 }}>"{member.quote}"</p>
+                                </div>
                             </motion.div>
                         ))}
                     </div>
