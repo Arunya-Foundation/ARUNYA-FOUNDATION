@@ -177,9 +177,6 @@ const LandingPage = () => {
                     <h1 style={{ fontSize: '10vw', whiteSpace: 'nowrap', color: 'white', letterSpacing: '0.05em', margin: 0 }}>
                         ARUNYA
                     </h1>
-                    <p style={{ fontSize: '3vw', color: 'rgba(255,255,255,0.9)', fontStyle: 'italic', marginTop: '-1vw' }}>
-                        शिक्षा सर्वार्थसाधिका
-                    </p>
                 </div>
             </main>
 

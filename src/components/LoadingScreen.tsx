@@ -6,16 +6,12 @@ interface LoadingScreenProps {
 
 const images = [
     '/assets/loading-screen/1.png',
-    '/assets/loading-screen/2.png',
-    '/assets/loading-screen/3.png',
     '/assets/loading-screen/4.png',
-    '/assets/loading-screen/5.png',
-    '/assets/loading-screen/6.png',
     '/assets/loading-screen/7.png',
 ];
 
-const IMAGE_DURATION = 1000; // 1 second per image
-const TOTAL_DURATION = IMAGE_DURATION * images.length; // 7 seconds total
+const IMAGE_DURATION = 3333; // ~3.3 seconds per image
+const TOTAL_DURATION = 10000; // 10 seconds total
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
     const [progress, setProgress] = useState(0);

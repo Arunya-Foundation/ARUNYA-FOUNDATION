@@ -72,7 +72,7 @@ html {
 }
 
 body {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-body);
   overflow-x: hidden;
@@ -81,7 +81,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Outfit', 'Inter', sans-serif;
   color: var(--text-heading);
 }
 

@@ -156,9 +156,9 @@ export const HomePage = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.3 }}
+                        style={{ fontSize: 'clamp(3.5rem, 10vw, 7rem)', fontWeight: 900 }}
                     >
-                        Lighting the Path<br />
-                        <span className="accent">to Education</span>
+                        शिक्षा सर्वार्थसाधिका
                     </motion.h1>
 
                     <motion.p
