@@ -1,62 +1,33 @@
 import { useState, useEffect } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { ThemeToggle } from '../ui/theme-toggle';
-import Dock from '../ui/Dock';
-import { HomeIcon, InfoIcon, HeartIcon, CopiedIcon, EyeToggleIcon, NotificationIcon } from '../ui/animated-state-icons';
-import { VscAccount } from 'react-icons/vsc';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { JoinCommunity, Footer } from './Footer';
 
-const CyclingText = () => {
-    const texts = ["Login", "Sign Up", "Sign In"];
-    const [index, setIndex] = useState(0);
+/* ── Nav link data ─────────────────────────────────────────── */
+const NAV_LINKS = [
+    { label: 'About', path: '/about' },
+    { label: 'Programs', path: '/causes' },
+    { label: 'Gallery', path: '/gallery' },
+    { label: 'Blog', path: '/blog' },
+    { label: 'Volunteer', path: '/volunteer' },
+    { label: 'Contact', path: '/contact' },
+];
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setIndex((prev) => (prev + 1) % texts.length);
-        }, 3000);
-        return () => clearInterval(interval);
-    }, []);
+/* ── Layout Component ────────────────────────────────────────── */
 
-    return (
-        <div style={{ position: 'relative', height: 20, width: 65, overflow: 'hidden' }}>
-            <AnimatePresence mode="wait">
-                <motion.span
-                    key={texts[index]}
-                    initial={{ y: 18, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -18, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                    style={{
-                        position: 'absolute', inset: 0,
-                        display: 'flex', alignItems: 'center', justifyContent: 'flex-start',
-                        fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)',
-                        whiteSpace: 'nowrap',
-                    }}
-                >
-                    {texts[index]}
-                </motion.span>
-            </AnimatePresence>
-        </div>
-    );
-};
-
-interface MainLayoutProps {
-    theme: 'light' | 'dark';
-    toggleTheme: () => void;
-}
-
-export const MainLayout = ({ theme, toggleTheme }: MainLayoutProps) => {
-    const [scrolled, setScrolled] = useState(false);
+export const MainLayout = () => {
+    const [compact, setCompact] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
+    const { scrollY } = useScroll();
+
+    /* Scroll threshold — go compact when scrolling DOWN past 100px */
+    useMotionValueEvent(scrollY, 'change', (latest) => {
+        setCompact(latest > 100);
+    });
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
-        window.addEventListener('scroll', handleScroll);
-
         /* Global scroll-animate observer */
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -72,13 +43,10 @@ export const MainLayout = ({ theme, toggleTheme }: MainLayoutProps) => {
         const observeElements = () => {
             document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
         };
-
         observeElements();
-        // Re-observe on route change
         const timeoutId = setTimeout(observeElements, 500);
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
             observer.disconnect();
             clearTimeout(timeoutId);
         };
@@ -87,91 +55,167 @@ export const MainLayout = ({ theme, toggleTheme }: MainLayoutProps) => {
     // Scroll to top on route change
     useEffect(() => {
         window.scrollTo(0, 0);
+        setMobileMenuOpen(false);
     }, [location.pathname]);
 
-    const dockItems = [
-        { icon: <HomeIcon size={24} color={location.pathname === '/' ? 'white' : 'var(--text-primary)'} />, label: 'Home', onClick: () => navigate('/'), active: location.pathname === '/' },
-        { icon: <InfoIcon size={24} color={location.pathname === '/about' ? 'white' : 'var(--text-primary)'} />, label: 'About', onClick: () => navigate('/about'), active: location.pathname === '/about' },
-        { icon: <HeartIcon size={24} color={location.pathname === '/causes' ? 'white' : 'var(--text-primary)'} />, label: 'Causes', onClick: () => navigate('/causes'), active: location.pathname === '/causes' },
-        { icon: <CopiedIcon size={24} color={location.pathname === '/blog' ? 'white' : 'var(--text-primary)'} />, label: 'Blog', onClick: () => navigate('/blog'), active: location.pathname === '/blog' },
-        { icon: <EyeToggleIcon size={24} color={location.pathname === '/gallery' ? 'white' : 'var(--text-primary)'} />, label: 'Gallery', onClick: () => navigate('/gallery'), active: location.pathname === '/gallery' },
-        { icon: <NotificationIcon size={24} color={location.pathname === '/contact' ? 'white' : 'var(--text-primary)'} />, label: 'Contact', onClick: () => navigate('/contact'), active: location.pathname === '/contact' },
-    ];
-
     return (
-        <div className="landing-page relative min-h-screen pb-24">
-            {/* Header */}
-            <header className={`header ${scrolled ? 'scrolled' : ''}`} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', pointerEvents: 'none' }}>
-                {/* Clicking Logo goes to main website (Home) */}
-                <div className="brand glass-panel cursor-pointer flex items-center gap-2" style={{ width: 'auto', padding: '0.5rem 1.25rem', pointerEvents: 'auto' }} onClick={() => navigate('/')}>
-                    <img src="/logo.jpg" alt="Logo" style={{ width: '28px', height: '28px', objectFit: 'cover', borderRadius: '50%' }}
-                        onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                    <h2 style={{ margin: 0, fontSize: '1.1rem' }}>Arunya</h2>
-                </div>
-
-                <div className="center-nav" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', height: '58px', overflow: 'visible', pointerEvents: 'auto' }}>
-                    <div style={{ height: '58px', display: 'flex', alignItems: 'center', overflow: 'visible' }}>
-                        <Dock
-                            items={dockItems}
-                            panelHeight={52}
-                            baseItemSize={36}
-                            magnification={56}
-                            distance={150}
-                            dockHeight={52}
-                            direction="down"
+        <div className="site-root">
+            {/* ═══════════════════ NAVBAR ═══════════════════ */}
+            <motion.header
+                className="main-navbar"
+                animate={compact ? 'compact' : 'full'}
+                initial="full"
+                variants={{
+                    full: { top: 0, padding: '0px' },
+                    compact: { top: 12, padding: '0px 16px' },
+                }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            >
+                <motion.div
+                    className="navbar-inner"
+                    variants={{
+                        full: {
+                            maxWidth: '100vw',
+                            borderRadius: '0px',
+                            backgroundColor: 'rgba(255,255,255,0.0)',
+                            backdropFilter: 'blur(0px)',
+                            boxShadow: 'none',
+                            padding: '1.25rem 3rem',
+                        },
+                        compact: {
+                            maxWidth: '700px',
+                            borderRadius: '9999px',
+                            backgroundColor: 'rgba(255,255,255,0.92)',
+                            backdropFilter: 'blur(20px)',
+                            boxShadow: '0 8px 32px rgba(30,58,95,0.10)',
+                            padding: '0.5rem 1.25rem',
+                        }
+                    }}
+                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                >
+                    {/* ── Logo ── */}
+                    <div className="nav-brand" onClick={() => navigate('/')}>
+                        <img
+                            src="/logo.jpg"
+                            alt="Arunya Foundation"
+                            className="nav-logo-img"
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
                         />
+                        <motion.span
+                            className="nav-brand-text"
+                            style={{ marginLeft: '0.8rem', color: '#d4a847', textTransform: 'uppercase' }}
+                        >
+                            ARUNYA FOUNDATION
+                        </motion.span>
                     </div>
-                </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', pointerEvents: 'auto', justifySelf: 'flex-end' }}>
-                    <div className="glass-panel flex-center cursor-pointer" style={{ height: 48, borderRadius: 99, padding: '0 0.5rem', flexShrink: 0 }}>
-                        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-                    </div>
-                    <div
-                        className="header-controls glass-panel flex items-center cursor-pointer"
-                        style={{ height: 48, borderRadius: 99, padding: '0 1.25rem 0 0.35rem', gap: '0.6rem' }}
+                    {/* ── Center Nav Links (hide in compact / pill mode) ── */}
+                    <AnimatePresence>
+                        {!compact && (
+                            <motion.nav
+                                className="nav-links"
+                                initial={{ opacity: 0, y: -8 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -8 }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                {NAV_LINKS.map((link) => (
+                                    <button
+                                        key={link.path}
+                                        className={`nav-link-btn ${location.pathname === link.path ? 'active' : ''}`}
+                                        onClick={() => navigate(link.path)}
+                                    >
+                                        {link.label}
+                                    </button>
+                                ))}
+                            </motion.nav>
+                        )}
+                    </AnimatePresence>
+
+                    {/* ── CTA Button ── */}
+                    <motion.button
+                        className="nav-cta-btn"
                         onClick={() => navigate('/login')}
-                        title="Profile / Login"
+                        style={{ padding: '0.75rem 1.75rem', fontSize: '0.9rem' }}
                     >
-                        <div className="flex-center rounded-full" style={{ width: 40, height: 40, background: 'rgba(255,255,255,0.08)', flexShrink: 0 }}>
-                            <VscAccount size={20} color="var(--text-primary)" />
-                        </div>
-                        <CyclingText />
-                    </div>
-                </div>
-            </header>
+                        <span>Sign In</span>
+                        <span className="nav-cta-arrow">→</span>
+                    </motion.button>
 
-            {/* Main Content Area */}
+                    {/* ── Hamburger (mobile only) ── */}
+                    <button
+                        className="mobile-hamburger"
+                        onClick={() => setMobileMenuOpen(v => !v)}
+                        aria-label="Open menu"
+                        style={{
+                            display: 'none', /* shown via CSS on mobile */
+                            background: 'rgba(30,58,95,0.08)',
+                            border: '1px solid rgba(30,58,95,0.12)',
+                            borderRadius: 999,
+                            width: 40, height: 40,
+                            alignItems: 'center', justifyContent: 'center',
+                            cursor: 'pointer', flexShrink: 0,
+                            fontSize: '1.2rem', color: '#1e3a5f',
+                            transition: 'background 0.2s',
+                        }}
+                    >
+                        {mobileMenuOpen ? '✕' : '☰'}
+                    </button>
+                </motion.div>
+            </motion.header>
+
+            {/* ═══════════════════ MOBILE MENU ═══════════════════ */}
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        style={{
+                            position: 'fixed', inset: 0, zIndex: 199,
+                            background: 'rgba(255,255,255,0.95)',
+                            backdropFilter: 'blur(20px)',
+                            display: 'flex', flexDirection: 'column',
+                            alignItems: 'center', justifyContent: 'center', gap: '1.5rem',
+                        }}
+                    >
+                        {NAV_LINKS.map((link) => (
+                            <motion.button
+                                key={link.path}
+                                onClick={() => { navigate(link.path); setMobileMenuOpen(false); }}
+                                style={{
+                                    background: 'none', border: 'none',
+                                    fontSize: '1.5rem', fontWeight: 700,
+                                    color: location.pathname === link.path ? '#2563eb' : '#1e3a5f',
+                                    cursor: 'pointer', fontFamily: 'Outfit, Inter, sans-serif',
+                                }}
+                                whileHover={{ scale: 1.05 }}
+                            >
+                                {link.label}
+                            </motion.button>
+                        ))}
+                        <button
+                            onClick={() => setMobileMenuOpen(false)}
+                            style={{
+                                position: 'absolute', top: 24, right: 24,
+                                background: 'none', border: 'none', fontSize: '2rem',
+                                color: '#1e3a5f', cursor: 'pointer',
+                            }}
+                        >×</button>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* ═══════════════════ MAIN CONTENT ═══════════════════ */}
             <main className="w-full">
                 <AnimatePresence mode="wait">
                     <Outlet key={location.pathname} />
                 </AnimatePresence>
             </main>
 
-            {/* Common CTA & Footer */}
+            {/* ═══════════════════ FOOTER ═══════════════════ */}
             <JoinCommunity />
             <Footer />
-
-            {/* Bottom Dock Navigation */}
-            <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-center pb-6">
-                <Dock
-                    items={dockItems}
-                    panelHeight={68}
-                    baseItemSize={50}
-                    magnification={70}
-                />
-            </div>
-
-            {/* Floating Donate Button */}
-            <div
-                className="floating-donate-btn"
-                onClick={() => {
-                    navigate('/login');
-                }}
-            >
-                Donate Monthly
-                <HeartIcon size={20} color="white" />
-            </div>
         </div>
     );
 };
