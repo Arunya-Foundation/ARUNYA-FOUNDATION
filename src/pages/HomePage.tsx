@@ -262,8 +262,8 @@ export const HomePage = () => {
                     style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px,1fr))' }}
                 >
                     {[
-                        { icon: '👁️', title: 'Our Vision', text: 'To create a society where every child, regardless of economic background, has access to quality education and the opportunity to become self-reliant, confident, and capable of building their own future.', img: IMAGES.vision },
-                        { icon: '🎯', title: 'Our Mission', text: 'To provide free, structured education to underprivileged children aged 5–16 through volunteer-led weekend classes, study materials, and career guidance — transforming lives one classroom at a time.', img: IMAGES.mission },
+                        { icon: '👁️', title: 'Our Vision', text: 'To achieve the social and economic upliftment of underserved and minority communities by ensuring every individual has the direction, goals, and educational foundation needed to thrive.', img: IMAGES.vision },
+                        { icon: '🎯', title: 'Our Mission', text: 'To provide transformative education and mentorship to underserved communities by creating a premier platform where young educators and youth can showcase their skills, grow professionally, and serve as catalysts for social change.', img: IMAGES.mission },
                         { icon: '📋', title: 'Our Goal', text: 'To enroll 1,000+ students by 2027, expand to 20 villages, and equip every child with the academic foundation and life skills needed to pursue higher education and meaningful careers.', img: IMAGES.objective },
                     ].map((c, i) => (
                         <motion.div key={i} className="premium-card" {...fadeUp} transition={{ ...fadeUp.transition, delay: i * 0.12 }}>

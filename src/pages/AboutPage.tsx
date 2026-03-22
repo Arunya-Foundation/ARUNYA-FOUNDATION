@@ -41,7 +41,7 @@ export const AboutPage = () => {
                     }}>
                         <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'linear-gradient(135deg, #2563eb, #1e3a5f)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '1.5rem' }}>👁️</div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif' }}>Our Vision</h3>
-                        <p style={{ color: '#6b7280', lineHeight: 1.6 }}>To create a society where every underprivileged child has access to quality education, the opportunity to develop skills, and the confidence to become a self-reliant, responsible future leader.</p>
+                        <p style={{ color: '#6b7280', lineHeight: 1.6 }}>To achieve the social and economic upliftment of underserved and minority communities by ensuring every individual has the direction, goals, and educational foundation needed to thrive.</p>
                         <img src="/assets/work/20251102_131638.jpg" alt="Vision" style={{ width: '100%', height: 200, objectFit: 'cover', borderRadius: 16, marginTop: '1.5rem' }} />
                     </motion.div>
 
@@ -53,7 +53,7 @@ export const AboutPage = () => {
                     }}>
                         <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'linear-gradient(135deg, #d4a847, #b8922e)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '1.5rem' }}>🎯</div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif' }}>Our Mission</h3>
-                        <p style={{ color: '#6b7280', lineHeight: 1.6 }}>To provide free, structured education to children aged 5–16 through volunteer-led weekend classes, free study materials, and career mentoring — enabling every child to enroll in higher education and eventually support themselves.</p>
+                        <p style={{ color: '#6b7280', lineHeight: 1.6 }}>To provide transformative education and mentorship to underserved communities by creating a premier platform where young educators and youth can showcase their skills, grow professionally, and serve as catalysts for social change.</p>
                         <img src="/assets/work/20251102_131641.jpg" alt="Mission" style={{ width: '100%', height: 200, objectFit: 'cover', borderRadius: 16, marginTop: '1.5rem' }} />
                     </motion.div>
 
@@ -84,7 +84,7 @@ export const AboutPage = () => {
                     <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                         {[
                             { name: 'Prabal', role: 'Founder', img: '/assets/work/20251102_131451.jpg', quote: 'Every child we teach is a future we build together.' },
-                            { name: 'Prateek Sharma', role: 'Co-Founder', img: '/assets/work/20251102_131454.jpg', quote: 'Education is the one gift that keeps multiplying.' },
+                            { name: 'Prateek Sharma', role: 'VICE PRESIDENT', img: '/assets/work/20251102_131454.jpg', quote: 'Education is the one gift that keeps multiplying.' },
                             { name: 'Anjali Mishra', role: 'President', img: '/assets/work/20251102_131457.jpg', quote: 'We believe every child deserves the chance to learn, grow, and dream.' },
                             { name: 'Aaleya', role: 'Social Media Head', img: '/assets/work/20251102_131502.jpg', quote: 'Every story we share reaches someone who wants to help.' },
                         ].map((member, idx) => (
