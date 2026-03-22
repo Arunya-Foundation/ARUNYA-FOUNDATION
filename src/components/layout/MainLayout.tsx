@@ -16,15 +16,26 @@ const NAV_LINKS = [
 /* ── Layout Component ────────────────────────────────────────── */
 
 export const MainLayout = () => {
-    const [compact, setCompact] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const [isNarrow, setIsNarrow] = useState(() => window.matchMedia('(max-width: 1024px)').matches);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
     const { scrollY } = useScroll();
 
-    /* Scroll threshold — go compact when Sign In button is half scrolled */
+    const compact = scrolled || isNarrow;
+
+    /* Detect narrow viewport */
+    useEffect(() => {
+        const mql = window.matchMedia('(max-width: 1024px)');
+        const handler = (e: MediaQueryListEvent) => setIsNarrow(e.matches);
+        mql.addEventListener('change', handler);
+        return () => mql.removeEventListener('change', handler);
+    }, []);
+
+    /* Scroll threshold */
     useMotionValueEvent(scrollY, 'change', (latest) => {
-        setCompact(latest > 60);
+        setScrolled(latest > 60);
     });
 
     useEffect(() => {
@@ -85,10 +96,11 @@ export const MainLayout = () => {
                         compact: {
                             maxWidth: '1100px',
                             borderRadius: '9999px',
-                            backgroundColor: 'rgba(255,255,255,0.95)',
-                            backdropFilter: 'blur(20px)',
-                            boxShadow: '0 8px 32px rgba(30,58,95,0.12)',
+                            backgroundColor: 'rgba(255,255,255,0.15)',
+                            backdropFilter: 'blur(24px)',
+                            boxShadow: '0 8px 32px rgba(30,58,95,0.18), inset 0 1px 0 rgba(255,255,255,0.3)',
                             padding: '0.6rem 2rem',
+                            border: '1px solid rgba(255,255,255,0.25)',
                         }
                     }}
                     transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
@@ -99,14 +111,14 @@ export const MainLayout = () => {
                             src="/logo.png"
                             alt="Arunya Foundation"
                             className="nav-logo-img"
-                            style={compact ? { width: 40, height: 40 } : {}}
+                            style={compact ? { width: 70, height: 70 } : {}}
                             onError={(e) => { e.currentTarget.style.display = 'none'; }}
                         />
                         <motion.span
                             className="nav-brand-text"
                             style={{
-                                marginLeft: '0.8rem',
-                                color: compact ? '#1e3a5f' : '#ffffff',
+                                marginLeft: '0.2rem',
+                                color: compact ? '#ffffff' : '#ffffff',
                                 textTransform: 'uppercase',
                                 fontSize: compact ? '1.1rem' : undefined,
                             }}
@@ -128,7 +140,7 @@ export const MainLayout = () => {
                                 className={`nav-link-btn ${location.pathname === link.path ? 'active' : ''}`}
                                 onClick={() => navigate(link.path)}
                                 style={{
-                                    color: compact ? '#1e3a5f' : '#ffffff',
+                                    color: compact ? '#ffffff' : '#ffffff',
                                     borderColor: compact ? 'rgba(30,58,95,0.15)' : undefined,
                                     textShadow: compact ? 'none' : undefined,
                                     padding: compact ? '0.45rem 1rem' : undefined,
@@ -215,7 +227,7 @@ export const MainLayout = () => {
             </AnimatePresence>
 
             {/* ═══════════════════ MAIN CONTENT ═══════════════════ */}
-            <main className="w-full">
+            <main className="w-full" style={{ paddingTop: location.pathname === '/' ? '0px' : '210px' }}>
                 <AnimatePresence mode="wait">
                     <Outlet key={location.pathname} />
                 </AnimatePresence>

@@ -318,8 +318,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-logo-img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   border-radius: 8px;
   flex-shrink: 0;
@@ -401,6 +401,46 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
+/* ── Navbar Mobile Responsive ── */
+@media (max-width: 768px) {
+  .nav-logo-img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .nav-brand-text {
+    font-size: 1.1rem;
+  }
+
+  .nav-links,
+  .nav-cta-btn {
+    display: none !important;
+  }
+
+  .mobile-hamburger {
+    display: flex !important;
+  }
+
+  .navbar-inner {
+    padding: 0.5rem 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-logo-img {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .nav-brand-text {
+    font-size: 1rem;
+  }
+
+  .navbar-inner {
+    padding: 0.4rem 1rem !important;
+  }
+}
+
 /* ============================================================
    HERO SECTION
    ============================================================ */
@@ -443,7 +483,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 2;
   text-align: center;
   max-width: 900px;
-  padding: 8rem 2rem 0;
+  padding: 12rem 2rem 0;
 }
 
 .hero-eyebrow {

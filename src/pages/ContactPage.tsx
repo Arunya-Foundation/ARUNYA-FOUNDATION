@@ -10,7 +10,7 @@ const fadeUp = {
 
 export const ContactPage = () => {
     return (
-        <PageTransition className="pt-[140px] pb-16">
+        <PageTransition className="pb-16">
             <section id="contact" style={{ padding: '2rem', position: 'relative', zIndex: 10 }}>
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <motion.h2 {...fadeUp} style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, marginBottom: '1rem', color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif' }}>

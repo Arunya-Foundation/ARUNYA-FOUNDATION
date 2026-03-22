@@ -10,7 +10,7 @@ const fadeUp = {
 
 export const AboutPage = () => {
     return (
-        <PageTransition className="pt-[140px] pb-16">
+        <PageTransition className="pb-16">
             <section className="about-section" style={{ padding: '2rem', position: 'relative', zIndex: 10 }}>
                 {/* Header */}
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
@@ -86,6 +86,7 @@ export const AboutPage = () => {
                             { name: 'Prabal', role: 'Founder', img: '/assets/work/prabal_new.png', quote: 'Every child we teach is a future we build together.', instagram: 'https://www.instagram.com/withprabal_/' },
                             { name: 'Anjali Mishra', role: 'President', img: '/assets/work/20251102_131457.jpg', quote: 'We believe every child deserves the chance to learn, grow, and dream.' },
                             { name: 'Prateek Sharma', role: 'VICE PRESIDENT', img: '/assets/work/prateek_new.png', quote: 'Education is the one gift that keeps multiplying.' },
+                            { name: 'Sakshi', role: 'Director - Dept. of Education & Welfare', img: '/assets/work/placeholder.png', quote: 'Dedicated to empowering the next generation through education and welfare.' },
                             { name: 'Aaleya', role: 'Social Media Head', img: '/assets/work/20251102_131502.jpg', quote: 'Every story we share reaches someone who wants to help.' },
                         ].map((member, idx) => (
                             <motion.div
