@@ -208,11 +208,11 @@ export const HomePage = () => {
                 <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }} style={{ display: 'flex', justifyContent: 'center' }}>
                     <BounceCards
                         images={[
-                            'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80',
-                            'https://images.unsplash.com/photo-1560785496-3c9d27877182?w=600&q=80',
-                            'https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600&q=80',
-                            'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80',
-                            'https://images.unsplash.com/photo-1594708767771-a7502209ff51?w=600&q=80',
+                            '/assets/classrooms/63632.jpg.jpeg',
+                            '/assets/classrooms/63633.jpg.jpeg',
+                            '/assets/classrooms/63634.jpg.jpeg',
+                            '/assets/classrooms/63635.jpg.jpeg',
+                            '/assets/classrooms/IMG-20260321-WA0067.jpg.jpeg',
                         ]}
                         containerWidth={500}
                         containerHeight={320}

@@ -22,9 +22,9 @@ export const MainLayout = () => {
     const navigate = useNavigate();
     const { scrollY } = useScroll();
 
-    /* Scroll threshold — go compact when scrolling DOWN past 100px */
+    /* Scroll threshold — go compact when Sign In button is half scrolled */
     useMotionValueEvent(scrollY, 'change', (latest) => {
-        setCompact(latest > 100);
+        setCompact(latest > 60);
     });
 
     useEffect(() => {
@@ -67,7 +67,7 @@ export const MainLayout = () => {
                 initial="full"
                 variants={{
                     full: { top: 0, padding: '0px' },
-                    compact: { top: 12, padding: '0px 16px' },
+                    compact: { top: 16, padding: '0px 24px' },
                 }}
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             >
@@ -83,12 +83,12 @@ export const MainLayout = () => {
                             padding: '1.25rem 3rem',
                         },
                         compact: {
-                            maxWidth: '700px',
+                            maxWidth: '1100px',
                             borderRadius: '9999px',
-                            backgroundColor: 'rgba(255,255,255,0.92)',
+                            backgroundColor: 'rgba(255,255,255,0.95)',
                             backdropFilter: 'blur(20px)',
-                            boxShadow: '0 8px 32px rgba(30,58,95,0.10)',
-                            padding: '0.5rem 1.25rem',
+                            boxShadow: '0 8px 32px rgba(30,58,95,0.12)',
+                            padding: '0.6rem 2rem',
                         }
                     }}
                     transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
@@ -99,38 +99,46 @@ export const MainLayout = () => {
                             src="/logo.png"
                             alt="Arunya Foundation"
                             className="nav-logo-img"
+                            style={compact ? { width: 40, height: 40 } : {}}
                             onError={(e) => { e.currentTarget.style.display = 'none'; }}
                         />
                         <motion.span
                             className="nav-brand-text"
-                            style={{ marginLeft: '0.8rem', color: '#d4a847', textTransform: 'uppercase' }}
+                            style={{
+                                marginLeft: '0.8rem',
+                                color: compact ? '#1e3a5f' : '#ffffff',
+                                textTransform: 'uppercase',
+                                fontSize: compact ? '1.1rem' : undefined,
+                            }}
                         >
                             ARUNYA FOUNDATION
                         </motion.span>
                     </div>
 
-                    {/* ── Center Nav Links (hide in compact / pill mode) ── */}
-                    <AnimatePresence>
-                        {!compact && (
-                            <motion.nav
-                                className="nav-links"
-                                initial={{ opacity: 0, y: -8 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -8 }}
-                                transition={{ duration: 0.2 }}
+                    {/* ── Center Nav Links (always visible) ── */}
+                    <motion.nav
+                        className="nav-links"
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.2 }}
+                    >
+                        {NAV_LINKS.map((link) => (
+                            <button
+                                key={link.path}
+                                className={`nav-link-btn ${location.pathname === link.path ? 'active' : ''}`}
+                                onClick={() => navigate(link.path)}
+                                style={{
+                                    color: compact ? '#1e3a5f' : '#ffffff',
+                                    borderColor: compact ? 'rgba(30,58,95,0.15)' : undefined,
+                                    textShadow: compact ? 'none' : undefined,
+                                    padding: compact ? '0.45rem 1rem' : undefined,
+                                    fontSize: compact ? '0.85rem' : undefined,
+                                }}
                             >
-                                {NAV_LINKS.map((link) => (
-                                    <button
-                                        key={link.path}
-                                        className={`nav-link-btn ${location.pathname === link.path ? 'active' : ''}`}
-                                        onClick={() => navigate(link.path)}
-                                    >
-                                        {link.label}
-                                    </button>
-                                ))}
-                            </motion.nav>
-                        )}
-                    </AnimatePresence>
+                                {link.label}
+                            </button>
+                        ))}
+                    </motion.nav>
 
                     {/* ── CTA Button ── */}
                     <motion.button
@@ -152,14 +160,22 @@ export const MainLayout = () => {
                             background: 'rgba(30,58,95,0.08)',
                             border: '1px solid rgba(30,58,95,0.12)',
                             borderRadius: 999,
-                            width: 40, height: 40,
+                            width: 48, height: 48,
                             alignItems: 'center', justifyContent: 'center',
                             cursor: 'pointer', flexShrink: 0,
-                            fontSize: '1.2rem', color: '#1e3a5f',
                             transition: 'background 0.2s',
                         }}
                     >
-                        {mobileMenuOpen ? '✕' : '☰'}
+                        {mobileMenuOpen ? (
+                            <span style={{ fontSize: '1.5rem', color: '#1e3a5f' }}>✕</span>
+                        ) : (
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="7" cy="7" r="2.5" fill="#d4a847" />
+                                <circle cx="17" cy="7" r="2.5" fill="#d4a847" />
+                                <circle cx="7" cy="17" r="2.5" fill="#d4a847" />
+                                <circle cx="17" cy="17" r="2.5" fill="#d4a847" />
+                            </svg>
+                        )}
                     </button>
                 </motion.div>
             </motion.header>
@@ -194,14 +210,6 @@ export const MainLayout = () => {
                                 {link.label}
                             </motion.button>
                         ))}
-                        <button
-                            onClick={() => setMobileMenuOpen(false)}
-                            style={{
-                                position: 'absolute', top: 24, right: 24,
-                                background: 'none', border: 'none', fontSize: '2rem',
-                                color: '#1e3a5f', cursor: 'pointer',
-                            }}
-                        >×</button>
                     </motion.div>
                 )}
             </AnimatePresence>
