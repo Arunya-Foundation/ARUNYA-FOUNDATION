@@ -1,47 +1,383 @@
+import { useState } from 'react';
 import { PageTransition } from '../components/ui/PageTransition';
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { motion, AnimatePresence } from 'framer-motion';
+
+const fadeUp = {
+    initial: { opacity: 0, y: 40 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: '-80px' },
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const },
+};
+
+interface Program {
+    title: string;
+    category: string;
+    icon: string;
+    tagline: string;
+    detail: string;
+    img: string;
+    fullDetail: string;
+    stats: { label: string; value: string }[];
+    schedule: string;
+    eligibility: string;
+}
+
+const programs: Program[] = [
+    {
+        title: 'Weekend Basic Classes',
+        category: 'Teaching',
+        icon: '📚',
+        tagline: 'Free education every Saturday & Sunday',
+        detail: 'Every Saturday & Sunday, our volunteers teach Hindi, English, Math, Science, and GK to children aged 5–16. Classes are held in community spaces and are completely free.',
+        img: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=900&q=80',
+        fullDetail: `Our weekend classes are the heart of Arunya Foundation. Every Saturday and Sunday, trained volunteers gather in community halls, temples, and open spaces across 12+ villages to teach children who cannot afford private schooling.\n\nThe curriculum covers Hindi, English, Mathematics, Science, and General Knowledge — tailored to the national curriculum framework. Age groups are divided into three batches: Foundation (5–8), Primary (9–12), and Secondary (13–16).\n\nVolunteers go through a structured orientation where they learn child-friendly teaching techniques including storytelling, group activities, and visual aids. We currently run classes in 5 locations simultaneously every weekend.`,
+        stats: [
+            { label: 'Children per Session', value: '250+' },
+            { label: 'Subjects Covered', value: '6' },
+            { label: 'Volunteers per Day', value: '40+' },
+            { label: 'Locations', value: '5' },
+        ],
+        schedule: 'Every Saturday & Sunday, 10 AM – 1 PM',
+        eligibility: 'Children aged 5–16 from underprivileged families in Gwalior region.',
+    },
+    {
+        title: 'Study Material Distribution',
+        category: 'Supplies',
+        icon: '🎒',
+        tagline: 'Notebooks, bags, uniforms — free of cost',
+        detail: 'We provide free notebooks, textbooks, pens, pencils, school bags, and uniforms to every enrolled student. A full kit is given at the start of each academic term.',
+        img: 'https://images.unsplash.com/photo-1594708767771-a7502209ff51?w=900&q=80',
+        fullDetail: `At the start of each academic term, every enrolled child receives a complete study kit — absolutely free. No child should miss out on learning because they cannot afford a notebook or a bag.\n\nEach kit contains: 5 subject notebooks, a Hindi and English textbook, pens, pencils, eraser, a sharpener, a school bag, and when available — a uniform.\n\nKits are distributed at enrollment camps organized in each village. Donors can sponsor individual kits or in bulk. A single kit costs approximately ₹500 and covers a child's supplies for the entire term.\n\nSo far, we have distributed over 2,000 study kits to children across our centers.`,
+        stats: [
+            { label: 'Kits Distributed', value: '2,000+' },
+            { label: 'Items per Kit', value: '10+' },
+            { label: 'Cost per Kit', value: '₹500' },
+            { label: 'Villages Covered', value: '12' },
+        ],
+        schedule: 'Distributed at enrollment (March & July each year)',
+        eligibility: 'All enrolled students at Arunya Foundation centers.',
+    },
+    {
+        title: 'Computer Literacy Program',
+        category: 'Skills',
+        icon: '💻',
+        tagline: 'Bridging the digital divide',
+        detail: 'Secondary students (13–16) learn MS Office, internet navigation, basic coding logic, and digital safety. Many students use a computer for the first time in our classes.',
+        img: 'https://images.unsplash.com/photo-1529390079861-591de354faf5?w=900&q=80',
+        fullDetail: `The digital divide is real — and Arunya Foundation is bridging it. Our Computer Literacy Program was launched to ensure that children who have never touched a laptop don't fall behind in an increasingly digital world.\n\nThe program runs for Secondary batch students (13–16 years) and covers: basic computer operation, MS Word and Excel, internet browsing and email, digital safety and privacy, and an introduction to basic programming logic.\n\nClasses are run on donated laptops at partner schools and community centers. Students who complete the full term receive a certificate of digital literacy that they can attach to job applications.`,
+        stats: [
+            { label: 'Students Enrolled', value: '180+' },
+            { label: 'Modules Covered', value: '8' },
+            { label: 'Laptops Available', value: '12' },
+            { label: 'Certificates Issued', value: '90' },
+        ],
+        schedule: 'Alternate Saturdays, 2 PM – 4 PM',
+        eligibility: 'Students aged 13–16 enrolled in the Secondary batch.',
+    },
+    {
+        title: 'English Speaking Workshop',
+        category: 'Language',
+        icon: '🗣️',
+        tagline: 'Speak with confidence, grow without limits',
+        detail: 'Special weekly workshops focused on spoken English, vocabulary building, and confidence in public speaking. Students practice through role plays, debates, and storytelling.',
+        img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=900&q=80',
+        fullDetail: `English is often the gateway to opportunity in India — higher education, job interviews, and professional environments all demand spoken English fluency. Our workshops are designed to make that gateway accessible to every child.\n\nWorkshops include: daily vocabulary exercises, basic conversation practice, storytelling in English, mock debates and speech, and group discussions on simple real-world topics.\n\nWe use a fun, non-intimidating format where students are encouraged to make mistakes and learn from them. Confidence-building is as much a goal as language learning. Our students have gone on to perform in school competitions and write formal letters in English.`,
+        stats: [
+            { label: 'Students in Program', value: '120+' },
+            { label: 'Sessions per Month', value: '8' },
+            { label: 'Vocabulary per Term', value: '300+ Words' },
+            { label: 'Public Speakers', value: '40+' },
+        ],
+        schedule: 'Every Sunday, 10 AM – 11:30 AM',
+        eligibility: 'Students aged 10–16 years.',
+    },
+    {
+        title: 'Career Guidance Sessions',
+        category: 'Guidance',
+        icon: '💡',
+        tagline: 'Know your path, own your future',
+        detail: 'Monthly sessions introducing students to career paths, scholarship opportunities, competitive exams, and skill development workshops for self-reliance.',
+        img: 'https://images.unsplash.com/photo-1560785496-3c9d27877182?w=900&q=80',
+        fullDetail: `Most children in our programs have never spoken to a doctor, engineer, or entrepreneur. They don't know what options exist beyond their immediate surroundings. Career Guidance Sessions open those doors.\n\nEvery month, we invite a working professional — doctor, engineer, teacher, entrepreneur, or civil servant — to speak with our Secondary students. Sessions are informal, question-and-answer based, and deeply personal.\n\nWe also conduct scholarship awareness drives, helping families understand what government schemes and private scholarships exist so no financial barrier stops a deserving student. Students can register for skills development through government portals and online certification programs.`,
+        stats: [
+            { label: 'Sessions per Year', value: '12+' },
+            { label: 'Professionals Invited', value: '30+' },
+            { label: 'Scholarships Identified', value: '15+' },
+            { label: 'Students Guided', value: '200+' },
+        ],
+        schedule: 'Last Sunday of each month, 11 AM – 1 PM',
+        eligibility: 'Students aged 13–16 in the Secondary batch.',
+    },
+    {
+        title: 'Art & Creative Expression',
+        category: 'Creative',
+        icon: '🎨',
+        tagline: 'Every child is a creator',
+        detail: 'Drawing, painting, craft, drama, and cultural activities that help children express themselves, build confidence, and explore their creative potential.',
+        img: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=900&q=80',
+        fullDetail: `Education is not just textbooks. At Arunya Foundation, we believe that creative expression is a fundamental part of a child's development. Our Art & Creative Expression program gives children the freedom to imagine, create, and perform.\n\nActivities include: drawing and painting, origami and craft, folk music and singing, drama and role-play, and traditional dance forms. Children from the Foundation batch (5–8 years) especially thrive in this environment, where they discover their strengths through play.\n\nThe Annual Day celebration is the biggest showcase of this program — where children perform for their parents, community leaders, and volunteers. The pride families feel on that day is what keeps our movement going.`,
+        stats: [
+            { label: 'Activities per Month', value: '6+' },
+            { label: 'Annual Day Performers', value: '300+' },
+            { label: 'Artworks Created', value: '1,000+' },
+            { label: 'Age Groups', value: 'All (5–16)' },
+        ],
+        schedule: 'Every Saturday, 12 PM – 1 PM (integrated)',
+        eligibility: 'All enrolled students.',
+    },
+];
+
+const categories = ['All', 'Teaching', 'Supplies', 'Skills', 'Language', 'Guidance', 'Creative'];
+
+const categoryColors: Record<string, string> = {
+    Teaching: '#2563eb',
+    Supplies: '#d4a847',
+    Skills: '#059669',
+    Language: '#7c3aed',
+    Guidance: '#ea580c',
+    Creative: '#db2777',
+};
 
 export const CausesPage = () => {
+    const [activeCategory, setActiveCategory] = useState('All');
+    const [selectedProgram, setSelectedProgram] = useState<Program | null>(null);
+
+    const filtered = activeCategory === 'All' ? programs : programs.filter(p => p.category === activeCategory);
+
     return (
         <PageTransition className="pt-[140px] pb-16">
-            <section id="causes" className="causes-section" style={{ padding: '2rem' }}>
+            <section id="causes" style={{ padding: '2rem', maxWidth: 1400, margin: '0 auto' }}>
+                {/* Header */}
                 <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                    <h2 className="section-title scroll-animate" style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '1rem', opacity: 0, transform: 'translateY(20px)', transition: 'all 0.8s ease-out' }}>Our Causes</h2>
-                    <p className="section-subtitle scroll-animate" style={{ color: 'var(--text-muted)', fontSize: '1.2rem', opacity: 0, transform: 'translateY(20px)', transition: 'all 0.8s ease-out 0.2s' }}>Search and give to what matters most to you...</p>
+                    <motion.h2 {...fadeUp} style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif', marginBottom: '0.5rem' }}>
+                        Our Programs
+                    </motion.h2>
+                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #d4a847, #b8922e)', borderRadius: 2, margin: '0.75rem auto 1.25rem' }} />
+                    <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} style={{ color: '#6b7280', fontSize: '1.1rem', maxWidth: 600, margin: '0 auto', lineHeight: 1.7 }}>
+                        Structured educational programs designed to teach, empower, and prepare underprivileged children for a self-sufficient future.
+                    </motion.p>
                 </div>
 
                 {/* Filter Bar */}
-                <div className="filter-bar scroll-animate" style={{ opacity: 0, transform: 'translateY(20px)', transition: 'all 0.8s ease-out 0.3s' }}>
-                    <button className="filter-btn active"><span>🏠</span> All</button>
-                    <button className="filter-btn"><span>🍲</span> Food</button>
-                    <button className="filter-btn"><span>📚</span> Education</button>
-                    <button className="filter-btn"><span>🎂</span> Birthday</button>
-                    <button className="filter-btn"><span>🌱</span> Environment</button>
-                </div>
+                <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }} style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'center', marginBottom: '3rem' }}>
+                    {categories.map(cat => (
+                        <button
+                            key={cat}
+                            onClick={() => setActiveCategory(cat)}
+                            style={{
+                                padding: '0.6rem 1.5rem', borderRadius: 9999, border: 'none',
+                                fontWeight: 600, fontSize: '0.9rem', cursor: 'pointer',
+                                fontFamily: 'inherit', transition: 'all 0.2s',
+                                background: activeCategory === cat ? '#1e3a5f' : '#f1f5f9',
+                                color: activeCategory === cat ? 'white' : '#6b7280',
+                                boxShadow: activeCategory === cat ? '0 4px 16px rgba(30,58,95,0.2)' : 'none',
+                            }}
+                        >{cat}</button>
+                    ))}
+                </motion.div>
 
-                {/* Causes Grid */}
-                <div className="causes-grid" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                    {[
-                        { title: 'Weekend Basic Classes', category: 'Education', icon: '📚', amount: '₹500/Child', img: '/assets/work/20251102_131620.jpg' },
-                        { title: 'Feed a Homeless Child', category: 'Food', icon: '🍲', amount: '₹50/Meal', img: '/assets/work/20251102_131624.jpg' },
-                        { title: 'Virtual Cake Cutting', category: 'Birthday', icon: '🎂', amount: '₹2000/Celebration', img: '/assets/work/20251102_131626.jpg' },
-                        { title: 'School Supplies Kit', category: 'Education', icon: '🎒', amount: '₹350/Kit', img: '/assets/work/20251102_131627.jpg' },
-                        { title: 'Tree Plantation Drive', category: 'Environment', icon: '🌱', amount: '₹100/Sapling', img: '/assets/work/20251102_131631.jpg' },
-                        { title: 'Women Skill Center', category: 'Education', icon: '🧵', amount: '₹1500/Skill', img: '/assets/work/20251102_131634.jpg' },
-                    ].map((cause, idx) => (
-                        <div key={idx} className="cause-card glass-panel scroll-animate" style={{ opacity: 0, transform: 'translateY(40px)', transition: 'all 0.8s ease-out ' + (0.2 + (idx * 0.1)) + 's' }}>
-                            <div className="cause-image" style={{ backgroundImage: `url(${cause.img})` }}>
-                                <div className="cause-badge">{cause.amount}</div>
+                {/* Programs Grid */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '2rem', maxWidth: 1200, margin: '0 auto' }}>
+                    {filtered.map((prog, idx) => (
+                        <motion.div
+                            key={prog.title}
+                            {...fadeUp}
+                            transition={{ ...fadeUp.transition, delay: 0.05 + idx * 0.07 }}
+                            style={{
+                                background: 'white', borderRadius: 24,
+                                boxShadow: '0 4px 24px rgba(30,58,95,0.07)',
+                                overflow: 'hidden', border: '1px solid rgba(30,58,95,0.06)',
+                                display: 'flex', flexDirection: 'column',
+                                cursor: 'pointer', transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                            }}
+                            onHoverStart={() => {}}
+                            whileHover={{ y: -6, boxShadow: '0 16px 48px rgba(30,58,95,0.14)' }}
+                        >
+                            {/* Image */}
+                            <div style={{ position: 'relative', height: 220, overflow: 'hidden' }}>
+                                <img
+                                    src={prog.img}
+                                    alt={prog.title}
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                                />
+                                <div style={{
+                                    position: 'absolute', inset: 0,
+                                    background: 'linear-gradient(to top, rgba(30,58,95,0.5) 0%, transparent 60%)',
+                                }} />
+                                <div style={{
+                                    position: 'absolute', bottom: 14, left: 16,
+                                    padding: '4px 14px', borderRadius: 999,
+                                    background: categoryColors[prog.category] || '#2563eb',
+                                    color: 'white', fontWeight: 700, fontSize: '0.78rem',
+                                }}>
+                                    {prog.category}
+                                </div>
                             </div>
-                            <div className="cause-content">
-                                <h3>{cause.icon} {cause.title}</h3>
-                                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1rem' }}>Support our {cause.category.toLowerCase()} initiative and make a direct impact today.</p>
-                                <InteractiveHoverButton text="Donate Now" className="w-full" />
+
+                            {/* Content */}
+                            <div style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                                <h3 style={{ color: '#1e3a5f', fontSize: '1.2rem', fontWeight: 800, fontFamily: 'Outfit, Inter, sans-serif', marginBottom: '0.4rem' }}>
+                                    {prog.icon} {prog.title}
+                                </h3>
+                                <p style={{ color: '#d4a847', fontStyle: 'italic', fontSize: '0.85rem', fontWeight: 600, marginBottom: '0.75rem' }}>{prog.tagline}</p>
+                                <p style={{ color: '#6b7280', fontSize: '0.9rem', lineHeight: 1.65, marginBottom: '1.5rem', flex: 1 }}>
+                                    {prog.detail}
+                                </p>
+                                <button
+                                    onClick={() => setSelectedProgram(prog)}
+                                    style={{
+                                        width: '100%', padding: '0.875rem', borderRadius: 14,
+                                        background: 'linear-gradient(135deg, #1e3a5f, #2563eb)',
+                                        color: 'white', fontWeight: 700, fontSize: '0.9rem',
+                                        border: 'none', cursor: 'pointer', fontFamily: 'inherit',
+                                        transition: 'opacity 0.2s',
+                                    }}
+                                    onMouseEnter={e => (e.currentTarget.style.opacity = '0.9')}
+                                    onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                                >
+                                    Learn More →
+                                </button>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </section>
+
+            {/* Program Detail Modal */}
+            <AnimatePresence>
+                {selectedProgram && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedProgram(null)}
+                        style={{
+                            position: 'fixed', inset: 0, zIndex: 9999,
+                            background: 'rgba(10,25,50,0.8)', backdropFilter: 'blur(12px)',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            padding: '2rem',
+                        }}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.88, opacity: 0, y: 40 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.92, opacity: 0, y: 20 }}
+                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                            onClick={e => e.stopPropagation()}
+                            style={{
+                                background: 'white', borderRadius: 28, maxWidth: 800, width: '100%',
+                                maxHeight: '90vh', overflow: 'auto',
+                                boxShadow: '0 40px 80px rgba(0,0,0,0.3)',
+                            }}
+                        >
+                            {/* Hero Image */}
+                            <div style={{ position: 'relative' }}>
+                                <img
+                                    src={selectedProgram.img}
+                                    alt={selectedProgram.title}
+                                    style={{ width: '100%', height: 280, objectFit: 'cover', display: 'block' }}
+                                />
+                                <div style={{
+                                    position: 'absolute', inset: 0,
+                                    background: 'linear-gradient(to top, rgba(30,58,95,0.75) 0%, transparent 50%)',
+                                    padding: '2rem',
+                                    display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
+                                }}>
+                                    <div style={{
+                                        display: 'inline-block', padding: '4px 14px', borderRadius: 999,
+                                        background: categoryColors[selectedProgram.category] || '#2563eb',
+                                        color: 'white', fontWeight: 700, fontSize: '0.78rem',
+                                        marginBottom: '0.75rem', width: 'fit-content',
+                                    }}>
+                                        {selectedProgram.category}
+                                    </div>
+                                    <h2 style={{ color: 'white', fontFamily: 'Outfit, Inter, sans-serif', fontSize: '1.75rem', fontWeight: 800, margin: 0 }}>
+                                        {selectedProgram.icon} {selectedProgram.title}
+                                    </h2>
+                                </div>
+                                <button
+                                    onClick={() => setSelectedProgram(null)}
+                                    style={{
+                                        position: 'absolute', top: 14, right: 14,
+                                        background: 'rgba(255,255,255,0.9)', border: 'none',
+                                        borderRadius: '50%', width: 40, height: 40,
+                                        fontSize: '1.2rem', cursor: 'pointer',
+                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                        fontWeight: 700, color: '#1e3a5f',
+                                        boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+                                    }}
+                                >×</button>
+                            </div>
+
+                            <div style={{ padding: '2rem' }}>
+                                {/* Tagline */}
+                                <p style={{ color: '#d4a847', fontStyle: 'italic', fontWeight: 700, fontSize: '1rem', marginBottom: '1.5rem' }}>
+                                    "{selectedProgram.tagline}"
+                                </p>
+
+                                {/* Stats Grid */}
+                                <div style={{
+                                    display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+                                    gap: '1rem', marginBottom: '2rem',
+                                }}>
+                                    {selectedProgram.stats.map((s, i) => (
+                                        <div key={i} style={{
+                                            background: '#f8fafc', borderRadius: 16, padding: '1rem',
+                                            textAlign: 'center', border: '1px solid rgba(30,58,95,0.06)',
+                                        }}>
+                                            <div style={{ fontWeight: 800, fontSize: '1.4rem', color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif' }}>{s.value}</div>
+                                            <div style={{ color: '#6b7280', fontSize: '0.78rem', marginTop: '0.2rem' }}>{s.label}</div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Full Detail */}
+                                {selectedProgram.fullDetail.split('\n\n').map((para, i) => (
+                                    <p key={i} style={{ color: '#374151', lineHeight: 1.85, fontSize: '0.97rem', marginBottom: '1rem' }}>{para}</p>
+                                ))}
+
+                                {/* Schedule + Eligibility */}
+                                <div style={{
+                                    marginTop: '1.5rem', padding: '1.25rem 1.5rem',
+                                    background: '#eef4fb', borderRadius: 16, border: '1px solid rgba(37,99,235,0.1)',
+                                }}>
+                                    <div style={{ marginBottom: '0.75rem' }}>
+                                        <span style={{ fontWeight: 700, color: '#1e3a5f', fontSize: '0.85rem' }}>🗓️ Schedule: </span>
+                                        <span style={{ color: '#4b5563', fontSize: '0.9rem' }}>{selectedProgram.schedule}</span>
+                                    </div>
+                                    <div>
+                                        <span style={{ fontWeight: 700, color: '#1e3a5f', fontSize: '0.85rem' }}>✅ Eligibility: </span>
+                                        <span style={{ color: '#4b5563', fontSize: '0.9rem' }}>{selectedProgram.eligibility}</span>
+                                    </div>
+                                </div>
+
+                                <div style={{ display: 'flex', gap: '0.75rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+                                    <button
+                                        style={{
+                                            padding: '0.875rem 2rem', borderRadius: 9999,
+                                            background: 'linear-gradient(135deg, #d4a847, #b8922e)',
+                                            color: 'white', border: 'none', fontWeight: 700,
+                                            fontSize: '0.95rem', cursor: 'pointer', fontFamily: 'inherit',
+                                        }}
+                                    >
+                                        Register Child ↗
+                                    </button>
+                                    <button
+                                        onClick={() => setSelectedProgram(null)}
+                                        style={{
+                                            padding: '0.875rem 2rem', borderRadius: 9999,
+                                            background: '#f1f5f9', color: '#6b7280', border: 'none',
+                                            fontWeight: 600, fontSize: '0.95rem', cursor: 'pointer', fontFamily: 'inherit',
+                                        }}
+                                    >
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </PageTransition>
     );
 };
