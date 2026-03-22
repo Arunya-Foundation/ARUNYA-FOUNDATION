@@ -111,7 +111,7 @@ export const MainLayout = () => {
                                 fontSize: compact ? '1.1rem' : undefined,
                             }}
                         >
-                            ARUNYA FOUNDATION
+                            ARUNYA
                         </motion.span>
                     </div>
 
