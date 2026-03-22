@@ -1,8 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PageTransition } from '../components/ui/PageTransition';
-import CountUp from '../components/CountUp';
 import BounceCards from '../components/BounceCards';
 
 /* ── Images ────────────────────────────────────── */
@@ -120,8 +119,6 @@ const blogPosts = [
 /* ── Component ────────────────────────────────── */
 export const HomePage = () => {
     const navigate = useNavigate();
-    const statsRef = useRef<HTMLDivElement>(null);
-    const [statsVisible, setStatsVisible] = useState(false);
     const [scrollY, setScrollY] = useState(0);
     const [expandedBlog, setExpandedBlog] = useState<number | null>(null);
 
@@ -129,12 +126,7 @@ export const HomePage = () => {
         const handleScroll = () => setScrollY(window.scrollY);
         window.addEventListener('scroll', handleScroll);
 
-        const countObs = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) setStatsVisible(true); });
-        }, { threshold: 0.2 });
-        if (statsRef.current) countObs.observe(statsRef.current);
-
-        return () => { countObs.disconnect(); window.removeEventListener('scroll', handleScroll); };
+        return () => { window.removeEventListener('scroll', handleScroll); };
     }, []);
 
     return (
