@@ -4,20 +4,34 @@ interface LoadingScreenProps {
     onComplete: () => void;
 }
 
-const images = [
-    '/assets/loading-screen/mobile-loading.jpg',
+const desktopImages = [
     '/assets/loading-screen/1.png',
     '/assets/loading-screen/4.png',
     '/assets/loading-screen/7.png',
 ];
 
+const mobileImages = [
+    '/assets/loading-screen/1.png',
+    '/assets/loading-screen/mobile-loading.jpg',
+    '/assets/loading-screen/7.png',
+];
+
 const TOTAL_DURATION = 10000; // 10 seconds total
-const IMAGE_DURATION = TOTAL_DURATION / images.length; // 2.5 seconds per image
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
     const [progress, setProgress] = useState(0);
     const [currentImage, setCurrentImage] = useState(0);
     const [fadeClass, setFadeClass] = useState('ls-img-enter');
+
+    const images = isMobile ? mobileImages : desktopImages;
+    const IMAGE_DURATION = TOTAL_DURATION / images.length;
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useEffect(() => {
         const intervalTime = 50;
