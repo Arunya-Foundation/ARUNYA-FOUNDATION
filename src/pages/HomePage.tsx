@@ -230,6 +230,7 @@ export const HomePage = () => {
             </section>
 
             {/* ═══════════════════ IMPACT NUMBERS ═══════════════════ */}
+            {/* 
             <div ref={statsRef} className="stats-row" style={{ background: 'var(--color-offwhite)' }}>
                 {[
                     { icon: '👨‍🎓', value: 1250, suffix: '+', label: 'Students Taught' },
@@ -246,6 +247,7 @@ export const HomePage = () => {
                     </motion.div>
                 ))}
             </div>
+            */}
 
             {/* ═══════════════════ ABOUT / VISION / MISSION ═══════════════════ */}
             <section className="section-block">
