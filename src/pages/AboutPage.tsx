@@ -83,9 +83,9 @@ export const AboutPage = () => {
                     <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #d4a847, #b8922e)', borderRadius: 2, margin: '0 auto 3rem' }} />
                     <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                         {[
-                            { name: 'Prabal', role: 'Founder', img: '/assets/work/20251102_131451.jpg', quote: 'Every child we teach is a future we build together.', instagram: 'https://www.instagram.com/withprabal_/' },
+                            { name: 'Prabal', role: 'Founder', img: '/assets/work/prabal_new.png', quote: 'Every child we teach is a future we build together.', instagram: 'https://www.instagram.com/withprabal_/' },
                             { name: 'Anjali Mishra', role: 'President', img: '/assets/work/20251102_131457.jpg', quote: 'We believe every child deserves the chance to learn, grow, and dream.' },
-                            { name: 'Prateek Sharma', role: 'VICE PRESIDENT', img: '/assets/work/20251102_131454.jpg', quote: 'Education is the one gift that keeps multiplying.' },
+                            { name: 'Prateek Sharma', role: 'VICE PRESIDENT', img: '/assets/work/prateek_new.png', quote: 'Education is the one gift that keeps multiplying.' },
                             { name: 'Aaleya', role: 'Social Media Head', img: '/assets/work/20251102_131502.jpg', quote: 'Every story we share reaches someone who wants to help.' },
                         ].map((member, idx) => (
                             <motion.div
