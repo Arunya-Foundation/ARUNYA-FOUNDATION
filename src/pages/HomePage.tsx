@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { PageTransition } from '../components/ui/PageTransition';
+import { ModalOverlay } from '../components/ui/ModalOverlay';
 import BounceCards from '../components/BounceCards';
 
 /* ── Images ────────────────────────────────────── */
@@ -516,53 +517,25 @@ export const HomePage = () => {
                     ))}
                 </div>
 
-                {/* Blog story overlay modal */}
-                <AnimatePresence>
+                {/* Blog story overlay modal via Portal */}
+                <ModalOverlay open={expandedBlog !== null} onClose={() => setExpandedBlog(null)}>
                     {expandedBlog !== null && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            onClick={() => setExpandedBlog(null)}
-                            style={{
-                                position: 'fixed', inset: 0, zIndex: 999,
-                                background: 'rgba(30,58,95,0.7)', backdropFilter: 'blur(8px)',
-                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                padding: '2rem',
-                            }}
-                        >
-                            <motion.div
-                                initial={{ scale: 0.85, opacity: 0, y: 40 }}
-                                animate={{ scale: 1, opacity: 1, y: 0 }}
-                                exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                                onClick={(e) => e.stopPropagation()}
-                                style={{
-                                    background: 'white', borderRadius: 28, maxWidth: 700, width: '100%',
-                                    maxHeight: '85vh', overflow: 'auto',
-                                    boxShadow: '0 32px 64px rgba(0,0,0,0.25)',
-                                }}
-                            >
-                                {expandedBlog !== null && (
-                                    <>
-                                        <div style={{ position: 'relative' }}>
-                                            <img src={blogPosts[expandedBlog].img} alt={blogPosts[expandedBlog].title} style={{ width: '100%', height: 260, objectFit: 'cover', borderRadius: '28px 28px 0 0', display: 'block' }} />
-                                            <button
-                                                onClick={() => setExpandedBlog(null)}
-                                                style={{ position: 'absolute', top: 16, right: 16, background: 'rgba(255,255,255,0.9)', border: 'none', borderRadius: '50%', width: 40, height: 40, fontSize: '1.3rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                                            >×</button>
-                                        </div>
-                                        <div style={{ padding: '2rem' }}>
-                                            <span style={{ color: '#d4a847', fontWeight: 600, fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>{blogPosts[expandedBlog].date}</span>
-                                            <h3 style={{ fontSize: '1.6rem', color: '#1e3a5f', marginBottom: '1.25rem', fontFamily: 'Outfit, Inter, sans-serif' }}>{blogPosts[expandedBlog].title}</h3>
-                                            <p style={{ color: '#4b5563', lineHeight: 1.8, fontSize: '1rem' }}>{blogPosts[expandedBlog].readMore}</p>
-                                        </div>
-                                    </>
-                                )}
-                            </motion.div>
-                        </motion.div>
+                        <>
+                            <div style={{ position: 'relative', flexShrink: 0 }}>
+                                <img src={blogPosts[expandedBlog].img} alt={blogPosts[expandedBlog].title} style={{ width: '100%', height: 260, objectFit: 'cover', display: 'block' }} />
+                                <button
+                                    onClick={() => setExpandedBlog(null)}
+                                    style={{ position: 'absolute', top: 16, right: 16, background: 'rgba(255,255,255,0.9)', border: 'none', borderRadius: '50%', width: 40, height: 40, fontSize: '1.3rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a5f', boxShadow: '0 4px 12px rgba(0,0,0,0.15)' }}
+                                >×</button>
+                            </div>
+                            <div style={{ padding: '2rem', overflowY: 'auto', flex: 1 }}>
+                                <span style={{ color: '#d4a847', fontWeight: 600, fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>{blogPosts[expandedBlog].date}</span>
+                                <h3 style={{ fontSize: '1.6rem', color: '#1e3a5f', marginBottom: '1.25rem', fontFamily: 'Outfit, Inter, sans-serif' }}>{blogPosts[expandedBlog].title}</h3>
+                                <p style={{ color: '#4b5563', lineHeight: 1.8, fontSize: '1rem' }}>{blogPosts[expandedBlog].readMore}</p>
+                            </div>
+                        </>
                     )}
-                </AnimatePresence>
+                </ModalOverlay>
             </section>
 
             {/* ═══════════════════ BECOME A VOLUNTEER CTA ═══════════════════ */}

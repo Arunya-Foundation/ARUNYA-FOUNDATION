@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { JoinCommunity, Footer } from './Footer';
+import { FloatingShapes } from '../ui/FloatingShapes';
 
 /* ── Nav link data ─────────────────────────────────────────── */
 const NAV_LINKS = [
@@ -72,6 +73,9 @@ export const MainLayout = () => {
 
     return (
         <div className="site-root">
+            {/* Ambient Background layer */}
+            <FloatingShapes />
+
             {/* ═══════════════════ NAVBAR ═══════════════════ */}
             <motion.header
                 className="main-navbar"

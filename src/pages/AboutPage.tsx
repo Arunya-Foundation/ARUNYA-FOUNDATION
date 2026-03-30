@@ -300,6 +300,7 @@ export const AboutPage = () => {
                                             transition: 'filter 0.4s ease, transform 0.4s ease',
                                         }}
                                         whileHover={{ filter: 'grayscale(0%)', scale: 1.05 }}
+                                        whileTap={{ filter: 'grayscale(0%)', scale: 1.05 }}
                                     />
                                     <div style={{ position: 'absolute', bottom: 12, right: 12, display: 'flex', gap: '8px' }}>
                                         {member.instagram && (
