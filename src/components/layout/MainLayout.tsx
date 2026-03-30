@@ -23,6 +23,7 @@ export const MainLayout = () => {
     const navigate = useNavigate();
     const { scrollY } = useScroll();
 
+    const isHome = location.pathname === '/';
     const compact = scrolled || isNarrow;
 
     /* Detect narrow viewport */
@@ -84,19 +85,20 @@ export const MainLayout = () => {
             >
                 <motion.div
                     className="navbar-inner"
+                    animate={compact ? 'compact' : 'full'}
                     variants={{
                         full: {
                             maxWidth: '100vw',
                             borderRadius: '0px',
-                            backgroundColor: 'rgba(18,35,58,0.95)',
-                            backdropFilter: 'blur(12px)',
-                            boxShadow: '0 2px 24px rgba(0,0,0,0.2)',
+                            backgroundColor: isHome ? 'rgba(0,0,0,0)' : 'rgba(18,35,58,0.97)',
+                            backdropFilter: isHome ? 'blur(0px)' : 'blur(12px)',
+                            boxShadow: isHome ? 'none' : '0 2px 24px rgba(0,0,0,0.2)',
                             padding: '1.25rem 3rem',
                         },
                         compact: {
                             maxWidth: '1100px',
                             borderRadius: '9999px',
-                            backgroundColor: 'rgba(15,30,50,0.75)',
+                            backgroundColor: 'rgba(15,30,50,0.82)',
                             backdropFilter: 'blur(24px)',
                             boxShadow: '0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.1)',
                             padding: '0.6rem 2rem',
