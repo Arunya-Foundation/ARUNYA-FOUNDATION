@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { PageTransition } from '../components/ui/PageTransition';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { ModalOverlay } from '../components/ui/ModalOverlay';
 
 const fadeUp = {
     initial: { opacity: 0, y: 40 },
@@ -63,16 +64,6 @@ const blogPosts = [
 export const BlogPage = () => {
     const [selectedPost, setSelectedPost] = useState<typeof blogPosts[0] | null>(null);
 
-    // Lock body scroll when modal is open
-    useEffect(() => {
-        if (selectedPost) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-        return () => { document.body.style.overflow = ''; };
-    }, [selectedPost]);
-
     return (
         <PageTransition className="pt-[140px] pb-16">
             <section id="blog" style={{ padding: '2rem', position: 'relative', zIndex: 10 }}>
@@ -86,24 +77,25 @@ export const BlogPage = () => {
                     </motion.p>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem', maxWidth: 1200, margin: '0 auto' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', maxWidth: 1200, margin: '0 auto' }}>
                     {blogPosts.map((post, idx) => (
-                        <motion.div key={idx} {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.08 * idx }} style={{
-                            borderRadius: 24, overflow: 'hidden', background: 'white',
-                            border: '1px solid rgba(30,58,95,0.08)',
-                            boxShadow: '0 4px 24px rgba(30,58,95,0.06)',
-                            cursor: 'pointer',
-                            transition: 'transform 0.3s, box-shadow 0.3s',
-                        }}
-                        onClick={() => setSelectedPost(post)}
-                        onMouseEnter={e => {
-                            (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-6px)';
-                            (e.currentTarget as HTMLDivElement).style.boxShadow = '0 16px 48px rgba(30,58,95,0.15)';
-                        }}
-                        onMouseLeave={e => {
-                            (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
-                            (e.currentTarget as HTMLDivElement).style.boxShadow = '0 4px 24px rgba(30,58,95,0.06)';
-                        }}
+                        <motion.div key={idx} {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.08 * idx }}
+                            onClick={() => setSelectedPost(post)}
+                            style={{
+                                borderRadius: 24, overflow: 'hidden', background: 'white',
+                                border: '1px solid rgba(30,58,95,0.08)',
+                                boxShadow: '0 4px 24px rgba(30,58,95,0.06)',
+                                cursor: 'pointer',
+                                transition: 'transform 0.3s, box-shadow 0.3s',
+                            }}
+                            onMouseEnter={e => {
+                                (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-6px)';
+                                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 16px 48px rgba(30,58,95,0.15)';
+                            }}
+                            onMouseLeave={e => {
+                                (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
+                                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 4px 24px rgba(30,58,95,0.06)';
+                            }}
                         >
                             <div style={{ height: 220, backgroundImage: `url(${post.img})`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
                                 <span style={{
@@ -115,103 +107,36 @@ export const BlogPage = () => {
                                     {post.category}
                                 </span>
                             </div>
-                            <div style={{ padding: '2rem' }}>
-                                <span style={{ color: '#d4a847', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '0.75rem' }}>{post.date}</span>
-                                <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem', fontWeight: 700, color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif' }}>{post.title}</h3>
-                                <p style={{ color: '#6b7280', marginBottom: '1rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
-                                    {post.excerpt}
-                                </p>
-                                <span style={{
-                                    color: '#2563eb', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem',
-                                    fontSize: '0.95rem',
-                                }}>
-                                    Read Full Story →
-                                </span>
+                            <div style={{ padding: '1.75rem' }}>
+                                <span style={{ color: '#d4a847', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '0.5rem' }}>{post.date}</span>
+                                <h3 style={{ fontSize: '1.2rem', marginBottom: '0.75rem', fontWeight: 700, color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif' }}>{post.title}</h3>
+                                <p style={{ color: '#6b7280', marginBottom: '1rem', lineHeight: 1.6, fontSize: '0.9rem' }}>{post.excerpt}</p>
+                                <span style={{ color: '#2563eb', fontWeight: 600, fontSize: '0.9rem' }}>Read Full Story →</span>
                             </div>
                         </motion.div>
                     ))}
                 </div>
             </section>
 
-            {/* ── Blog Story Modal ── */}
-            <AnimatePresence>
+            {/* Blog Story Modal via Portal */}
+            <ModalOverlay open={!!selectedPost} onClose={() => setSelectedPost(null)}>
                 {selectedPost && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.25 }}
-                        onClick={() => setSelectedPost(null)}
-                        style={{
-                            position: 'fixed', inset: 0, zIndex: 99999,
-                            background: 'rgba(10,25,50,0.75)',
-                            backdropFilter: 'blur(12px)',
-                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            padding: '1rem',
-                        }}
-                    >
-                        <motion.div
-                            initial={{ scale: 0.88, opacity: 0, y: 30 }}
-                            animate={{ scale: 1, opacity: 1, y: 0 }}
-                            exit={{ scale: 0.92, opacity: 0, y: 20 }}
-                            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                            onClick={e => e.stopPropagation()}
-                            style={{
-                                background: 'white', borderRadius: 24,
-                                maxWidth: 640, width: '100%',
-                                maxHeight: '85vh',
-                                overflow: 'hidden',
-                                boxShadow: '0 40px 100px rgba(0,0,0,0.35)',
-                                display: 'flex', flexDirection: 'column',
-                            }}
-                        >
-                            {/* Image header */}
-                            <div style={{ position: 'relative', flexShrink: 0 }}>
-                                <img
-                                    src={selectedPost.img}
-                                    alt={selectedPost.title}
-                                    style={{ width: '100%', height: 240, objectFit: 'cover', display: 'block' }}
-                                />
-                                <div style={{
-                                    position: 'absolute', bottom: 0, left: 0, right: 0,
-                                    background: 'linear-gradient(to top, rgba(30,58,95,0.85) 0%, transparent 100%)',
-                                    padding: '3rem 1.5rem 1.25rem', color: 'white',
-                                }}>
-                                    <span style={{
-                                        display: 'inline-block',
-                                        background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(6px)',
-                                        padding: '0.2rem 0.7rem', borderRadius: 99, fontSize: '0.7rem',
-                                        fontWeight: 700, marginBottom: '0.4rem',
-                                    }}>
-                                        {selectedPost.category}
-                                    </span>
-                                    <h2 style={{ fontSize: 'clamp(1.1rem, 3vw, 1.5rem)', fontFamily: 'Outfit, Inter, sans-serif', fontWeight: 800, margin: 0, lineHeight: 1.3 }}>{selectedPost.title}</h2>
-                                </div>
-                                {/* Close button */}
-                                <button
-                                    onClick={() => setSelectedPost(null)}
-                                    style={{
-                                        position: 'absolute', top: 12, right: 12,
-                                        background: 'rgba(255,255,255,0.9)', border: 'none',
-                                        borderRadius: '50%', width: 36, height: 36,
-                                        fontSize: '1.2rem', cursor: 'pointer',
-                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                        fontWeight: 700, color: '#1e3a5f',
-                                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-                                    }}
-                                >×</button>
+                    <>
+                        <div style={{ position: 'relative', flexShrink: 0 }}>
+                            <img src={selectedPost.img} alt={selectedPost.title} style={{ width: '100%', height: 220, objectFit: 'cover', display: 'block' }} />
+                            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(30,58,95,0.85) 0%, transparent 100%)', padding: '2.5rem 1.5rem 1.25rem', color: 'white' }}>
+                                <span style={{ display: 'inline-block', background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(6px)', padding: '0.2rem 0.7rem', borderRadius: 99, fontSize: '0.7rem', fontWeight: 700, marginBottom: '0.4rem' }}>{selectedPost.category}</span>
+                                <h2 style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontFamily: 'Outfit, Inter, sans-serif', fontWeight: 800, margin: 0, lineHeight: 1.3 }}>{selectedPost.title}</h2>
                             </div>
-                            {/* Scrollable content */}
-                            <div style={{ padding: '1.5rem', overflowY: 'auto', flex: 1 }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                                    <span style={{ color: '#d4a847', fontSize: '0.85rem', fontWeight: 700 }}>{selectedPost.date}</span>
-                                </div>
-                                <p style={{ color: '#374151', lineHeight: 1.85, fontSize: '0.95rem' }}>{selectedPost.fullContent}</p>
-                            </div>
-                        </motion.div>
-                    </motion.div>
+                            <button onClick={() => setSelectedPost(null)} style={{ position: 'absolute', top: 12, right: 12, background: 'rgba(255,255,255,0.9)', border: 'none', borderRadius: '50%', width: 36, height: 36, fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, color: '#1e3a5f', boxShadow: '0 4px 12px rgba(0,0,0,0.15)' }}>×</button>
+                        </div>
+                        <div style={{ padding: '1.5rem', overflowY: 'auto', flex: 1 }}>
+                            <span style={{ color: '#d4a847', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem', display: 'block' }}>{selectedPost.date}</span>
+                            <p style={{ color: '#374151', lineHeight: 1.85, fontSize: '0.95rem' }}>{selectedPost.fullContent}</p>
+                        </div>
+                    </>
                 )}
-            </AnimatePresence>
+            </ModalOverlay>
         </PageTransition>
     );
 };

@@ -9,7 +9,9 @@
 :root {
   /* — Core Colors — */
   --color-white: #ffffff;
-  --color-offwhite: #f8fafc;
+  --color-offwhite: #fdf8f4;
+  --color-light-peach: #fef6ee;
+  --color-warm-cream: #faf3eb;
   --color-light-blue: #eef4fb;
   --color-ice-blue: #dbeafe;
 
@@ -25,11 +27,11 @@
   --color-silver: #9ca3af;
   --color-grey: #6b7280;
   --color-light-grey: #e5e7eb;
-  --color-warm-grey: #f3f4f6;
+  --color-warm-grey: #f9f4ef;
 
   /* — Semantic Tokens — */
-  --bg-primary: var(--color-white);
-  --bg-secondary: var(--color-offwhite);
+  --bg-primary: var(--color-light-peach);
+  --bg-secondary: var(--color-warm-cream);
   --bg-accent: var(--color-light-blue);
   --bg-section-alt: var(--color-warm-grey);
 
