@@ -260,7 +260,7 @@ export const HomePage = () => {
                     {[
                         { icon: '👁️', title: 'Our Vision', text: 'To achieve the social and economic upliftment of underserved and minority communities by ensuring every individual has the direction, goals, and educational foundation needed to thrive.', img: IMAGES.vision },
                         { icon: '🎯', title: 'Our Mission', text: 'To provide transformative education and mentorship to underserved communities by creating a premier platform where young educators and youth can showcase their skills, grow professionally, and serve as catalysts for social change.', img: IMAGES.mission },
-                        { icon: '📋', title: 'Our Goal', text: 'To enroll 1,000+ students by 2027, expand to 20 villages, and equip every child with the academic foundation and life skills needed to pursue higher education and meaningful careers.', img: IMAGES.objective },
+                        { icon: '📋', title: 'Our Goal', text: 'To promote educational equity by providing accessible, high-quality education, foundational learning, and life-direction coaching to children from underserved and minority communities. To empower youth educators by establishing a collaborative platform for pedagogical skills, practical teaching experience, and professional leadership. To facilitate social upliftment by equipping marginalized communities with knowledge, mentorship, and resources for self-reliance.', img: IMAGES.objective },
                     ].map((c, i) => (
                         <motion.div key={i} className="premium-card" {...fadeUp} transition={{ ...fadeUp.transition, delay: i * 0.12 }}>
                             <img src={c.img} alt={c.title} className="premium-card-img" />
@@ -271,6 +271,97 @@ export const HomePage = () => {
                         </motion.div>
                     ))}
                 </motion.div>
+            </section>
+
+            {/* ═══════════════════ OUR VALUES ═══════════════════ */}
+            <section className="section-block alt-bg">
+                <div className="section-header">
+                    <motion.h2 {...fadeUp}>Our Core Values</motion.h2>
+                    <div className="golden-underline" />
+                    <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }}>
+                        The guiding principles that shape every action, decision, and interaction at Arunya Foundation.
+                    </motion.p>
+                </div>
+
+                <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+                    {[
+                        {
+                            hindi: 'सम्मान',
+                            title: 'Service with Dignity',
+                            icon: '🙏',
+                            color: '#2563eb',
+                            concept: 'We do not view the communities we serve as "projects" to be fixed, but as equals who deserve respect, resources, and opportunity.',
+                            action: 'Our educators approach every student with respect, ensuring that our help builds self-reliance rather than dependency.',
+                        },
+                        {
+                            hindi: 'सह-विकास',
+                            title: 'Mutual Empowerment',
+                            icon: '🤝',
+                            color: '#d4a847',
+                            concept: 'True upliftment happens when both the teacher and the student grow.',
+                            action: 'We foster an environment where our youth volunteers develop real-world leadership and professional skills while delivering life-changing education.',
+                        },
+                        {
+                            hindi: 'सहानुभूति',
+                            title: 'Empathetic Leadership',
+                            icon: '💛',
+                            color: '#2563eb',
+                            concept: 'We seek to deeply understand the psychological and social barriers our communities face before attempting to remove them.',
+                            action: 'Our volunteers lead with emotional intelligence, creating safe, encouraging, and highly attuned learning environments for minority and underserved youth.',
+                        },
+                        {
+                            hindi: 'निष्ठा',
+                            title: 'Unwavering Integrity',
+                            icon: '🛡️',
+                            color: '#d4a847',
+                            concept: 'Trust is the currency of a successful foundation. We operate with complete transparency and discipline.',
+                            action: 'Whether handling resources, executing programs, or fulfilling our legal obligations as a registered organization, we hold ourselves to the highest ethical standards.',
+                        },
+                        {
+                            hindi: 'कर्मयोग',
+                            title: 'Resilient Action',
+                            icon: '🔥',
+                            color: '#2563eb',
+                            concept: 'Social change is a marathon, not a sprint. We are committed to showing up, especially when the work gets difficult.',
+                            action: 'Like the first rays of the sun (Arunya) that persistently pierce through the dark, our team remains dedicated to our mission, regardless of obstacles.',
+                        },
+                    ].map((value, idx) => (
+                        <motion.div
+                            key={idx}
+                            {...fadeUp}
+                            transition={{ ...fadeUp.transition, delay: idx * 0.08 }}
+                            style={{
+                                background: 'white',
+                                borderRadius: 24,
+                                padding: '2rem',
+                                border: '1px solid rgba(30,58,95,0.08)',
+                                boxShadow: '0 4px 24px rgba(30,58,95,0.06)',
+                                transition: 'transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s',
+                                position: 'relative',
+                                overflow: 'hidden',
+                            }}
+                        >
+                            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: value.color === '#d4a847' ? 'linear-gradient(135deg, #d4a847, #b8922e)' : 'linear-gradient(135deg, #2563eb, #1e3a5f)', borderRadius: '24px 24px 0 0' }} />
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                                <div style={{ width: 48, height: 48, borderRadius: '50%', background: value.color === '#d4a847' ? 'linear-gradient(135deg, #d4a847, #b8922e)' : 'linear-gradient(135deg, #2563eb, #1e3a5f)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', flexShrink: 0 }}>
+                                    {value.icon}
+                                </div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif', lineHeight: 1.2 }}>{value.title}</h3>
+                                    <span style={{ fontSize: '0.85rem', color: value.color, fontWeight: 700 }}>({value.hindi})</span>
+                                </div>
+                            </div>
+                            <div style={{ marginBottom: '0.75rem' }}>
+                                <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1, color: '#9ca3af' }}>The Concept</span>
+                                <p style={{ color: '#4b5563', fontSize: '0.9rem', lineHeight: 1.6, marginTop: '0.25rem' }}>{value.concept}</p>
+                            </div>
+                            <div>
+                                <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1, color: '#9ca3af' }}>In Action</span>
+                                <p style={{ color: '#6b7280', fontSize: '0.85rem', lineHeight: 1.6, marginTop: '0.25rem', fontStyle: 'italic' }}>{value.action}</p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
             </section>
 
             {/* ═══════════════════ SYLLABUS OVERVIEW ═══════════════════ */}
