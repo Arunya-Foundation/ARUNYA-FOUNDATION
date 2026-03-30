@@ -88,9 +88,9 @@ export const MainLayout = () => {
                         full: {
                             maxWidth: '100vw',
                             borderRadius: '0px',
-                            backgroundColor: 'rgba(15,30,50,0.45)',
-                            backdropFilter: 'blur(16px)',
-                            boxShadow: '0 2px 20px rgba(0,0,0,0.15)',
+                            backgroundColor: 'rgba(18,35,58,0.95)',
+                            backdropFilter: 'blur(12px)',
+                            boxShadow: '0 2px 24px rgba(0,0,0,0.2)',
                             padding: '1.25rem 3rem',
                         },
                         compact: {
