@@ -15,7 +15,7 @@ const IMAGES = {
     cause2: 'https://images.unsplash.com/photo-1594708767771-a7502209ff51?w=800&q=80',
     cause3: 'https://images.unsplash.com/photo-1560785496-3c9d27877182?w=800&q=80',
     cause4: 'https://images.unsplash.com/photo-1529390079861-591de354faf5?w=800&q=80',
-    fullbleed: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=1600&q=80',
+    fullbleed: '/IMAGE/LANDSCAPE/21492.jpg.jpeg',
     blog1: 'https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=800&q=80',
     blog2: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&q=80',
     blog3: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=80',
