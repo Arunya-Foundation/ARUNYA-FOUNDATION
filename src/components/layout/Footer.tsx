@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import { GraduationCap, Handshake, Home, Heart, Mail, Phone, MapPin, Clock, Leaf } from 'lucide-react';
+import { FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 
 export const JoinCommunity = () => {
     const navigate = useNavigate();
@@ -38,10 +40,10 @@ export const JoinCommunity = () => {
                     marginBottom: 'clamp(2rem, 4vw, 3.5rem)',
                 }}>
                     {[
-                        { num: '1,250+', label: 'Children Educated', icon: '👨‍🎓' },
-                        { num: '300+', label: 'Active Volunteers', icon: '🤝' },
-                        { num: '12+', label: 'Villages Reached', icon: '🏘️' },
-                        { num: '100%', label: 'Free of Cost', icon: '💛' },
+                        { num: '1,250+', label: 'Children Educated', icon: <GraduationCap size={40} /> },
+                        { num: '300+', label: 'Active Volunteers', icon: <Handshake size={40} /> },
+                        { num: '12+', label: 'Villages Reached', icon: <Home size={40} /> },
+                        { num: '100%', label: 'Free of Cost', icon: <Heart size={40} /> },
                     ].map((s, i) => (
                         <div key={i} style={{
                             textAlign: 'center',
@@ -71,7 +73,7 @@ export const JoinCommunity = () => {
                         onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-2px)')}
                         onMouseLeave={e => (e.currentTarget.style.transform = 'none')}
                     >
-                        💛 Donate Now — Change a Life
+                        <Heart size={20} fill="currentColor" strokeWidth={2} /> Donate Now — Change a Life
                     </button>
                     <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.8rem', marginTop: '0.85rem' }}>
                         ₹500 covers a child's study materials for one month.
@@ -100,8 +102,8 @@ export const Footer = () => {
                                 width: 44, height: 44, borderRadius: '50%',
                                 background: 'linear-gradient(135deg, #d4a847, #b8922e)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                fontSize: '1.4rem', flexShrink: 0,
-                            }}>🌱</div>
+                                fontSize: '1.4rem', flexShrink: 0, color: 'white'
+                            }}><Leaf size={24} /></div>
                             <div>
                                 <div style={{ color: 'white', fontWeight: 800, fontSize: '1.15rem', fontFamily: 'Outfit, Inter, sans-serif', lineHeight: 1 }}>ARUNYA</div>
                                 <div style={{ color: '#d4a847', fontWeight: 500, fontSize: '0.7rem', letterSpacing: 2 }}>FOUNDATION</div>
@@ -112,10 +114,9 @@ export const Footer = () => {
                         </p>
                         <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
                             {[
-                                { label: 'Instagram', icon: '📸', href: '#' },
-                                { label: 'YouTube', icon: '📺', href: '#' },
-                                { label: 'LinkedIn', icon: '💼', href: '#' },
-                                { label: 'WhatsApp', icon: '💬', href: '#' },
+                                { label: 'Instagram', icon: <FaInstagram size={20} color="#E1306C" />, href: 'https://www.instagram.com/arunya_foundation/' },
+                                { label: 'LinkedIn', icon: <FaLinkedin size={20} color="#0077b5" />, href: 'https://www.linkedin.com/company/arunya-foundation/' },
+                                { label: 'WhatsApp', icon: <FaWhatsapp size={20} color="#25D366" />, href: '#' },
                             ].map(s => (
                                 <a
                                     key={s.label}
@@ -193,10 +194,10 @@ export const Footer = () => {
                     <div>
                         <h4 style={{ color: '#d4a847', fontWeight: 700, fontSize: '0.8rem', letterSpacing: 2, textTransform: 'uppercase', marginBottom: '1.25rem' }}>Get in Touch</h4>
                         {[
-                            { icon: '📧', text: 'contact@arunyafoundation.org' },
-                            { icon: '📱', text: '+91 82238 34121' },
-                            { icon: '📍', text: 'Gwalior, Madhya Pradesh, India' },
-                            { icon: '⏰', text: 'Sat & Sun: 10 AM – 1 PM' },
+                            { icon: <Mail size={18} />, text: 'arunya.trust@gmail.com' },
+                            { icon: <Phone size={18} />, text: '+91 82238 34121' },
+                            { icon: <MapPin size={18} />, text: 'Gwalior, Madhya Pradesh, India' },
+                            { icon: <Clock size={18} />, text: 'Sat & Sun: 10 AM – 1 PM' },
                         ].map((c, i) => (
                             <div key={i} style={{ display: 'flex', gap: '0.7rem', marginBottom: '0.85rem', alignItems: 'flex-start' }}>
                                 <span style={{ fontSize: '1rem', flexShrink: 0, marginTop: 2 }}>{c.icon}</span>
@@ -225,7 +226,7 @@ export const Footer = () => {
                     display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem'
                 }}>
                     <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.85rem', margin: 0 }}>
-                        © 2026 Arunya Foundation. All rights reserved. Made with 💛 for education.
+                        © 2026 Arunya Foundation. All rights reserved. Made with <Heart size={14} fill="currentColor" style={{ display: 'inline' }} /> for education.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem' }}>
                         {['Privacy Policy', 'Terms of Service'].map(t => (

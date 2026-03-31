@@ -4,6 +4,7 @@ import { PageTransition } from '../components/ui/PageTransition';
 import { useAuth } from '../lib/AuthContext';
 import { db } from '../lib/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { BookOpen, Star, Handshake, ScrollText, GraduationCap } from 'lucide-react';
 
 const fadeUp = {
     initial: { opacity: 0, y: 40 },
@@ -82,11 +83,11 @@ export const VolunteerPage = () => {
                         </h3>
 
                         {[
-                            { icon: '📚', title: 'Teach & Inspire', desc: 'Conduct weekend classes for children aged 5–16. No teaching degree required — just passion.' },
-                            { icon: '🌟', title: 'Make Real Impact', desc: 'See students grow, score well, and dream bigger because of your effort.' },
-                            { icon: '🤝', title: 'Build Community', desc: 'Join 300+ volunteers across villages. Network and grow with like-minded youth.' },
-                            { icon: '📜', title: 'Get Certified', desc: 'Receive official volunteering certificates for your resume and college applications.' },
-                            { icon: '🎓', title: 'Learn While Teaching', desc: 'Develop leadership, communication, and project management skills.' },
+                            { icon: <BookOpen size={24} style={{ color: '#2563eb' }} />, title: 'Teach & Inspire', desc: 'Conduct weekend classes for children aged 5–16. No teaching degree required — just passion.' },
+                            { icon: <Star size={24} style={{ color: '#d4a847' }} />, title: 'Make Real Impact', desc: 'See students grow, score well, and dream bigger because of your effort.' },
+                            { icon: <Handshake size={24} style={{ color: '#10b981' }} />, title: 'Build Community', desc: 'Join 300+ volunteers across villages. Network and grow with like-minded youth.' },
+                            { icon: <ScrollText size={24} style={{ color: '#8b5cf6' }} />, title: 'Get Certified', desc: 'Receive official volunteering certificates for your resume and college applications.' },
+                            { icon: <GraduationCap size={24} style={{ color: '#f43f5e' }} />, title: 'Learn While Teaching', desc: 'Develop leadership, communication, and project management skills.' },
                         ].map((item, idx) => (
                             <div key={idx} style={{
                                 display: 'flex', gap: '1rem', marginBottom: '1.5rem',
@@ -109,9 +110,9 @@ export const VolunteerPage = () => {
                             border: '1px solid rgba(37,99,235,0.1)',
                         }}>
                             <p style={{ color: '#1e3a5f', fontSize: '0.95rem', fontStyle: 'italic', lineHeight: 1.6, marginBottom: '0.75rem' }}>
-                                "Volunteering at Arunya changed my perspective. Seeing a child learn to write their own name for the first time — that feeling is unmatched."
+                                "Seeing a child learn to write their own name for the first time — that feeling is truly unmatched. Be a part of the change."
                             </p>
-                            <p style={{ color: '#2563eb', fontWeight: 700, fontSize: '0.9rem', margin: 0 }}>— Prateek, Co-Founder & Volunteer</p>
+                            <p style={{ color: '#2563eb', fontWeight: 700, fontSize: '0.9rem', margin: 0 }}>— Arunya Foundation</p>
                         </div>
                     </motion.div>
 

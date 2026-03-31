@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { PageTransition } from '../components/ui/PageTransition';
+import { BookOpen, Backpack, Laptop, Megaphone, Lightbulb, Palette, Calendar, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ModalOverlay } from '../components/ui/ModalOverlay';
 
@@ -13,7 +14,7 @@ const fadeUp = {
 interface Program {
     title: string;
     category: string;
-    icon: string;
+    icon: React.ReactNode;
     tagline: string;
     detail: string;
     img: string;
@@ -27,7 +28,7 @@ const programs: Program[] = [
     {
         title: 'Weekend Basic Classes',
         category: 'Teaching',
-        icon: '📚',
+        icon: <BookOpen size={24} />,
         tagline: 'Free education every Saturday & Sunday',
         detail: 'Every Saturday & Sunday, our volunteers teach Hindi, English, Math, Science, and GK to children aged 5–16. Classes are held in community spaces and are completely free.',
         img: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=900&q=80',
@@ -44,7 +45,7 @@ const programs: Program[] = [
     {
         title: 'Study Material Distribution',
         category: 'Supplies',
-        icon: '🎒',
+        icon: <Backpack size={24} />,
         tagline: 'Notebooks, bags, uniforms — free of cost',
         detail: 'We provide free notebooks, textbooks, pens, pencils, school bags, and uniforms to every enrolled student. A full kit is given at the start of each academic term.',
         img: 'https://images.unsplash.com/photo-1594708767771-a7502209ff51?w=900&q=80',
@@ -61,7 +62,7 @@ const programs: Program[] = [
     {
         title: 'Computer Literacy Program',
         category: 'Skills',
-        icon: '💻',
+        icon: <Laptop size={24} />,
         tagline: 'Bridging the digital divide',
         detail: 'Secondary students (13–16) learn MS Office, internet navigation, basic coding logic, and digital safety. Many students use a computer for the first time in our classes.',
         img: 'https://images.unsplash.com/photo-1529390079861-591de354faf5?w=900&q=80',
@@ -78,7 +79,7 @@ const programs: Program[] = [
     {
         title: 'English Speaking Workshop',
         category: 'Language',
-        icon: '🗣️',
+        icon: <Megaphone size={24} />,
         tagline: 'Speak with confidence, grow without limits',
         detail: 'Special weekly workshops focused on spoken English, vocabulary building, and confidence in public speaking. Students practice through role plays, debates, and storytelling.',
         img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=900&q=80',
@@ -95,7 +96,7 @@ const programs: Program[] = [
     {
         title: 'Career Guidance Sessions',
         category: 'Guidance',
-        icon: '💡',
+        icon: <Lightbulb size={24} />,
         tagline: 'Know your path, own your future',
         detail: 'Monthly sessions introducing students to career paths, scholarship opportunities, competitive exams, and skill development workshops for self-reliance.',
         img: 'https://images.unsplash.com/photo-1560785496-3c9d27877182?w=900&q=80',
@@ -112,7 +113,7 @@ const programs: Program[] = [
     {
         title: 'Art & Creative Expression',
         category: 'Creative',
-        icon: '🎨',
+        icon: <Palette size={24} />,
         tagline: 'Every child is a creator',
         detail: 'Drawing, painting, craft, drama, and cultural activities that help children express themselves, build confidence, and explore their creative potential.',
         img: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=900&q=80',
@@ -271,13 +272,13 @@ export const CausesPage = () => {
 
                             {/* Schedule + Eligibility */}
                             <div style={{ marginTop: '1.25rem', padding: '1rem 1.25rem', background: '#eef4fb', borderRadius: 14, border: '1px solid rgba(37,99,235,0.1)' }}>
-                                <div style={{ marginBottom: '0.5rem' }}>
-                                    <span style={{ fontWeight: 700, color: '#1e3a5f', fontSize: '0.82rem' }}>🗓️ Schedule: </span>
-                                    <span style={{ color: '#4b5563', fontSize: '0.85rem' }}>{selectedProgram.schedule}</span>
+                                <div style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center' }}>
+                                    <span style={{ fontWeight: 700, color: '#1e3a5f', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}><Calendar size={14} /> Schedule: </span>
+                                    <span style={{ color: '#4b5563', fontSize: '0.85rem', marginLeft: '0.25rem' }}>{selectedProgram.schedule}</span>
                                 </div>
-                                <div>
-                                    <span style={{ fontWeight: 700, color: '#1e3a5f', fontSize: '0.82rem' }}>✅ Eligibility: </span>
-                                    <span style={{ color: '#4b5563', fontSize: '0.85rem' }}>{selectedProgram.eligibility}</span>
+                                <div style={{ display: 'flex', alignItems: 'center' }}>
+                                    <span style={{ fontWeight: 700, color: '#1e3a5f', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}><CheckCircle2 size={14} /> Eligibility: </span>
+                                    <span style={{ color: '#4b5563', fontSize: '0.85rem', marginLeft: '0.25rem' }}>{selectedProgram.eligibility}</span>
                                 </div>
                             </div>
                         </div>

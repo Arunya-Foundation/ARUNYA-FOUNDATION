@@ -1,6 +1,13 @@
 import { PageTransition } from '../components/ui/PageTransition';
 import { motion } from 'framer-motion';
 
+import {
+    Eye, Target, ClipboardList, BookOpen, Users, Leaf,
+    TrendingUp, Compass, HeartHandshake, Package,
+    Heart, Handshake, SunMedium, ShieldCheck, Flame
+} from 'lucide-react';
+import { FaInstagram, FaLinkedin } from 'react-icons/fa';
+
 const fadeUp = {
     initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
@@ -12,7 +19,7 @@ const values = [
     {
         hindi: 'सम्मान',
         title: 'Service with Dignity',
-        icon: '🙏',
+        icon: <Heart size={24} />,
         color: '#2563eb',
         concept: 'We do not view the communities we serve as "projects" to be fixed, but as equals who deserve respect, resources, and opportunity.',
         action: 'Our educators approach every student with respect, ensuring that our help builds self-reliance rather than dependency.',
@@ -20,7 +27,7 @@ const values = [
     {
         hindi: 'सह-विकास',
         title: 'Mutual Empowerment',
-        icon: '🤝',
+        icon: <Handshake size={24} />,
         color: '#d4a847',
         concept: 'True upliftment happens when both the teacher and the student grow.',
         action: 'We foster an environment where our youth volunteers develop real-world leadership and professional skills while delivering life-changing education.',
@@ -28,7 +35,7 @@ const values = [
     {
         hindi: 'सहानुभूति',
         title: 'Empathetic Leadership',
-        icon: '💛',
+        icon: <SunMedium size={24} />,
         color: '#2563eb',
         concept: 'We seek to deeply understand the psychological and social barriers our communities face before attempting to remove them.',
         action: 'Our volunteers lead with emotional intelligence, creating safe, encouraging, and highly attuned learning environments for minority and underserved youth.',
@@ -36,7 +43,7 @@ const values = [
     {
         hindi: 'निष्ठा',
         title: 'Unwavering Integrity',
-        icon: '🛡️',
+        icon: <ShieldCheck size={24} />,
         color: '#d4a847',
         concept: 'Trust is the currency of a successful foundation. We operate with complete transparency and discipline.',
         action: 'Whether handling resources, executing programs, or fulfilling our legal obligations as a registered organization, we hold ourselves to the highest ethical standards.',
@@ -44,7 +51,7 @@ const values = [
     {
         hindi: 'कर्मयोग',
         title: 'Resilient Action',
-        icon: '🔥',
+        icon: <Flame size={24} />,
         color: '#2563eb',
         concept: 'Social change is a marathon, not a sprint. We are committed to showing up, especially when the work gets difficult.',
         action: 'Like the first rays of the sun (Arunya) that persistently pierce through the dark, our team remains dedicated to our mission, regardless of obstacles.',
@@ -53,17 +60,17 @@ const values = [
 
 const primaryObjectives = [
     {
-        icon: '📚',
+        icon: <BookOpen size={32} />,
         title: 'To Promote Educational Equity',
         desc: 'To provide accessible, high-quality education, foundational learning, and life-direction coaching to children and individuals from underserved and minority communities.',
     },
     {
-        icon: '🧑‍🏫',
+        icon: <Users size={32} />,
         title: 'To Empower Youth and Educators',
         desc: 'To establish and maintain a collaborative platform that allows young educators, teachers, and youth volunteers to showcase their pedagogical skills, gain practical teaching experience, and develop professional leadership through community service.',
     },
     {
-        icon: '🌱',
+        icon: <Leaf size={32} />,
         title: 'To Facilitate Social Upliftment',
         desc: 'To bridge the socioeconomic gap by equipping marginalized communities with the knowledge, mentorship, and resources necessary to achieve self-reliance and dignified livelihoods.',
     },
@@ -71,22 +78,22 @@ const primaryObjectives = [
 
 const ancillaryObjectives = [
     {
-        icon: '🏋️',
+        icon: <TrendingUp size={24} />,
         title: 'Capacity Building',
         desc: 'To conduct training programs, workshops, and seminars that continuously improve the teaching methodologies and leadership capabilities of the foundation\'s youth educators.',
     },
     {
-        icon: '🧭',
+        icon: <Compass size={24} />,
         title: 'Mentorship Programs',
         desc: 'To create structured mentorship initiatives where experienced youth guide students from underserved backgrounds in career planning, goal setting, and personal development.',
     },
     {
-        icon: '🤲',
+        icon: <HeartHandshake size={24} />,
         title: 'Community Integration',
         desc: 'To organize awareness campaigns, educational drives, and community events that promote the value of education ("विद्या अरुणोदयः" – The dawn of knowledge) and encourage active participation from local stakeholders.',
     },
     {
-        icon: '📦',
+        icon: <Package size={24} />,
         title: 'Resource Development',
         desc: 'To design, distribute, and implement educational materials, curricula, and digital resources tailored to the specific needs of the communities being served.',
     },
@@ -123,7 +130,9 @@ export const AboutPage = () => {
                         border: '1px solid rgba(30,58,95,0.08)',
                         boxShadow: '0 4px 24px rgba(30,58,95,0.06)',
                     }}>
-                        <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'linear-gradient(135deg, #2563eb, #1e3a5f)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '1.5rem' }}>👁️</div>
+                        <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'linear-gradient(135deg, #2563eb, #1e3a5f)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '1.5rem' }}>
+                            <Eye size={28} />
+                        </div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif' }}>Our Vision</h3>
                         <p style={{ color: '#6b7280', lineHeight: 1.6 }}>To achieve the social and economic upliftment of underserved and minority communities by ensuring every individual has the direction, goals, and educational foundation needed to thrive.</p>
                         <img src="/assets/work/63624.jpg.jpeg" alt="Vision" style={{ width: '100%', height: 200, objectFit: 'cover', borderRadius: 16, marginTop: '1.5rem' }} />
@@ -135,7 +144,9 @@ export const AboutPage = () => {
                         border: '1px solid rgba(30,58,95,0.08)',
                         boxShadow: '0 4px 24px rgba(30,58,95,0.06)',
                     }}>
-                        <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'linear-gradient(135deg, #d4a847, #b8922e)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '1.5rem' }}>🎯</div>
+                        <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'linear-gradient(135deg, #d4a847, #b8922e)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '1.5rem' }}>
+                            <Target size={28} />
+                        </div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif' }}>Our Mission</h3>
                         <p style={{ color: '#6b7280', lineHeight: 1.6 }}>To provide transformative education and mentorship to underserved communities by creating a premier platform where young educators and youth can showcase their skills, grow professionally, and serve as catalysts for social change.</p>
                         <img src="/assets/work/63626.jpg.jpeg" alt="Mission" style={{ width: '100%', height: 200, objectFit: 'cover', borderRadius: 16, marginTop: '1.5rem' }} />
@@ -147,7 +158,9 @@ export const AboutPage = () => {
                         border: '1px solid rgba(30,58,95,0.08)',
                         boxShadow: '0 4px 24px rgba(30,58,95,0.06)',
                     }}>
-                        <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'linear-gradient(135deg, #2563eb, #1e3a5f)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '1.5rem' }}>📋</div>
+                        <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'linear-gradient(135deg, #2563eb, #1e3a5f)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '1.5rem' }}>
+                            <ClipboardList size={28} />
+                        </div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif' }}>Our Objectives</h3>
                         <ul style={{ color: '#6b7280', lineHeight: 1.5, textAlign: 'left', listStyleType: 'disc', paddingLeft: '1.2rem', fontSize: '0.95rem' }}>
                             <li style={{ marginBottom: '0.4rem' }}>Promote educational equity for children aged 5–16 in underserved communities</li>
@@ -268,10 +281,10 @@ export const AboutPage = () => {
                     <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #d4a847, #b8922e)', borderRadius: 2, margin: '0 auto 3rem' }} />
                     <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                         {[
-                            { name: 'Prabal', role: 'Founder', img: '/assets/work/prabal_latest.jpeg', quote: 'Every child we teach is a future we build together.', instagram: 'https://www.instagram.com/withprabal_/' },
-                            { name: 'Anjali Mishra', role: 'President', img: '/assets/work/anjali_new.jpeg', quote: 'We believe every child deserves the chance to learn, grow, and dream.' },
-                            { name: 'Prateek Sharma', role: 'VICE PRESIDENT', img: '/assets/work/prateek_new.png', quote: 'Education is the one gift that keeps multiplying.' },
-                            { name: 'Sakshi', role: 'Director - Dept. of Education & Welfare', img: '/assets/work/placeholder.png', quote: 'Dedicated to empowering the next generation through education and welfare.' },
+                            { name: 'Prabal', role: 'Founder', img: '/assets/work/prabal_latest.jpeg', quote: 'Every child we teach is a future we build together.', instagram: 'https://www.instagram.com/withprabal_/', linkedin: 'https://www.linkedin.com/in/prabal-pandey-854803358/' },
+                            { name: 'Anjali Mishra', role: 'President', img: '/assets/work/anjali_new.jpeg', quote: 'We believe every child deserves the chance to learn, grow, and dream.', instagram: 'https://www.instagram.com/___anjaliii.v18?utm_source=qr&igsh=MWJhdnNmenB6Y2NpeA==', linkedin: 'https://www.linkedin.com/in/anjali-mishra-3604662a7/' },
+                            { name: 'Prateek Sharma', role: 'Vice President', img: '/assets/work/prateek_new.png', quote: 'Education is the one gift that keeps multiplying.', instagram: 'https://www.instagram.com/prateek__.27?igsh=MTFtc2QzYXUyaGV6dw==', linkedin: 'https://www.linkedin.com/in/prateek-sharma-82b934340/' },
+                            { name: 'Sakshi', role: 'Director - Dept. of Education & Welfare', img: '/assets/work/sakshi.jpg', quote: 'Dedicated to empowering the next generation through education and welfare.', instagram: 'https://www.instagram.com/s__rajawat__05?igsh=cHViMzlkdDU5OW4w', linkedin: 'https://www.linkedin.com/in/sakshi-rajawat-789556389/' },
                             { name: 'Priyansh', role: 'Social Media Head', img: '/assets/work/priyansh.jpeg', quote: 'Every story we share reaches someone who wants to help.' },
                         ].map((member, idx) => (
                             <motion.div
@@ -304,11 +317,15 @@ export const AboutPage = () => {
                                     />
                                     <div style={{ position: 'absolute', bottom: 12, right: 12, display: 'flex', gap: '8px' }}>
                                         {member.instagram && (
-                                            <a href={member.instagram} target="_blank" rel="noopener noreferrer" style={{ width: 32, height: 32, borderRadius: 8, background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', textDecoration: 'none', color: 'inherit' }}>
-                                                📸
+                                            <a href={member.instagram} target="_blank" rel="noopener noreferrer" style={{ width: 32, height: 32, borderRadius: 8, background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', textDecoration: 'none', color: '#db2777' }}>
+                                                <FaInstagram size={18} />
                                             </a>
                                         )}
-                                        <div style={{ width: 32, height: 32, borderRadius: 8, background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>💼</div>
+                                        {member.linkedin && (
+                                            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{ width: 32, height: 32, borderRadius: 8, background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2563eb', fontSize: '0.9rem', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', textDecoration: 'none' }}>
+                                                <FaLinkedin size={18} />
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                                 <div style={{ padding: '0 0.5rem 1rem' }}>

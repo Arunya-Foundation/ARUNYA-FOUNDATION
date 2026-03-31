@@ -1,5 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { 
+    Leaf, BookOpen, Calculator, Palette, Library, Music, Puzzle, 
+    Book, FileText, Plus, Microscope, Globe, Smile, GraduationCap, 
+    Ruler, FlaskConical, Megaphone, Lightbulb, Laptop, Landmark, 
+    Backpack, Eye, Target, ClipboardList, HeartHandshake, 
+    Handshake, Heart, ShieldCheck, Flame 
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 import { PageTransition } from '../components/ui/PageTransition';
 import { ModalOverlay } from '../components/ui/ModalOverlay';
@@ -40,56 +47,56 @@ const syllabusData = [
     {
         level: 'Foundation',
         ages: '5 – 8 Years',
-        icon: '🌱',
+        icon: <Leaf size={24} />,
         color: 'blue',
         description: 'Building strong fundamentals through play-based and story-based learning that sparks curiosity.',
         subjects: [
-            { icon: '📖', name: 'Basic Literacy', detail: 'Alphabets, phonics, simple reading in Hindi & English' },
-            { icon: '🔢', name: 'Numeracy', detail: 'Counting, basic addition & subtraction, shapes' },
-            { icon: '🎨', name: 'Art & Drawing', detail: 'Creative expression through colors, shapes, and craft' },
-            { icon: '📚', name: 'Moral Stories', detail: 'Value-based storytelling for character development' },
-            { icon: '🎵', name: 'Rhymes & Music', detail: 'Learning through songs, rhymes, and rhythm activities' },
-            { icon: '🧩', name: 'Activity Based', detail: 'Puzzles, games, and hands-on learning activities' },
+            { icon: <BookOpen size={16} />, name: 'Basic Literacy', detail: 'Alphabets, phonics, simple reading in Hindi & English' },
+            { icon: <Calculator size={16} />, name: 'Numeracy', detail: 'Counting, basic addition & subtraction, shapes' },
+            { icon: <Palette size={16} />, name: 'Art & Drawing', detail: 'Creative expression through colors, shapes, and craft' },
+            { icon: <Library size={16} />, name: 'Moral Stories', detail: 'Value-based storytelling for character development' },
+            { icon: <Music size={16} />, name: 'Rhymes & Music', detail: 'Learning through songs, rhymes, and rhythm activities' },
+            { icon: <Puzzle size={16} />, name: 'Activity Based', detail: 'Puzzles, games, and hands-on learning activities' },
         ],
     },
     {
         level: 'Primary',
         ages: '9 – 12 Years',
-        icon: '📘',
+        icon: <Book size={24} />,
         color: 'golden',
         description: 'Strengthening core academic skills with structured lessons and real-world applications.',
         subjects: [
-            { icon: '📝', name: 'English', detail: 'Grammar, comprehension, essay writing, spoken English' },
-            { icon: '📕', name: 'Hindi', detail: 'Vyakaran, nibandh, kavita, and conversational Hindi' },
-            { icon: '➕', name: 'Mathematics', detail: 'Multiplication, division, fractions, basic geometry' },
-            { icon: '🔬', name: 'Science Basics', detail: 'Plants, animals, human body, simple experiments' },
-            { icon: '🌍', name: 'General Knowledge', detail: 'India, world, current affairs, environment awareness' },
-            { icon: '🎭', name: 'Art & Culture', detail: 'Drama, folk art, cultural heritage activities' },
+            { icon: <FileText size={16} />, name: 'English', detail: 'Grammar, comprehension, essay writing, spoken English' },
+            { icon: <Book size={16} />, name: 'Hindi', detail: 'Vyakaran, nibandh, kavita, and conversational Hindi' },
+            { icon: <Plus size={16} />, name: 'Mathematics', detail: 'Multiplication, division, fractions, basic geometry' },
+            { icon: <Microscope size={16} />, name: 'Science Basics', detail: 'Plants, animals, human body, simple experiments' },
+            { icon: <Globe size={16} />, name: 'General Knowledge', detail: 'India, world, current affairs, environment awareness' },
+            { icon: <Smile size={16} />, name: 'Art & Culture', detail: 'Drama, folk art, cultural heritage activities' },
         ],
     },
     {
         level: 'Secondary',
         ages: '13 – 16 Years',
-        icon: '🎓',
+        icon: <GraduationCap size={24} />,
         color: 'blue',
         description: 'Preparing students for higher education and self-sufficiency through advanced academics and life skills.',
         subjects: [
-            { icon: '📐', name: 'Advanced Math', detail: 'Algebra, geometry, statistics, trigonometry basics' },
-            { icon: '⚗️', name: 'Science', detail: 'Physics, Chemistry, Biology fundamentals and practicals' },
-            { icon: '🗣️', name: 'Communication', detail: 'Public speaking, debate, interview preparation' },
-            { icon: '💡', name: 'Career Guidance', detail: 'Skill assessment, career paths, scholarship awareness' },
-            { icon: '💻', name: 'Computer Literacy', detail: 'MS Office, internet, basic coding, digital safety' },
-            { icon: '🏦', name: 'Financial Literacy', detail: 'Savings, budgeting, banking basics for self-reliance' },
+            { icon: <Ruler size={16} />, name: 'Advanced Math', detail: 'Algebra, geometry, statistics, trigonometry basics' },
+            { icon: <FlaskConical size={16} />, name: 'Science', detail: 'Physics, Chemistry, Biology fundamentals and practicals' },
+            { icon: <Megaphone size={16} />, name: 'Communication', detail: 'Public speaking, debate, interview preparation' },
+            { icon: <Lightbulb size={16} />, name: 'Career Guidance', detail: 'Skill assessment, career paths, scholarship awareness' },
+            { icon: <Laptop size={16} />, name: 'Computer Literacy', detail: 'MS Office, internet, basic coding, digital safety' },
+            { icon: <Landmark size={16} />, name: 'Financial Literacy', detail: 'Savings, budgeting, banking basics for self-reliance' },
         ],
     },
 ];
 
 /* ── Programs Data ────────────────────────────── */
 const programs = [
-    { title: 'Weekend Classes', icon: '📚', desc: 'Free weekend classes every Saturday & Sunday covering core subjects for all age groups, taught by trained volunteers.', img: IMAGES.cause1 },
-    { title: 'Study Material Kit', icon: '🎒', desc: 'Complete kit with notebooks, textbooks, stationery, and school bags distributed free to every enrolled student.', img: IMAGES.cause2 },
-    { title: 'Computer Literacy', icon: '💻', desc: 'Hands-on computer education teaching MS Office, internet skills, and basics of coding to secondary students.', img: IMAGES.cause3 },
-    { title: 'Career Counselling', icon: '💡', desc: 'Monthly career guidance sessions helping students discover scholarships, skill development paths, and job readiness.', img: IMAGES.cause4 },
+    { title: 'Weekend Classes', icon: <BookOpen size={24} />, desc: 'Free weekend classes every Saturday & Sunday covering core subjects for all age groups, taught by trained volunteers.', img: IMAGES.cause1 },
+    { title: 'Study Material Kit', icon: <Backpack size={24} />, desc: 'Complete kit with notebooks, textbooks, stationery, and school bags distributed free to every enrolled student.', img: IMAGES.cause2 },
+    { title: 'Computer Literacy', icon: <Laptop size={24} />, desc: 'Hands-on computer education teaching MS Office, internet skills, and basics of coding to secondary students.', img: IMAGES.cause3 },
+    { title: 'Career Counselling', icon: <Lightbulb size={24} />, desc: 'Monthly career guidance sessions helping students discover scholarships, skill development paths, and job readiness.', img: IMAGES.cause4 },
 ];
 
 /* ── Blog / Stories Data ─────────────────────── */
@@ -258,9 +265,9 @@ export const HomePage = () => {
                     style={{ display: 'grid', gap: '2rem', maxWidth: 1200, margin: '0 auto', gridTemplateColumns: 'repeat(auto-fit, minmax(320px,1fr))' }}
                 >
                     {[
-                        { icon: '👁️', title: 'Our Vision', text: 'To achieve the social and economic upliftment of underserved and minority communities by ensuring every individual has the direction, goals, and educational foundation needed to thrive.', img: IMAGES.vision },
-                        { icon: '🎯', title: 'Our Mission', text: 'To provide transformative education and mentorship to underserved communities by creating a premier platform where young educators and youth can showcase their skills, grow professionally, and serve as catalysts for social change.', img: IMAGES.mission },
-                        { icon: '📋', title: 'Our Goal', text: 'To promote educational equity by providing accessible, high-quality education, foundational learning, and life-direction coaching to children from underserved and minority communities. To empower youth educators by establishing a collaborative platform for pedagogical skills, practical teaching experience, and professional leadership. To facilitate social upliftment by equipping marginalized communities with knowledge, mentorship, and resources for self-reliance.', img: IMAGES.objective },
+                        { icon: <Eye size={24} />, title: 'Our Vision', text: 'To achieve the social and economic upliftment of underserved and minority communities by ensuring every individual has the direction, goals, and educational foundation needed to thrive.', img: IMAGES.vision },
+                        { icon: <Target size={24} />, title: 'Our Mission', text: 'To provide transformative education and mentorship to underserved communities by creating a premier platform where young educators and youth can showcase their skills, grow professionally, and serve as catalysts for social change.', img: IMAGES.mission },
+                        { icon: <ClipboardList size={24} />, title: 'Our Goal', text: 'To promote educational equity by providing accessible, high-quality education, foundational learning, and life-direction coaching to children from underserved and minority communities. To empower youth educators by establishing a collaborative platform for pedagogical skills, practical teaching experience, and professional leadership. To facilitate social upliftment by equipping marginalized communities with knowledge, mentorship, and resources for self-reliance.', img: IMAGES.objective },
                     ].map((c, i) => (
                         <motion.div key={i} className="premium-card" {...fadeUp} transition={{ ...fadeUp.transition, delay: i * 0.12 }}>
                             <img src={c.img} alt={c.title} className="premium-card-img" />
@@ -288,7 +295,7 @@ export const HomePage = () => {
                         {
                             hindi: 'सम्मान',
                             title: 'Service with Dignity',
-                            icon: '🙏',
+                            icon: <HeartHandshake size={24} />,
                             color: '#2563eb',
                             concept: 'We do not view the communities we serve as "projects" to be fixed, but as equals who deserve respect, resources, and opportunity.',
                             action: 'Our educators approach every student with respect, ensuring that our help builds self-reliance rather than dependency.',
@@ -296,7 +303,7 @@ export const HomePage = () => {
                         {
                             hindi: 'सह-विकास',
                             title: 'Mutual Empowerment',
-                            icon: '🤝',
+                            icon: <Handshake size={24} />,
                             color: '#d4a847',
                             concept: 'True upliftment happens when both the teacher and the student grow.',
                             action: 'We foster an environment where our youth volunteers develop real-world leadership and professional skills while delivering life-changing education.',
@@ -304,7 +311,7 @@ export const HomePage = () => {
                         {
                             hindi: 'सहानुभूति',
                             title: 'Empathetic Leadership',
-                            icon: '💛',
+                            icon: <Heart size={24} />,
                             color: '#2563eb',
                             concept: 'We seek to deeply understand the psychological and social barriers our communities face before attempting to remove them.',
                             action: 'Our volunteers lead with emotional intelligence, creating safe, encouraging, and highly attuned learning environments for minority and underserved youth.',
@@ -312,7 +319,7 @@ export const HomePage = () => {
                         {
                             hindi: 'निष्ठा',
                             title: 'Unwavering Integrity',
-                            icon: '🛡️',
+                            icon: <ShieldCheck size={24} />,
                             color: '#d4a847',
                             concept: 'Trust is the currency of a successful foundation. We operate with complete transparency and discipline.',
                             action: 'Whether handling resources, executing programs, or fulfilling our legal obligations as a registered organization, we hold ourselves to the highest ethical standards.',
@@ -320,7 +327,7 @@ export const HomePage = () => {
                         {
                             hindi: 'कर्मयोग',
                             title: 'Resilient Action',
-                            icon: '🔥',
+                            icon: <Flame size={24} />,
                             color: '#2563eb',
                             concept: 'Social change is a marathon, not a sprint. We are committed to showing up, especially when the work gets difficult.',
                             action: 'Like the first rays of the sun (Arunya) that persistently pierce through the dark, our team remains dedicated to our mission, regardless of obstacles.',

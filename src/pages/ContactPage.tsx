@@ -1,5 +1,7 @@
 import { PageTransition } from '../components/ui/PageTransition';
 import { motion } from 'framer-motion';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const fadeUp = {
     initial: { opacity: 0, y: 40 },
@@ -32,10 +34,10 @@ export const ContactPage = () => {
                         <h3 style={{ fontSize: '1.6rem', marginBottom: '2rem', color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif' }}>Contact Information</h3>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                             {[
-                                { icon: '📍', title: 'Location', detail: 'Gwalior, Madhya Pradesh, India', gradient: 'linear-gradient(135deg, #2563eb, #1e3a5f)' },
-                                { icon: '📞', title: 'Phone', detail: '+91 82238 34121', gradient: 'linear-gradient(135deg, #d4a847, #b8922e)' },
-                                { icon: '✉️', title: 'Email', detail: 'contact@arunyafoundation.org', gradient: 'linear-gradient(135deg, #2563eb, #1e3a5f)' },
-                                { icon: '⏰', title: 'Class Timings', detail: 'Sat & Sun: 10 AM – 1 PM', gradient: 'linear-gradient(135deg, #d4a847, #b8922e)' },
+                                { icon: <MapPin size={22} />, title: 'Location', detail: 'Gwalior, Madhya Pradesh, India', gradient: 'linear-gradient(135deg, #2563eb, #1e3a5f)' },
+                                { icon: <Phone size={22} />, title: 'Phone', detail: '+91 82238 34121', gradient: 'linear-gradient(135deg, #d4a847, #b8922e)' },
+                                { icon: <Mail size={22} />, title: 'Email', detail: 'arunya.trust@gmail.com', gradient: 'linear-gradient(135deg, #2563eb, #1e3a5f)' },
+                                { icon: <Clock size={22} />, title: 'Class Timings', detail: 'Sat & Sun: 10 AM – 1 PM', gradient: 'linear-gradient(135deg, #d4a847, #b8922e)' },
                             ].map((item, idx) => (
                                 <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
                                     <div style={{
@@ -56,18 +58,19 @@ export const ContactPage = () => {
                             <h4 style={{ fontSize: '1rem', marginBottom: '1rem', color: '#1e3a5f' }}>Follow Us</h4>
                             <div style={{ display: 'flex', gap: '0.75rem' }}>
                                 {[
-                                    { label: '📸', name: 'Instagram' },
-                                    { label: '🐦', name: 'Twitter' },
-                                    { label: '💼', name: 'LinkedIn' },
-                                    { label: '📺', name: 'YouTube' },
+                                    { label: <FaInstagram size={20} />, name: 'Instagram', color: '#E1306C', url: 'https://www.instagram.com/arunya_foundation/' },
+                                    { label: <FaLinkedin size={20} />, name: 'LinkedIn', color: '#0077b5', url: 'https://www.linkedin.com/company/arunya-foundation/' },
                                 ].map((s, i) => (
-                                    <a key={i} href="#" title={s.name} style={{
-                                        width: 44, height: 44, borderRadius: '50%',
-                                        background: 'var(--color-light-blue)', border: '1px solid rgba(30,58,95,0.06)',
+                                    <a key={i} href={s.url || '#'} title={s.name} target={s.url !== '#' ? '_blank' : undefined} rel="noopener noreferrer" style={{
+                                        width: 44, height: 44, borderRadius: '50%', color: s.color,
+                                        background: 'rgba(30,58,95,0.04)', border: '1px solid rgba(30,58,95,0.06)',
                                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                        textDecoration: 'none', fontSize: '1.2rem',
+                                        textDecoration: 'none',
                                         transition: 'all 0.2s',
-                                    }}>{s.label}</a>
+                                    }}
+                                        onMouseEnter={e => { (e.currentTarget.style.background = 'rgba(30,58,95,0.08)') }}
+                                        onMouseLeave={e => { (e.currentTarget.style.background = 'rgba(30,58,95,0.04)') }}
+                                    >{s.label}</a>
                                 ))}
                             </div>
                         </div>

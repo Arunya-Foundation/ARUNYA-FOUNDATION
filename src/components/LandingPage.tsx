@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Target, Eye, ClipboardList, BookOpen, Utensils, Gift, GraduationCap, Leaf, Users, Handshake, CheckCircle2, Star, Sparkles, Home, Globe, Heart } from 'lucide-react';
 import { HeartIcon } from './ui/animated-state-icons';
 import { ContainerScroll } from './ui/container-scroll-animation';
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
@@ -183,7 +183,7 @@ const LandingPage = () => {
             {/* Mission Section (Moved down) */}
             <section className="hero" style={{ minHeight: '80vh', paddingTop: '2rem' }}>
                 <div className="hero-badge glass-panel scroll-animate" style={{ opacity: 0, transform: 'translateY(20px)', transition: 'all 0.8s ease-out' }}>
-                    <span className="badge-new">Welcome</span> To Our Community! 🌿 📖 ✨
+                    <span className="badge-new">Welcome</span> To Our Community! <Leaf size={18} className="inline text-green-500 mx-1" /> <BookOpen size={18} className="inline text-blue-500 mx-1" /> <Sparkles size={18} className="inline text-yellow-500 mx-1" />
                 </div>
 
                 <h1 className="hero-title scroll-animate" style={{ opacity: 0, transform: 'translateY(20px)', transition: 'all 0.8s ease-out 0.1s' }}>
@@ -192,7 +192,7 @@ const LandingPage = () => {
                 </h1>
 
                 <p className="hero-subtitle scroll-animate" style={{ opacity: 0, transform: 'translateY(20px)', transition: 'all 0.8s ease-out 0.2s', animation: 'none' }}>
-                    "Dedicated to spreading the light of education and building a future where no one is left behind. Together, we rise. Together, we transform. 💫"
+                    "Dedicated to spreading the light of education and building a future where no one is left behind. Together, we rise. Together, we transform. <Star size={18} className="inline text-blue-500 align-text-bottom ml-1" />"
                 </p>
 
                 <div className="hero-cta scroll-animate" style={{ opacity: 0, transform: 'translateY(20px)', transition: 'all 0.8s ease-out 0.3s', animation: 'none' }}>
@@ -204,7 +204,7 @@ const LandingPage = () => {
                 <div ref={parallaxRef} className="parallax-assets-container scroll-animate" style={{ opacity: 0, transition: 'all 1s ease-out 0.4s' }}>
                     {/* Left Small Asset */}
                     <div className="floating-asset asset-left" style={{ transform: 'translateY(' + (scrollY * -0.15) + 'px)' }}>
-                        <div className="flex-center icon-circle bg-orange">✨</div>
+                        <div className="flex-center icon-circle bg-orange"><Sparkles size={24} color="white" /></div>
                         <h4 style={{ margin: 0, fontSize: '1rem' }}>Impact milestone</h4>
                         <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-muted)' }}><CountUp from={0} to={1000} separator="," direction="up" duration={2} startWhen={parallaxVisible} />+ lives improved</p>
                     </div>
@@ -220,7 +220,7 @@ const LandingPage = () => {
                         </div>
                         <div className="task-list">
                             <div className="task-item glass-blur">
-                                <div className="task-check checked">✓</div>
+                                <div className="task-check checked"><CheckCircle2 size={16} /></div>
                                 <div className="task-details">
                                     <strong>Food Distribution Drive</strong>
                                     <span>Before 11:00 am</span>
@@ -270,21 +270,21 @@ const LandingPage = () => {
                 <div className="about-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
                     {/* Vision Card */}
                     <div className="glass-panel scroll-animate" style={{ padding: '2rem', borderRadius: '24px', opacity: 0, transform: 'translateY(40px)', transition: 'all 0.8s ease-out 0.3s' }}>
-                        <div className="flex-center icon-circle bg-orange" style={{ width: '60px', height: '60px', fontSize: '1.5rem', marginBottom: '1.5rem' }}>👁️</div>
+                        <div className="flex-center icon-circle bg-orange" style={{ width: '60px', height: '60px', marginBottom: '1.5rem' }}><Eye size={30} color="white" /></div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Our Vision</h3>
                         <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>To build empowered rural communities where every child has access to quality education, opportunities to learn, and the support needed to grow into responsible, confident, and capable leaders of the future.</p>
                         <img src="/assets/work/63624.jpg.jpeg" alt="Vision" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '16px', marginTop: '1.5rem' }} />
                     </div>
                     {/* Mission Card */}
                     <div className="glass-panel scroll-animate" style={{ padding: '2rem', borderRadius: '24px', opacity: 0, transform: 'translateY(40px)', transition: 'all 0.8s ease-out 0.4s' }}>
-                        <div className="flex-center icon-circle" style={{ background: 'linear-gradient(135deg, #10b981, #059669)', color: 'white', width: '60px', height: '60px', fontSize: '1.5rem', marginBottom: '1.5rem' }}>🎯</div>
+                        <div className="flex-center icon-circle" style={{ background: 'linear-gradient(135deg, #10b981, #059669)', width: '60px', height: '60px', marginBottom: '1.5rem' }}><Target size={30} color="white" /></div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Our Mission</h3>
                         <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>To empower children in rural areas through accessible and meaningful education by mobilizing youth volunteers, strengthening foundational learning, and creating community-driven initiatives that nurture knowledge, creativity, and social responsibility.</p>
                         <img src="/assets/work/63626.jpg.jpeg" alt="Mission" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '16px', marginTop: '1.5rem' }} />
                     </div>
                     {/* Objective Card */}
                     <div className="glass-panel scroll-animate" style={{ padding: '2rem', borderRadius: '24px', opacity: 0, transform: 'translateY(40px)', transition: 'all 0.8s ease-out 0.5s' }}>
-                        <div className="flex-center icon-circle" style={{ background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)', color: 'white', width: '60px', height: '60px', fontSize: '1.5rem', marginBottom: '1.5rem' }}>📋</div>
+                        <div className="flex-center icon-circle" style={{ background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)', width: '60px', height: '60px', marginBottom: '1.5rem' }}><ClipboardList size={30} color="white" /></div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Our Objectives</h3>
                         <ul style={{ color: 'var(--text-muted)', lineHeight: 1.4, textAlign: 'left', listStyleType: 'disc', paddingLeft: '1.2rem', fontSize: '0.9rem' }}>
                             <li style={{ marginBottom: '0.4rem' }}>To promote access to quality education for children in rural communities.</li>
@@ -326,23 +326,23 @@ const LandingPage = () => {
             <section className="impact-stats-section" style={{ padding: '4rem 2rem', position: 'relative', zIndex: 10 }}>
                 <div ref={statsRef} className="stats-container glass-panel scroll-animate" style={{ opacity: 0, transform: 'translateY(40px)', transition: 'all 0.8s ease-out' }}>
                     <div className="stat-item tooltip-container">
-                        <div className="stat-icon flex-center bg-orange">👥</div>
+                        <div className="stat-icon flex-center bg-orange"><Users size={32} color="white" /></div>
                         <h3 className="stat-number"><CountUp from={0} to={1250} separator="," direction="up" duration={2} startWhen={statsVisible} />+</h3>
                         <p className="stat-label">Children Taught</p>
                         <div className="tooltip-text glass-panel">Every weekend, volunteers teach basic knowledge on-site to underprivileged children.</div>
                     </div>
                     <div className="stat-item">
-                        <div className="stat-icon flex-center" style={{ background: 'linear-gradient(135deg, #10b981, #059669)', color: 'white' }}>💚</div>
+                        <div className="stat-icon flex-center" style={{ background: 'linear-gradient(135deg, #10b981, #059669)', color: 'white' }}><Heart size={32} color="white" /></div>
                         <h3 className="stat-number">₹<CountUp from={0} to={5.2} direction="up" duration={2} startWhen={statsVisible} />L+</h3>
                         <p className="stat-label">Donation Raised</p>
                     </div>
                     <div className="stat-item">
-                        <div className="stat-icon flex-center" style={{ background: 'linear-gradient(135deg, #ec4899, #be185d)', color: 'white' }}>🍲</div>
+                        <div className="stat-icon flex-center" style={{ background: 'linear-gradient(135deg, #ec4899, #be185d)', color: 'white' }}><Utensils size={32} color="white" /></div>
                         <h3 className="stat-number"><CountUp from={0} to={15} direction="up" duration={2} startWhen={statsVisible} />k+</h3>
                         <p className="stat-label">Meals Served</p>
                     </div>
                     <div className="stat-item">
-                        <div className="stat-icon flex-center" style={{ background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)', color: 'white' }}>🤝</div>
+                        <div className="stat-icon flex-center" style={{ background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)', color: 'white' }}><Handshake size={32} color="white" /></div>
                         <h3 className="stat-number"><CountUp from={0} to={300} direction="up" duration={2} startWhen={statsVisible} />+</h3>
                         <p className="stat-label">Active Volunteers</p>
                     </div>
@@ -373,20 +373,20 @@ const LandingPage = () => {
 
                 {/* Filter Bar */}
                 <div className="filter-bar scroll-animate" style={{ opacity: 0, transform: 'translateY(20px)', transition: 'all 0.8s ease-out 0.3s' }}>
-                    <button className="filter-btn active"><span>🏠</span> All</button>
-                    <button className="filter-btn"><span>🍲</span> Food</button>
-                    <button className="filter-btn"><span>📚</span> Education</button>
-                    <button className="filter-btn"><span>🎂</span> Birthday</button>
-                    <button className="filter-btn"><span>🌱</span> Environment</button>
+                    <button className="filter-btn active"><span><Home size={16} className="inline mr-1 mb-1" /></span> All</button>
+                    <button className="filter-btn"><span><Utensils size={16} className="inline mr-1 mb-1" /></span> Food</button>
+                    <button className="filter-btn"><span><BookOpen size={16} className="inline mr-1 mb-1" /></span> Education</button>
+                    <button className="filter-btn"><span><Gift size={16} className="inline mr-1 mb-1" /></span> Birthday</button>
+                    <button className="filter-btn"><span><Leaf size={16} className="inline mr-1 mb-1" /></span> Environment</button>
                 </div>
 
                 {/* Causes Grid */}
                 <div className="causes-grid">
                     {[
-                        { title: 'Weekend Basic Classes', category: 'Education', icon: '📚', amount: '₹500/Child', img: '/assets/work/20251102_131620.jpg' },
-                        { title: 'Feed a Homeless Child', category: 'Food', icon: '🍲', amount: '₹50/Meal', img: '/assets/work/20251102_131624.jpg' },
-                        { title: 'Virtual Cake Cutting', category: 'Birthday', icon: '🎂', amount: '₹2000/Celebration', img: '/assets/work/20251102_131626.jpg' },
-                        { title: 'School Supplies Kit', category: 'Education', icon: '🎒', amount: '₹350/Kit', img: '/assets/work/20251102_131627.jpg' },
+                        { title: 'Weekend Basic Classes', category: 'Education', icon: <BookOpen size={24} className="inline text-blue-500 mb-1 mr-2" />, amount: '₹500/Child', img: '/assets/work/20251102_131620.jpg' },
+                        { title: 'Feed a Homeless Child', category: 'Food', icon: <Utensils size={24} className="inline text-orange-500 mb-1 mr-2" />, amount: '₹50/Meal', img: '/assets/work/20251102_131624.jpg' },
+                        { title: 'Virtual Cake Cutting', category: 'Birthday', icon: <Gift size={24} className="inline text-pink-500 mb-1 mr-2" />, amount: '₹2000/Celebration', img: '/assets/work/20251102_131626.jpg' },
+                        { title: 'School Supplies Kit', category: 'Education', icon: <GraduationCap size={24} className="inline text-green-500 mb-1 mr-2" />, amount: '₹350/Kit', img: '/assets/work/20251102_131627.jpg' },
                     ].map((cause, idx) => (
                         <div key={idx} className="cause-card glass-panel scroll-animate" style={{ opacity: 0, transform: 'translateY(40px)', transition: 'all 0.8s ease-out ' + (0.4 + (idx * 0.1)) + 's' }}>
                             <div className="cause-image" style={{ backgroundImage: `url(${cause.img})` }}>
@@ -453,7 +453,7 @@ const LandingPage = () => {
                     transform: 'translateY(40px)',
                     transition: 'all 0.8s ease-out'
                 }}>
-                    <div className="flex-center icon-circle bg-orange mb-6" style={{ width: '80px', height: '80px', fontSize: '2rem', margin: '0 auto 1.5rem' }}>🌍</div>
+                    <div className="flex-center icon-circle bg-orange mb-6" style={{ width: '80px', height: '80px', margin: '0 auto 1.5rem' }}><Globe size={40} color="white" /></div>
                     <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.1 }}>Join Our Growing <br /> Community</h2>
                     <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto 3rem', lineHeight: 1.6 }}>
                         Help us spread the light of education. Get daily updates on our work and see how your contribution transforms lives every day.
