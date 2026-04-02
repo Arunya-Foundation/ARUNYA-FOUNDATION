@@ -26,6 +26,8 @@ const IMAGES = {
     blog1: 'https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=800&q=80',
     blog2: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&q=80',
     blog3: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=80',
+    impactHygiene: '/assets/work/image2.jpeg',
+    impactArt: '/assets/work/image3.jpeg',
 };
 
 /* ── Animation variants ───────────────────────── */
@@ -126,6 +128,8 @@ const programs = [
     { title: 'Study Material Kit', icon: <Backpack size={24} />, desc: 'Complete kit with notebooks, textbooks, stationery, and school bags distributed free to every enrolled student.', img: IMAGES.cause2 },
     { title: 'Computer Literacy', icon: <Laptop size={24} />, desc: 'Hands-on computer education teaching MS Office, internet skills, and basics of coding to secondary students.', img: IMAGES.cause3 },
     { title: 'Career Counselling', icon: <Lightbulb size={24} />, desc: 'Monthly career guidance sessions helping students discover scholarships, skill development paths, and job readiness.', img: IMAGES.cause4 },
+    { title: 'Little Habits, Big Impact 🌿', icon: <Heart size={24} />, desc: 'At Arunya Foundation, we believe that education begins with self-care. Children are gently guided to practice basic hygiene habits such as washing their face and brushing their teeth, building confidence and readiness to learn.', img: IMAGES.impactHygiene },
+    { title: 'Colors of Joy 🎨', icon: <Palette size={24} />, desc: 'Learning goes beyond textbooks. Through creative activities like hand painting, children explore their imagination and express themselves, reminding us that education is also about joy and confidence.', img: IMAGES.impactArt },
 ];
 
 /* ── Blog / Stories Data ─────────────────────── */
@@ -150,6 +154,20 @@ const blogPosts = [
         excerpt: 'Republic Day became extra special as 300+ students performed cultural programs, received certificates, and celebrated their learning milestones. Parents, volunteers, and community leaders came together in an emotional day of pride and joy.',
         img: IMAGES.blog3,
         readMore: 'The Annual Day was held at a local community hall. Students performed skits on education, sang patriotic songs, and showcased their art projects. Top students received certificates and school supply kits. Several parents shared testimonials about how their children have changed since joining Arunya. It was a day that reminded us why we do what we do.'
+    },
+    {
+        title: 'Little Habits, Big Impact 🌿',
+        date: 'Mar 24, 2026',
+        excerpt: 'At Arunya Foundation, we believe that education is not limited to books—it begins with self-care and dignity. Basic hygiene habits build confidence and self-respect.',
+        img: IMAGES.impactHygiene,
+        readMore: 'At Arunya Foundation, we believe that education is not limited to books—it begins with self-care and dignity. Before stepping into the classroom, children are gently guided to practice basic hygiene habits such as washing their face, brushing their teeth, and maintaining personal cleanliness.\n\nThese small routines not only promote better health but also build confidence, self-respect, and readiness to learn. Moments like these reflect how simple actions can create lasting change in a child’s life. Because nurturing clean habits today lays the foundation for a healthier, brighter tomorrow.\n\n#CleanlinessDrive #HygieneAwareness #HealthyHabits #ChildDevelopment #ArunyaFoundation #CommunityImpact'
+    },
+    {
+        title: 'Colors of Joy, Learning Beyond Books 🎨',
+        date: 'Mar 15, 2026',
+        excerpt: 'Learning goes beyond textbooks. Through creative activities like hand painting, children express themselves and explore imagination.',
+        img: IMAGES.impactArt,
+        readMore: 'At Arunya Foundation, learning goes beyond textbooks. Through creative activities like hand painting, children are encouraged to express themselves, explore their imagination, and simply enjoy the process of creating.\n\nMoments filled with colors, laughter, and little handprints remind us that education is not just about knowledge, but also about joy, confidence, and self-expression. Because sometimes, the brightest learning happens when little hands dive into colors and hearts into happiness 💛\n\n#CreativeLearning #JoyfulEducation #ArtAndExpression #ArunyaFoundation #LearningWithFun #ChildhoodJoy'
     },
 ];
 
