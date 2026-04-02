@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
     Leaf, BookOpen, Calculator, Palette, Library, Music, Puzzle, 
-    Book, FileText, Plus, Microscope, Globe, Smile, GraduationCap, 
-    Ruler, FlaskConical, Megaphone, Lightbulb, Laptop, Landmark, 
+    Book, FileText, Microscope, Globe, Smile, GraduationCap, 
+    FlaskConical, Megaphone, Lightbulb, Laptop, Landmark, 
     Backpack, Eye, Target, ClipboardList, HeartHandshake, 
     Handshake, Heart, ShieldCheck, Flame 
 } from 'lucide-react';
@@ -45,48 +45,77 @@ const staggerContainer = {
 /* ── Syllabus Data ────────────────────────────── */
 const syllabusData = [
     {
-        level: 'Foundation',
-        ages: '5 – 8 Years',
-        icon: <Leaf size={24} />,
+        level: 'Group A',
+        ages: '1 – 3 Years',
+        icon: <Smile size={24} />,
         color: 'blue',
-        description: 'Building strong fundamentals through play-based and story-based learning that sparks curiosity.',
+        description: 'Senses, sounds, movement',
         subjects: [
-            { icon: <BookOpen size={16} />, name: 'Basic Literacy', detail: 'Alphabets, phonics, simple reading in Hindi & English' },
-            { icon: <Calculator size={16} />, name: 'Numeracy', detail: 'Counting, basic addition & subtraction, shapes' },
-            { icon: <Palette size={16} />, name: 'Art & Drawing', detail: 'Creative expression through colors, shapes, and craft' },
-            { icon: <Library size={16} />, name: 'Moral Stories', detail: 'Value-based storytelling for character development' },
-            { icon: <Music size={16} />, name: 'Rhymes & Music', detail: 'Learning through songs, rhymes, and rhythm activities' },
-            { icon: <Puzzle size={16} />, name: 'Activity Based', detail: 'Puzzles, games, and hands-on learning activities' },
+            { icon: <Music size={16} />, name: 'Language', detail: 'Animal sounds, basic words (Songs, clapping)' },
+            { icon: <Puzzle size={16} />, name: 'Math', detail: 'Big-small, one-many (Toys, stones)' },
+            { icon: <FlaskConical size={16} />, name: 'Science', detail: 'Touch & feel, water (Sensory play)' },
+            { icon: <HeartHandshake size={16} />, name: 'Social', detail: 'Sharing, smiling (Group play)' },
+            { icon: <Palette size={16} />, name: 'Art', detail: 'Scribbling (Crayons & colors)' },
         ],
     },
     {
-        level: 'Primary',
-        ages: '9 – 12 Years',
+        level: 'Group B',
+        ages: '4 – 6 Years',
+        icon: <Leaf size={24} />,
+        color: 'golden',
+        description: 'Play-based learning',
+        subjects: [
+            { icon: <BookOpen size={16} />, name: 'English', detail: 'Alphabets, words (Action songs)' },
+            { icon: <Book size={16} />, name: 'Hindi', detail: 'Swar, simple words (Rhymes)' },
+            { icon: <Calculator size={16} />, name: 'Math', detail: 'Counting 1-50 (Objects, jumps)' },
+            { icon: <Microscope size={16} />, name: 'Science', detail: 'Plants, animals (Pictures, walks)' },
+            { icon: <HeartHandshake size={16} />, name: 'Social', detail: 'Clean habits (Role play)' },
+            { icon: <Palette size={16} />, name: 'Art', detail: 'Drawing, clay (Free creativity)' },
+        ],
+    },
+    {
+        level: 'Group C',
+        ages: '7 – 9 Years',
+        icon: <Library size={24} />,
+        color: 'blue',
+        description: 'Reading & curiosity',
+        subjects: [
+            { icon: <BookOpen size={16} />, name: 'English', detail: 'Reading, sentences (Story reading)' },
+            { icon: <Book size={16} />, name: 'Hindi', detail: 'Paragraphs, matras (Loud reading)' },
+            { icon: <Calculator size={16} />, name: 'Math', detail: 'Tables (2-5) (Group practice)' },
+            { icon: <Globe size={16} />, name: 'Science', detail: 'Living / non-living (Real examples)' },
+            { icon: <HeartHandshake size={16} />, name: 'Social', detail: 'Festivals, helpers (Discussion)' },
+            { icon: <Smile size={16} />, name: 'Games', detail: 'Team activities (Outdoor play)' },
+        ],
+    },
+    {
+        level: 'Group D',
+        ages: '10 – 12 Years',
         icon: <Book size={24} />,
         color: 'golden',
-        description: 'Strengthening core academic skills with structured lessons and real-world applications.',
+        description: 'Concepts & expression',
         subjects: [
-            { icon: <FileText size={16} />, name: 'English', detail: 'Grammar, comprehension, essay writing, spoken English' },
-            { icon: <Book size={16} />, name: 'Hindi', detail: 'Vyakaran, nibandh, kavita, and conversational Hindi' },
-            { icon: <Plus size={16} />, name: 'Mathematics', detail: 'Multiplication, division, fractions, basic geometry' },
-            { icon: <Microscope size={16} />, name: 'Science Basics', detail: 'Plants, animals, human body, simple experiments' },
-            { icon: <Globe size={16} />, name: 'General Knowledge', detail: 'India, world, current affairs, environment awareness' },
-            { icon: <Smile size={16} />, name: 'Art & Culture', detail: 'Drama, folk art, cultural heritage activities' },
+            { icon: <FileText size={16} />, name: 'English', detail: 'Paragraph writing (Picture-based)' },
+            { icon: <Book size={16} />, name: 'Hindi', detail: 'Short essays (Guided writing)' },
+            { icon: <Calculator size={16} />, name: 'Math', detail: 'Fractions (Paper activities)' },
+            { icon: <Microscope size={16} />, name: 'Science', detail: 'Human body (Charts)' },
+            { icon: <HeartHandshake size={16} />, name: 'Social', detail: 'Rights & duties (Storytelling)' },
+            { icon: <Lightbulb size={16} />, name: 'Life Skills', detail: 'Hygiene, emotions (Open discussion)' },
         ],
     },
     {
-        level: 'Secondary',
-        ages: '13 – 16 Years',
+        level: 'Group E',
+        ages: '13 – 15 Years',
         icon: <GraduationCap size={24} />,
         color: 'blue',
-        description: 'Preparing students for higher education and self-sufficiency through advanced academics and life skills.',
+        description: 'Skills & leadership',
         subjects: [
-            { icon: <Ruler size={16} />, name: 'Advanced Math', detail: 'Algebra, geometry, statistics, trigonometry basics' },
-            { icon: <FlaskConical size={16} />, name: 'Science', detail: 'Physics, Chemistry, Biology fundamentals and practicals' },
-            { icon: <Megaphone size={16} />, name: 'Communication', detail: 'Public speaking, debate, interview preparation' },
-            { icon: <Lightbulb size={16} />, name: 'Career Guidance', detail: 'Skill assessment, career paths, scholarship awareness' },
-            { icon: <Laptop size={16} />, name: 'Computer Literacy', detail: 'MS Office, internet, basic coding, digital safety' },
-            { icon: <Landmark size={16} />, name: 'Financial Literacy', detail: 'Savings, budgeting, banking basics for self-reliance' },
+            { icon: <Megaphone size={16} />, name: 'English', detail: 'Speaking skills (Group discussion)' },
+            { icon: <FileText size={16} />, name: 'Hindi', detail: 'Debate, writing (Real-life topics)' },
+            { icon: <Calculator size={16} />, name: 'Math', detail: 'Percentages (Daily examples)' },
+            { icon: <Microscope size={16} />, name: 'Science', detail: 'Health, environment (Interactive talk)' },
+            { icon: <Landmark size={16} />, name: 'Social', detail: 'Constitution basics (Story method)' },
+            { icon: <Target size={16} />, name: 'Life Skills', detail: 'Leadership, career (Mentor interaction)' },
         ],
     },
 ];
@@ -374,11 +403,13 @@ export const HomePage = () => {
             {/* ═══════════════════ SYLLABUS OVERVIEW ═══════════════════ */}
             <section id="syllabus" className="section-block alt-bg">
                 <div className="section-header">
-                    <motion.h2 {...fadeUp}>Syllabus Overview</motion.h2>
+                    <motion.h2 {...fadeUp}>Weekend Community Teaching Plan</motion.h2>
                     <div className="golden-underline" />
                     <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }}>
-                        Our carefully designed curriculum covers three age groups, 
-                        building from foundational literacy to career readiness.
+                        Our carefully designed curriculum covers five age groups (1–15 years), 
+                        building from play-based learning to skills & leadership.
+                        <br/><br/>
+                        <strong style={{ color: 'var(--color-royal-blue)' }}>Every session ends with a story telling session.</strong>
                     </motion.p>
                 </div>
 
@@ -411,6 +442,26 @@ export const HomePage = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                <motion.div {...fadeUp} style={{ display: 'grid', gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', maxWidth: 1000, margin: '3rem auto 0' }}>
+                    <div className="premium-card" style={{ padding: '2rem' }}>
+                        <h3 style={{ color: '#1e3a5f', marginBottom: '1rem', borderBottom: '2px solid #d4a847', paddingBottom: '0.5rem', display: 'inline-block' }}>Common 2-Hour Session Flow</h3>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: '#4b5563', lineHeight: 1.8 }}>
+                            <li style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(0,0,0,0.05)', padding: '0.75rem 0' }}><strong>First 10 min</strong> <span>Prayer / song / warm-up</span></li>
+                            <li style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(0,0,0,0.05)', padding: '0.75rem 0' }}><strong>Next 80 min</strong> <span>Teaching + activities</span></li>
+                            <li style={{ display: 'flex', justifyContent: 'space-between', padding: '0.75rem 0' }}><strong>Last 30 min</strong> <span>Games / art / recap</span></li>
+                        </ul>
+                    </div>
+                    <div className="premium-card" style={{ padding: '2rem' }}>
+                        <h3 style={{ color: '#1e3a5f', marginBottom: '1rem', borderBottom: '2px solid #d4a847', paddingBottom: '0.5rem', display: 'inline-block' }}>Teaching Guidelines</h3>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: '#4b5563', lineHeight: 2 }}>
+                            <li style={{ padding: '0.25rem 0', display: 'flex', alignItems: 'center', gap: '0.5rem' }}><span style={{ color: '#d4a847' }}>✔</span> No exams or tests</li>
+                            <li style={{ padding: '0.25rem 0', display: 'flex', alignItems: 'center', gap: '0.5rem' }}><span style={{ color: '#d4a847' }}>✔</span> Flexible attendance</li>
+                            <li style={{ padding: '0.25rem 0', display: 'flex', alignItems: 'center', gap: '0.5rem' }}><span style={{ color: '#d4a847' }}>✔</span> Encourage participation</li>
+                            <li style={{ padding: '0.25rem 0', display: 'flex', alignItems: 'center', gap: '0.5rem' }}><span style={{ color: '#d4a847' }}>✔</span> Use local language + Hindi + English</li>
+                        </ul>
+                    </div>
+                </motion.div>
             </section>
 
             {/* ═══════════════════ FULL BLEED IMAGE ═══════════════════ */}
