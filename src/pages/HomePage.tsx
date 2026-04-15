@@ -128,25 +128,18 @@ const programs = [
 /* ── Blog / Stories Data ─────────────────────── */
 const blogPosts = [
     {
-        title: 'Meera Scored 92% in Board Exams',
-        date: 'Mar 05, 2026',
-        excerpt: 'From struggling with basic math to topping her class — meet Meera, an Arunya student from a village near Gwalior who proved that with the right support, anything is possible. Her journey from our weekend classes to board exam success inspires every child in our program.',
-        img: IMAGES.blog1,
-        readMore: 'Meera joined Arunya Foundation at age 9. She could barely read Hindi and had never held a textbook of her own. Our volunteers noticed her curiosity and quiet determination. Over four years of weekend classes, moral support, and study materials, she transformed. In her board exams, she scored 92%, the highest in her village. Today she dreams of becoming a teacher herself.'
+        title: 'Little Habits, Big Impact 🌿',
+        date: 'Apr 10, 2026',
+        excerpt: 'At Arunya Foundation, we believe that education is not limited to books—it begins with self-care and dignity. Before stepping into the classroom, children are gently guided to practice basic hygiene habits.',
+        img: '/assets/blog/hygiene.jpeg',
+        readMore: 'At Arunya Foundation, we believe that education is not limited to books—it begins with self-care and dignity. Before stepping into the classroom, children are gently guided to practice basic hygiene habits such as washing their face, brushing their teeth, and maintaining personal cleanliness.\n\nThese small routines not only promote better health but also build confidence, self-respect, and readiness to learn. Moments like these reflect how simple actions can create lasting change in a child\'s life.\n\nBecause nurturing clean habits today lays the foundation for a healthier, brighter tomorrow.\n\n#CleanlinessDrive #HygieneAwareness #HealthyHabits #ChildDevelopment #ArunyaFoundation #CommunityImpact'
     },
     {
-        title: '500+ Students Enrolled This Year',
-        date: 'Feb 12, 2026',
-        excerpt: 'Our 2026 enrollment drive crossed 500 students across five villages! We\'re expanding our classrooms, training more volunteers, and adding new subjects like Computer Literacy and English Speaking to our syllabus.',
-        img: IMAGES.blog2,
-        readMore: 'With increasing demand from communities, we organized enrollment camps in five villages surrounding Gwalior. Parents who once hesitated to send their children now actively seek our classes. We added 15 new volunteers, set up two new learning centers, and introduced computer literacy classes. Our goal is to reach 1,000 students by December 2026.'
-    },
-    {
-        title: 'Annual Day Celebration 2026',
-        date: 'Jan 26, 2026',
-        excerpt: 'Republic Day became extra special as 300+ students performed cultural programs, received certificates, and celebrated their learning milestones. Parents, volunteers, and community leaders came together in an emotional day of pride and joy.',
-        img: IMAGES.blog3,
-        readMore: 'The Annual Day was held at a local community hall. Students performed skits on education, sang patriotic songs, and showcased their art projects. Top students received certificates and school supply kits. Several parents shared testimonials about how their children have changed since joining Arunya. It was a day that reminded us why we do what we do.'
+        title: 'Colors of Joy, Learning Beyond Books 🎨',
+        date: 'Apr 05, 2026',
+        excerpt: 'Through creative activities like hand painting, children are encouraged to express themselves, explore their imagination, and simply enjoy the process of creating.',
+        img: '/assets/blog/creative.jpeg',
+        readMore: 'At Arunya Foundation, learning goes beyond textbooks.\n\nThrough creative activities like hand painting, children are encouraged to express themselves, explore their imagination, and simply enjoy the process of creating.\n\nMoments filled with colors, laughter, and little handprints remind us that education is not just about knowledge, but also about joy, confidence, and self-expression.\n\nBecause sometimes, the brightest learning happens when little hands dive into colors and hearts into happiness 💛\n\n#CreativeLearning #JoyfulEducation #ArtAndExpression #ArunyaFoundation #LearningWithFun #ChildhoodJoy'
     },
 ];
 
@@ -586,7 +579,7 @@ export const HomePage = () => {
                             <div style={{ padding: '2rem', overflowY: 'auto', flex: 1 }}>
                                 <span style={{ color: '#d4a847', fontWeight: 600, fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>{blogPosts[expandedBlog].date}</span>
                                 <h3 style={{ fontSize: '1.6rem', color: '#1e3a5f', marginBottom: '1.25rem', fontFamily: 'Outfit, Inter, sans-serif' }}>{blogPosts[expandedBlog].title}</h3>
-                                <p style={{ color: '#4b5563', lineHeight: 1.8, fontSize: '1rem' }}>{blogPosts[expandedBlog].readMore}</p>
+                                <p style={{ color: '#4b5563', lineHeight: 1.8, fontSize: '1rem', whiteSpace: 'pre-line' }}>{blogPosts[expandedBlog].readMore}</p>
                             </div>
                         </>
                     )}
