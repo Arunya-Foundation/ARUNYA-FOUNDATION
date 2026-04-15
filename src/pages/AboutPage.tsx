@@ -113,11 +113,8 @@ export const AboutPage = () => {
                         <p style={{ marginBottom: '1rem' }}>
                             Arunya Foundation is a youth-driven community initiative based in Gwalior, dedicated to empowering underprivileged children through free education. We believe that every child aged 5–16, regardless of their economic background, deserves the chance to learn, grow, and build a self-sufficient future.
                         </p>
-                        <p style={{ marginBottom: '1rem' }}>
-                            Founded by passionate youth volunteers, our Foundation runs structured weekend classes covering literacy, numeracy, science, English, computer skills, and career guidance. We bridge learning gaps through dedicated teaching, free study materials, and holistic mentoring that builds both academic skill and confidence.
-                        </p>
                         <p>
-                            With 300+ active volunteers, 12+ villages reached, and 1,250+ students taught so far, Arunya Foundation is proving that a community of caring young people can transform the educational landscape of rural India — one child at a time.
+                            Founded by passionate youth volunteers, our Foundation runs structured weekend classes covering literacy, numeracy, science, English, and life skills. We bridge learning gaps through dedicated teaching, free study materials, and holistic mentoring that builds both academic skill and confidence.
                         </p>
                     </motion.div>
                 </div>
@@ -280,61 +277,58 @@ export const AboutPage = () => {
                     <motion.h3 {...fadeUp} style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '0.75rem', color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif' }}>Our Leadership</motion.h3>
                     <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #d4a847, #b8922e)', borderRadius: 2, margin: '0 auto 3rem' }} />
                     <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-                        {[
-                            { name: 'Prabal', role: 'Founder', img: '/assets/work/prabal_latest.jpeg', quote: 'Every child we teach is a future we build together.', instagram: 'https://www.instagram.com/withprabal_/', linkedin: 'https://www.linkedin.com/in/prabal-pandey-854803358/' },
-                            { name: 'Anjali Mishra', role: 'President', img: '/assets/work/anjali_new.jpeg', quote: 'We believe every child deserves the chance to learn, grow, and dream.', instagram: 'https://www.instagram.com/___anjaliii.v18?utm_source=qr&igsh=MWJhdnNmenB6Y2NpeA==', linkedin: 'https://www.linkedin.com/in/anjali-mishra-3604662a7/' },
-                            { name: 'Prateek Sharma', role: 'Vice President', img: '/assets/work/prateek_new.png', quote: 'Education is the one gift that keeps multiplying.', instagram: 'https://www.instagram.com/prateek__.27?igsh=MTFtc2QzYXUyaGV6dw==', linkedin: 'https://www.linkedin.com/in/prateek-sharma-82b934340/' },
-                            { name: 'Sakshi', role: 'Director - Dept. of Education & Welfare', img: '/assets/work/sakshi.jpg', quote: 'Dedicated to empowering the next generation through education and welfare.', instagram: 'https://www.instagram.com/s__rajawat__05?igsh=cHViMzlkdDU5OW4w', linkedin: 'https://www.linkedin.com/in/sakshi-rajawat-789556389/' },
-                            { name: 'Priyansh', role: 'Social Media Head', img: '/assets/work/priyansh.jpeg', quote: 'Every story we share reaches someone who wants to help.' },
-                        ].map((member, idx) => (
-                            <motion.div
-                                key={idx}
-                                {...fadeUp}
-                                transition={{ ...fadeUp.transition, delay: 0.1 + idx * 0.08 }}
-                                style={{
-                                    width: 280,
-                                    borderRadius: 32,
-                                    textAlign: 'left',
-                                    background: 'white',
-                                    overflow: 'hidden',
-                                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                                }}
-                                whileHover={{ y: -10 }}
-                            >
-                                <div style={{ position: 'relative', borderRadius: 24, overflow: 'hidden', height: 320, marginBottom: '1.25rem' }}>
-                                    <motion.img
-                                        src={member.img}
-                                        alt={member.name}
-                                        style={{
-                                            width: '100%',
-                                            height: '100%',
-                                            objectFit: 'cover',
-                                            filter: 'grayscale(100%)',
-                                            transition: 'filter 0.4s ease, transform 0.4s ease',
-                                        }}
-                                        whileHover={{ filter: 'grayscale(0%)', scale: 1.05 }}
-                                        whileTap={{ filter: 'grayscale(0%)', scale: 1.05 }}
-                                    />
-                                    <div style={{ position: 'absolute', bottom: 12, right: 12, display: 'flex', gap: '8px' }}>
-                                        {member.instagram && (
-                                            <a href={member.instagram} target="_blank" rel="noopener noreferrer" style={{ width: 32, height: 32, borderRadius: 8, background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', textDecoration: 'none', color: '#db2777' }}>
-                                                <FaInstagram size={18} />
-                                            </a>
-                                        )}
-                                        {member.linkedin && (
-                                            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{ width: 32, height: 32, borderRadius: 8, background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2563eb', fontSize: '0.9rem', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', textDecoration: 'none' }}>
-                                                <FaLinkedin size={18} />
-                                            </a>
-                                        )}
-                                    </div>
+                        {/* ── Prabal — Featured Founder Card ── */}
+                        <motion.div
+                            {...fadeUp}
+                            transition={{ ...fadeUp.transition, delay: 0.1 }}
+                            style={{
+                                width: 420,
+                                borderRadius: 32,
+                                textAlign: 'left',
+                                background: 'white',
+                                overflow: 'hidden',
+                                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                                boxShadow: '0 8px 40px rgba(30,58,95,0.12)',
+                                border: '2px solid rgba(212,168,71,0.2)',
+                            }}
+                            whileHover={{ y: -10 }}
+                        >
+                            <div style={{ position: 'relative', borderRadius: 24, overflow: 'hidden', height: 450, marginBottom: '1.25rem' }}>
+                                <motion.img
+                                    src="/assets/work/prabal_latest.jpeg"
+                                    alt="Prabal"
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        filter: 'grayscale(100%)',
+                                        transition: 'filter 0.4s ease, transform 0.4s ease',
+                                    }}
+                                    whileHover={{ filter: 'grayscale(0%)', scale: 1.05 }}
+                                    whileTap={{ filter: 'grayscale(0%)', scale: 1.05 }}
+                                />
+                                <div style={{ position: 'absolute', bottom: 14, right: 14, display: 'flex', gap: '8px' }}>
+                                    <a href="https://www.instagram.com/withprabal_/" target="_blank" rel="noopener noreferrer" style={{ width: 36, height: 36, borderRadius: 10, background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', textDecoration: 'none', color: '#db2777' }}>
+                                        <FaInstagram size={20} />
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/prabal-pandey-854803358/" target="_blank" rel="noopener noreferrer" style={{ width: 36, height: 36, borderRadius: 10, background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2563eb', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', textDecoration: 'none' }}>
+                                        <FaLinkedin size={20} />
+                                    </a>
                                 </div>
-                                <div style={{ padding: '0 0.5rem 1rem' }}>
-                                    <h4 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '0.25rem', color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif' }}>{member.name}</h4>
-                                    <p style={{ color: '#6b7280', fontSize: '0.9rem', fontWeight: 500, marginBottom: '0.75rem' }}>{member.role}</p>
-                                    <p style={{ color: '#9ca3af', fontSize: '0.8rem', fontStyle: 'italic', lineHeight: 1.4 }}>"{member.quote}"</p>
-                                </div>
-                            </motion.div>
-                        ))}
+                            </div>
+                            <div style={{ padding: '0 1.5rem 1.5rem' }}>
+                                <h4 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: '0.35rem', color: '#1e3a5f', fontFamily: 'Outfit, Inter, sans-serif' }}>Prabal</h4>
+                                <p style={{ color: '#d4a847', fontSize: '1rem', fontWeight: 700, marginBottom: '0.85rem' }}>Founder</p>
+                                <p style={{ color: '#6b7280', fontSize: '0.95rem', fontStyle: 'italic', lineHeight: 1.6 }}>"Every child we teach is a future we build together."</p>
+                            </div>
+                        </motion.div>
+
+                        {/* ── Other team members (commented out) ──
+                        { name: 'Anjali Mishra', role: 'President', img: '/assets/work/anjali_new.jpeg', quote: 'We believe every child deserves the chance to learn, grow, and dream.', instagram: 'https://www.instagram.com/___anjaliii.v18?utm_source=qr&igsh=MWJhdnNmenB6Y2NpeA==', linkedin: 'https://www.linkedin.com/in/anjali-mishra-3604662a7/' },
+                        { name: 'Prateek Sharma', role: 'Vice President', img: '/assets/work/prateek_new.png', quote: 'Education is the one gift that keeps multiplying.', instagram: 'https://www.instagram.com/prateek__.27?igsh=MTFtc2QzYXUyaGV6dw==', linkedin: 'https://www.linkedin.com/in/prateek-sharma-82b934340/' },
+                        { name: 'Sakshi', role: 'Director - Dept. of Education & Welfare', img: '/assets/work/sakshi.jpg', quote: 'Dedicated to empowering the next generation through education and welfare.', instagram: 'https://www.instagram.com/s__rajawat__05?igsh=cHViMzlkdDU5OW4w', linkedin: 'https://www.linkedin.com/in/sakshi-rajawat-789556389/' },
+                        { name: 'Priyansh', role: 'Social Media Head', img: '/assets/work/priyansh.jpeg', quote: 'Every story we share reaches someone who wants to help.' },
+                        */}
                     </div>
                 </div>
             </section>

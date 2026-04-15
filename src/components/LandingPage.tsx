@@ -373,20 +373,13 @@ const LandingPage = () => {
 
                 {/* Filter Bar */}
                 <div className="filter-bar scroll-animate" style={{ opacity: 0, transform: 'translateY(20px)', transition: 'all 0.8s ease-out 0.3s' }}>
-                    <button className="filter-btn active"><span><Home size={16} className="inline mr-1 mb-1" /></span> All</button>
-                    <button className="filter-btn"><span><Utensils size={16} className="inline mr-1 mb-1" /></span> Food</button>
-                    <button className="filter-btn"><span><BookOpen size={16} className="inline mr-1 mb-1" /></span> Education</button>
-                    <button className="filter-btn"><span><Gift size={16} className="inline mr-1 mb-1" /></span> Birthday</button>
-                    <button className="filter-btn"><span><Leaf size={16} className="inline mr-1 mb-1" /></span> Environment</button>
+                    <button className="filter-btn active"><span><BookOpen size={16} className="inline mr-1 mb-1" /></span> Education</button>
                 </div>
 
                 {/* Causes Grid */}
                 <div className="causes-grid">
                     {[
-                        { title: 'Weekend Basic Classes', category: 'Education', icon: <BookOpen size={24} className="inline text-blue-500 mb-1 mr-2" />, amount: '₹500/Child', img: '/assets/work/20251102_131620.jpg' },
-                        { title: 'Feed a Homeless Child', category: 'Food', icon: <Utensils size={24} className="inline text-orange-500 mb-1 mr-2" />, amount: '₹50/Meal', img: '/assets/work/20251102_131624.jpg' },
-                        { title: 'Virtual Cake Cutting', category: 'Birthday', icon: <Gift size={24} className="inline text-pink-500 mb-1 mr-2" />, amount: '₹2000/Celebration', img: '/assets/work/20251102_131626.jpg' },
-                        { title: 'School Supplies Kit', category: 'Education', icon: <GraduationCap size={24} className="inline text-green-500 mb-1 mr-2" />, amount: '₹350/Kit', img: '/assets/work/20251102_131627.jpg' },
+                        { title: 'Weekend Basic Classes', category: 'Education', icon: <BookOpen size={24} className="inline text-blue-500 mb-1 mr-2" />, amount: '₹200/Child', img: '/assets/work/20251102_131620.jpg' },
                     ].map((cause, idx) => (
                         <div key={idx} className="cause-card glass-panel scroll-animate" style={{ opacity: 0, transform: 'translateY(40px)', transition: 'all 0.8s ease-out ' + (0.4 + (idx * 0.1)) + 's' }}>
                             <div className="cause-image" style={{ backgroundImage: `url(${cause.img})` }}>

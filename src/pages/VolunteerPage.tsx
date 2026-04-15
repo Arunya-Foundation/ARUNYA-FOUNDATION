@@ -85,7 +85,7 @@ export const VolunteerPage = () => {
                         {[
                             { icon: <BookOpen size={24} style={{ color: '#2563eb' }} />, title: 'Teach & Inspire', desc: 'Conduct weekend classes for children aged 5–16. No teaching degree required — just passion.' },
                             { icon: <Star size={24} style={{ color: '#d4a847' }} />, title: 'Make Real Impact', desc: 'See students grow, score well, and dream bigger because of your effort.' },
-                            { icon: <Handshake size={24} style={{ color: '#10b981' }} />, title: 'Build Community', desc: 'Join 300+ volunteers across villages. Network and grow with like-minded youth.' },
+                            { icon: <Handshake size={24} style={{ color: '#10b981' }} />, title: 'Build Community', desc: 'Join volunteers across villages. Network and grow with like-minded youth.' },
                             { icon: <ScrollText size={24} style={{ color: '#8b5cf6' }} />, title: 'Get Certified', desc: 'Receive official volunteering certificates for your resume and college applications.' },
                             { icon: <GraduationCap size={24} style={{ color: '#f43f5e' }} />, title: 'Learn While Teaching', desc: 'Develop leadership, communication, and project management skills.' },
                         ].map((item, idx) => (

@@ -123,9 +123,6 @@ const syllabusData = [
 /* ── Programs Data ────────────────────────────── */
 const programs = [
     { title: 'Weekend Classes', icon: <BookOpen size={24} />, desc: 'Free weekend classes every Saturday & Sunday covering core subjects for all age groups, taught by trained volunteers.', img: IMAGES.cause1 },
-    { title: 'Study Material Kit', icon: <Backpack size={24} />, desc: 'Complete kit with notebooks, textbooks, stationery, and school bags distributed free to every enrolled student.', img: IMAGES.cause2 },
-    { title: 'Computer Literacy', icon: <Laptop size={24} />, desc: 'Hands-on computer education teaching MS Office, internet skills, and basics of coding to secondary students.', img: IMAGES.cause3 },
-    { title: 'Career Counselling', icon: <Lightbulb size={24} />, desc: 'Monthly career guidance sessions helping students discover scholarships, skill development paths, and job readiness.', img: IMAGES.cause4 },
 ];
 
 /* ── Blog / Stories Data ─────────────────────── */
@@ -513,9 +510,9 @@ export const HomePage = () => {
 
                 <div className="donation-cards">
                     {[
-                        { amount: '₹500', desc: 'Study Materials for 1 child for a month' },
-                        { amount: '₹2,000', desc: 'Complete school kit with bag, books & uniform' },
-                        { amount: '₹5,000', desc: 'Sponsor a child\'s education for a full year' },
+                        { amount: '₹200', desc: 'Study materials for 1 child for a month' },
+                        { amount: '₹500', desc: 'Complete study kit with notebooks & stationery' },
+                        { amount: '₹1,000', desc: 'Sponsor a child\'s learning for a full term' },
                     ].map((d, idx) => (
                         <motion.div
                             key={idx}
@@ -615,7 +612,7 @@ export const HomePage = () => {
                         Become a <span style={{ color: '#d4a847' }}>Volunteer</span>
                     </motion.h2>
                     <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} style={{ fontSize: 'clamp(1rem, 2.5vw, 1.15rem)', color: 'rgba(255,255,255,0.8)', lineHeight: 1.75, marginBottom: '2.5rem' }}>
-                        Join 300+ passionate youth volunteers who give their weekends to teach, mentor, and inspire. No experience needed — just the heart to serve.
+                        Join our passionate youth volunteers who give their weekends to teach, mentor, and inspire. No experience needed — just the heart to serve.
                     </motion.p>
                     <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }} style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                         <button

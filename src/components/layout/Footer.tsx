@@ -32,31 +32,7 @@ export const JoinCommunity = () => {
                     </p>
                 </div>
 
-                {/* Stats strip */}
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-                    gap: 'clamp(0.75rem, 2vw, 1.5rem)',
-                    marginBottom: 'clamp(2rem, 4vw, 3.5rem)',
-                }}>
-                    {[
-                        { num: '1,250+', label: 'Children Educated', icon: <GraduationCap size={40} /> },
-                        { num: '300+', label: 'Active Volunteers', icon: <Handshake size={40} /> },
-                        { num: '12+', label: 'Villages Reached', icon: <Home size={40} /> },
-                        { num: '100%', label: 'Free of Cost', icon: <Heart size={40} /> },
-                    ].map((s, i) => (
-                        <div key={i} style={{
-                            textAlign: 'center',
-                            padding: 'clamp(1rem, 2vw, 1.5rem)',
-                            background: 'rgba(255,255,255,0.08)', borderRadius: 20,
-                            border: '1px solid rgba(255,255,255,0.12)',
-                        }}>
-                            <div style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', marginBottom: '0.4rem' }}>{s.icon}</div>
-                            <div style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', fontWeight: 800, color: '#d4a847', fontFamily: 'Outfit, Inter, sans-serif', lineHeight: 1 }}>{s.num}</div>
-                            <div style={{ color: 'rgba(255,255,255,0.65)', marginTop: '0.3rem', fontSize: 'clamp(0.75rem, 1.8vw, 0.9rem)' }}>{s.label}</div>
-                        </div>
-                    ))}
-                </div>
+                {/* Stats strip removed — no specific claims */}
 
                 {/* Single Donate CTA */}
                 <div style={{ textAlign: 'center' }}>
@@ -76,7 +52,7 @@ export const JoinCommunity = () => {
                         <Heart size={20} fill="currentColor" strokeWidth={2} /> Donate Now — Change a Life
                     </button>
                     <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.8rem', marginTop: '0.85rem' }}>
-                        ₹500 covers a child's study materials for one month.
+                        ₹200 covers a child's study materials for one month.
                     </p>
                 </div>
             </div>
@@ -169,11 +145,7 @@ export const Footer = () => {
                         <h4 style={{ color: '#d4a847', fontWeight: 700, fontSize: '0.8rem', letterSpacing: 2, textTransform: 'uppercase', marginBottom: '1.25rem' }}>Our Programs</h4>
                         {[
                             'Weekend Basic Classes',
-                            'Study Material Distribution',
-                            'Computer Literacy Program',
-                            'Career Guidance Sessions',
-                            'English Speaking Workshop',
-                            'Art & Creative Expression',
+                            'Project DISHA (Upcoming)',
                         ].map(c => (
                             <button
                                 key={c}
