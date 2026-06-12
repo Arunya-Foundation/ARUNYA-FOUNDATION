@@ -269,15 +269,19 @@ export const HomePage = () => {
 
                 <div className="hero-content">
 
-                    <motion.h1
-                        className="hero-heading"
+                    <motion.div
+                        className="hero-tagline-container"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.3 }}
-                        style={{ fontSize: 'clamp(3.5rem, 10vw, 7rem)', fontWeight: 900 }}
                     >
-                        शिक्षा सर्वार्थसाधिका
-                    </motion.h1>
+                        <img
+                            src="/shiksha-typography.png"
+                            alt="शिक्षा सर्वार्थसाधिका"
+                            className="hero-tagline-img"
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                        />
+                    </motion.div>
 
                     <motion.p
                         className="hero-description"
