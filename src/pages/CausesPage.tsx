@@ -21,7 +21,7 @@ export const CausesPage = () => {
                     <motion.h2 {...fadeUp} style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: '#0B1F3A', fontFamily: 'Poppins, Inter, sans-serif', marginBottom: '0.5rem' }}>
                         Our Programs
                     </motion.h2>
-                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #E6B325, #C99A1E)', borderRadius: 2, margin: '0.75rem auto 1.25rem' }} />
+                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #CF8C36, #B5772A)', borderRadius: 2, margin: '0.75rem auto 1.25rem' }} />
                     <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} style={{ color: '#6b7280', fontSize: '1.1rem', maxWidth: 600, margin: '0 auto', lineHeight: 1.7 }}>
                         Empowering underprivileged communities through impactful educational initiatives and sustainable development.
                     </motion.p>
@@ -47,13 +47,13 @@ export const CausesPage = () => {
                         width: 72,
                         height: 72,
                         borderRadius: '50%',
-                        background: 'linear-gradient(135deg, #E6B325 0%, #C99A1E 100%)',
+                        background: 'linear-gradient(135deg, #CF8C36 0%, #B5772A 100%)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         color: 'white',
                         margin: '0 auto 1.5rem',
-                        boxShadow: '0 8px 24px rgba(230,179,37,0.3)',
+                        boxShadow: '0 8px 24px rgba(207,140,54,0.3)',
                     }}>
                         <Sparkles size={32} />
                     </div>

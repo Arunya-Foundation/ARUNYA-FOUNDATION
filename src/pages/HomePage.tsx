@@ -85,7 +85,7 @@ const VMG_DATA = [
         title: 'Our Mission',
         text: 'To provide transformative education and mentorship to underserved communities by creating a premier platform where young educators and youth can showcase their skills, grow professionally, and serve as catalysts for social change.',
         img: IMAGES.mission,
-        gradient: 'linear-gradient(135deg, #E6B325, #C99A1E)',
+        gradient: 'linear-gradient(135deg, #CF8C36, #B5772A)',
     },
     {
         key: 'goal',
@@ -127,9 +127,9 @@ const VisionMissionGoal = ({ fadeUp }: { fadeUp: any }) => {
                                 borderRadius: 20,
                                 overflow: 'hidden',
                                 background: 'white',
-                                border: isOpen ? '2px solid rgba(230,179,37,0.3)' : '1px solid rgba(11,31,58,0.08)',
+                                border: isOpen ? '2px solid rgba(207,140,54,0.3)' : '1px solid rgba(11,31,58,0.08)',
                                 boxShadow: isOpen
-                                    ? '0 8px 32px rgba(11,31,58,0.1), 0 2px 8px rgba(230,179,37,0.1)'
+                                    ? '0 8px 32px rgba(11,31,58,0.1), 0 2px 8px rgba(207,140,54,0.1)'
                                     : '0 2px 12px rgba(11,31,58,0.05)',
                                 transition: 'border 0.3s, box-shadow 0.3s',
                             }}
@@ -148,7 +148,7 @@ const VisionMissionGoal = ({ fadeUp }: { fadeUp: any }) => {
                                     fontFamily: 'inherit',
                                     transition: 'background 0.2s',
                                 }}
-                                onMouseEnter={e => { if (!isOpen) e.currentTarget.style.background = 'rgba(230,179,37,0.04)'; }}
+                                onMouseEnter={e => { if (!isOpen) e.currentTarget.style.background = 'rgba(207,140,54,0.04)'; }}
                                 onMouseLeave={e => { e.currentTarget.style.background = 'none'; }}
                             >
                                 <div style={{
@@ -174,7 +174,7 @@ const VisionMissionGoal = ({ fadeUp }: { fadeUp: any }) => {
                                 </h3>
                                 <div style={{
                                     width: 32, height: 32, borderRadius: '50%',
-                                    background: isOpen ? 'linear-gradient(135deg, #E6B325, #C99A1E)' : 'rgba(11,31,58,0.06)',
+                                    background: isOpen ? 'linear-gradient(135deg, #CF8C36, #B5772A)' : 'rgba(11,31,58,0.06)',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                                     transition: 'all 0.3s',
                                     flexShrink: 0,
@@ -341,7 +341,7 @@ export const HomePage = () => {
                                 borderRadius: 24,
                                 overflow: 'hidden',
                                 boxShadow: '0 4px 24px rgba(11,31,58,0.06), 0 16px 48px rgba(11,31,58,0.12)',
-                                border: '2px solid rgba(230,179,37,0.15)',
+                                border: '2px solid rgba(207,140,54,0.15)',
                             }}
                         >
                             <img
@@ -373,7 +373,7 @@ export const HomePage = () => {
                                 color: 'white',
                             }}>
                                 <span style={{
-                                    background: '#E6B325',
+                                    background: '#CF8C36',
                                     color: '#0B1F3A',
                                     padding: '0.3rem 0.8rem',
                                     borderRadius: 999,
@@ -421,13 +421,13 @@ export const HomePage = () => {
                                 }}>
                                     Arunya Junior Leaders<br />
                                     <span style={{
-                                        background: 'linear-gradient(135deg, #E6B325 0%, #C99A1E 100%)',
+                                        background: 'linear-gradient(135deg, #CF8C36 0%, #B5772A 100%)',
                                         WebkitBackgroundClip: 'text',
                                         WebkitTextFillColor: 'transparent',
                                         backgroundClip: 'text',
                                     }}>2K26 Campaign</span>
                                 </h2>
-                                <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #E6B325, #C99A1E)', borderRadius: 2, margin: '1rem 0' }} />
+                                <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #CF8C36, #B5772A)', borderRadius: 2, margin: '1rem 0' }} />
                                 <p style={{
                                     color: '#0B1F3A',
                                     fontWeight: 600,
@@ -493,8 +493,10 @@ export const HomePage = () => {
 
                             {/* CTA Button */}
                             <div style={{ marginTop: '0.5rem' }}>
-                                <button
-                                    onClick={() => navigate('/volunteer')}
+                                <a
+                                    href="https://forms.gle/v7ofeXeqiJow3RXc7"
+                                    target="_blank"
+                                    rel="noreferrer"
                                     className="hero-volunteer-cta"
                                     style={{
                                         padding: '0.95rem 2.5rem',
@@ -503,10 +505,11 @@ export const HomePage = () => {
                                         justifyContent: 'center',
                                         alignItems: 'center',
                                         width: 'auto',
+                                        textDecoration: 'none',
                                     }}
                                 >
                                     Join the Campaign ↗
-                                </button>
+                                </a>
                             </div>
                         </motion.div>
                     </div>
@@ -518,7 +521,7 @@ export const HomePage = () => {
                 <motion.h2 {...fadeUp} style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 800, color: '#0B1F3A', fontFamily: 'Poppins, Inter, sans-serif', marginBottom: '0.5rem' }}>
                     Life Inside Our Classrooms
                 </motion.h2>
-                <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #E6B325, #C99A1E)', borderRadius: 2, margin: '0.75rem auto 3rem' }} />
+                <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #CF8C36, #B5772A)', borderRadius: 2, margin: '0.75rem auto 3rem' }} />
                 <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }} style={{ display: 'flex', justifyContent: 'center' }}>
                     <BounceCards
                         images={[
@@ -610,7 +613,7 @@ export const HomePage = () => {
                                 >×</button>
                             </div>
                             <div style={{ padding: '2rem', overflowY: 'auto', flex: 1 }}>
-                                <span style={{ color: '#E6B325', fontWeight: 600, fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>{blogPosts[expandedBlog].date}</span>
+                                <span style={{ color: '#CF8C36', fontWeight: 600, fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>{blogPosts[expandedBlog].date}</span>
                                 <h3 style={{ fontSize: '1.6rem', color: '#0B1F3A', marginBottom: '1.25rem', fontFamily: 'Poppins, Inter, sans-serif' }}>{blogPosts[expandedBlog].title}</h3>
                                 <p style={{ color: '#6B7280', lineHeight: 1.8, fontSize: '1rem', whiteSpace: 'pre-line' }}>{blogPosts[expandedBlog].readMore}</p>
                             </div>

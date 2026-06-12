@@ -62,7 +62,7 @@ export const GalleryPage = () => {
                     <motion.h2 {...fadeUp} style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: '#0B1F3A', fontFamily: 'Poppins, Inter, sans-serif', marginBottom: '0.5rem' }}>
                         Stories From Our Classrooms
                     </motion.h2>
-                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #E6B325, #C99A1E)', borderRadius: 2, margin: '0.75rem auto 1.25rem' }} />
+                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #CF8C36, #B5772A)', borderRadius: 2, margin: '0.75rem auto 1.25rem' }} />
                     <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} style={{ color: '#6b7280', fontSize: '1.1rem', maxWidth: 600, margin: '0 auto', lineHeight: 1.7 }}>
                         Every photo tells a story. <strong style={{ color: '#0B1F3A' }}>Click any image</strong> to read what happened that day.
                     </motion.p>
@@ -85,7 +85,7 @@ export const GalleryPage = () => {
                         >
                             <img src={item.src} alt={item.alt} loading="lazy" style={{ width: '100%', display: 'block', height: idx % 3 === 0 ? 280 : idx % 3 === 1 ? 220 : 250, objectFit: 'cover' }} />
                             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(11,31,58,0.9) 0%, transparent 100%)', padding: '2.5rem 1.25rem 1rem', color: 'white' }}>
-                                <div style={{ fontSize: '0.7rem', color: '#E6B325', fontWeight: 700, marginBottom: '0.2rem' }}>{item.date}</div>
+                                <div style={{ fontSize: '0.7rem', color: '#CF8C36', fontWeight: 700, marginBottom: '0.2rem' }}>{item.date}</div>
                                 <div style={{ fontWeight: 700, fontSize: '0.9rem', fontFamily: 'Poppins, Inter, sans-serif' }}>{item.alt}</div>
                                 <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.2rem' }}>Tap to read story →</div>
                             </div>
@@ -100,7 +100,7 @@ export const GalleryPage = () => {
                     <motion.h2 {...fadeUp} style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 800, color: 'white', fontFamily: 'Poppins, Inter, sans-serif', marginBottom: '0.5rem' }}>
                         Our World of Impact
                     </motion.h2>
-                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #E6B325, #C99A1E)', borderRadius: 2, margin: '0.75rem auto 1rem' }} />
+                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #CF8C36, #B5772A)', borderRadius: 2, margin: '0.75rem auto 1rem' }} />
                     <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1rem', maxWidth: 500, margin: '0 auto' }}>
                         Drag to explore our journey in 3D — a galaxy of every child we've touched.
                     </motion.p>
@@ -117,14 +117,14 @@ export const GalleryPage = () => {
                         <div style={{ position: 'relative', flexShrink: 0 }}>
                             <img src={selected.src} alt={selected.alt} style={{ width: '100%', height: 240, objectFit: 'cover', display: 'block' }} />
                             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(11,31,58,0.85) 0%, transparent 100%)', padding: '3rem 1.5rem 1.25rem', color: 'white' }}>
-                                <div style={{ fontSize: '0.8rem', color: '#E6B325', fontWeight: 700, marginBottom: 4 }}>{selected.date}</div>
+                                <div style={{ fontSize: '0.8rem', color: '#CF8C36', fontWeight: 700, marginBottom: 4 }}>{selected.date}</div>
                                 <h2 style={{ fontSize: 'clamp(1.2rem, 3vw, 1.5rem)', fontFamily: 'Poppins, Inter, sans-serif', fontWeight: 800, margin: 0 }}>{selected.alt}</h2>
                             </div>
                             <button onClick={() => setSelected(null)} style={{ position: 'absolute', top: 12, right: 12, background: 'rgba(255,255,255,0.9)', border: 'none', borderRadius: '50%', width: 36, height: 36, fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, color: '#0B1F3A', boxShadow: '0 4px 12px rgba(0,0,0,0.15)' }}>×</button>
                         </div>
                         <div style={{ padding: '1.5rem', overflowY: 'auto', flex: 1 }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-                                <div style={{ width: 4, height: 20, background: '#E6B325', borderRadius: 2 }} />
+                                <div style={{ width: 4, height: 20, background: '#CF8C36', borderRadius: 2 }} />
                                 <span style={{ fontWeight: 700, color: '#0B1F3A', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: 1 }}>Story from the Field</span>
                             </div>
                             <p style={{ color: '#6B7280', lineHeight: 1.85, fontSize: '0.95rem' }}>{selected.story}</p>

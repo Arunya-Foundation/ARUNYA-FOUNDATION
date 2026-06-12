@@ -91,12 +91,12 @@ const CATEGORIES = [
 
 const CATEGORY_BADGE: Record<string, { label: string; color: string; bg: string }> = {
     volunteer: { label: 'Volunteer', color: '#123C73', bg: 'rgba(18,60,115,0.08)' },
-    parent: { label: 'Parent', color: '#E6B325', bg: 'rgba(230,179,37,0.08)' },
+    parent: { label: 'Parent', color: '#CF8C36', bg: 'rgba(207,140,54,0.08)' },
     student: { label: 'Student', color: '#16a34a', bg: 'rgba(22,163,74,0.08)' },
 };
 
 /* ── Quote Icon SVG ─────────────────────────────────────────── */
-const QuoteIcon = ({ color = '#E6B325' }: { color?: string }) => (
+const QuoteIcon = ({ color = '#CF8C36' }: { color?: string }) => (
     <svg width="36" height="36" viewBox="0 0 24 24" fill={color} opacity={0.15}>
         <path d="M6 17h3l2-4V7H5v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z" />
     </svg>

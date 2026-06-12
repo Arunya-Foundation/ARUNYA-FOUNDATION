@@ -86,7 +86,7 @@ export const LoginPage = () => {
                             whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                             style={{
                                 width: '100%', padding: '0.9rem', borderRadius: 16,
-                                border: '2px solid #E6B325', background: 'transparent',
+                                border: '2px solid #CF8C36', background: 'transparent',
                                 color: '#0B1F3A', fontWeight: 600, fontSize: '0.95rem',
                                 cursor: 'pointer', fontFamily: 'inherit',
                             }}

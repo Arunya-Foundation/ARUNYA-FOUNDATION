@@ -28,7 +28,7 @@ export const JoinCommunity = () => {
                         fontSize: 'clamp(1.75rem, 4.5vw, 3rem)', fontWeight: 900, color: 'white',
                         fontFamily: 'Poppins, Inter, sans-serif', marginBottom: '0.75rem', lineHeight: 1.1,
                     }}>
-                        Become a Catalyst<br /><span style={{ color: '#E6B325' }}>for Social Change</span>
+                        Become a Catalyst<br /><span style={{ color: '#CF8C36' }}>for Social Change</span>
                     </h2>
                     <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', maxWidth: 520, margin: '0 auto', lineHeight: 1.75 }}>
                         Dedicate your time to teach, mentor, and empower children from underserved communities in Gwalior. Together, we can build a brighter future.
@@ -40,10 +40,10 @@ export const JoinCommunity = () => {
                         to="/volunteer"
                         style={{
                             padding: 'clamp(0.875rem, 2vw, 1.1rem) clamp(2rem, 5vw, 3rem)',
-                            borderRadius: 9999, background: '#E6B325', color: '#0B1F3A',
+                            borderRadius: 9999, background: '#CF8C36', color: '#0B1F3A',
                             fontWeight: 800, fontSize: 'clamp(1rem, 2.5vw, 1.1rem)',
                             border: 'none', cursor: 'pointer', fontFamily: 'inherit',
-                            boxShadow: '0 8px 28px rgba(230,179,37,0.3)', transition: 'all 0.2s',
+                            boxShadow: '0 8px 28px rgba(207,140,54,0.3)', transition: 'all 0.2s',
                             display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
                             textDecoration: 'none',
                         }}
@@ -85,11 +85,11 @@ export const Footer = () => {
             position: 'relative', zIndex: 10, overflow: 'hidden',
         }}>
             {/* Decorative top border */}
-            <div style={{ height: 3, background: 'linear-gradient(90deg, #0B1F3A, #E6B325, #123C73, #E6B325, #0B1F3A)' }} />
+            <div style={{ height: 3, background: 'linear-gradient(90deg, #0B1F3A, #CF8C36, #123C73, #CF8C36, #0B1F3A)' }} />
 
             {/* Mini Impact Stats Bar */}
             <div style={{
-                background: 'rgba(230,179,37,0.06)',
+                background: 'rgba(207,140,54,0.06)',
                 borderBottom: '1px solid rgba(255,255,255,0.04)',
                 padding: '1.25rem 2rem',
             }}>
@@ -103,7 +103,7 @@ export const Footer = () => {
                         { icon: <ArrowUp size={18} />, value: '100%', label: 'Volunteer-Run' },
                     ].map((stat, i) => (
                         <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                            <div style={{ color: '#E6B325', opacity: 0.8 }}>{stat.icon}</div>
+                            <div style={{ color: '#CF8C36', opacity: 0.8 }}>{stat.icon}</div>
                             <div>
                                 <span style={{ color: 'white', fontWeight: 800, fontSize: '1rem', fontFamily: 'Poppins, Inter, sans-serif' }}>{stat.value}</span>
                                 <span style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.78rem', marginLeft: '0.35rem' }}>{stat.label}</span>
@@ -156,8 +156,8 @@ export const Footer = () => {
 
                             {/* Mission Statement */}
                             <div style={{
-                                background: 'rgba(230,179,37,0.08)', borderRadius: 12,
-                                padding: '0.85rem 1rem', borderLeft: '3px solid #E6B325',
+                                background: 'rgba(207,140,54,0.08)', borderRadius: 12,
+                                padding: '0.85rem 1rem', borderLeft: '3px solid #CF8C36',
                                 marginBottom: '2rem',
                             }}>
                                 <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.82rem', lineHeight: 1.6, margin: 0, fontStyle: 'italic' }}>
@@ -186,16 +186,16 @@ export const Footer = () => {
                                             fontSize: '0.88rem', fontFamily: 'inherit', outline: 'none',
                                             transition: 'border-color 0.2s, box-shadow 0.2s',
                                         }}
-                                        onFocus={e => { e.currentTarget.style.borderColor = 'rgba(230,179,37,0.4)'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(230,179,37,0.1)'; }}
+                                        onFocus={e => { e.currentTarget.style.borderColor = 'rgba(207,140,54,0.4)'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(207,140,54,0.1)'; }}
                                         onBlur={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.boxShadow = 'none'; }}
                                     />
                                 </div>
                                 <button type="submit" style={{
                                     padding: '0.75rem 1rem', borderRadius: 12, border: 'none',
-                                    background: 'linear-gradient(135deg, #E6B325, #C99A1E)',
+                                    background: 'linear-gradient(135deg, #CF8C36, #B5772A)',
                                     color: 'white', cursor: 'pointer', display: 'flex',
                                     alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                                    transition: 'all 0.2s', boxShadow: '0 4px 12px rgba(230,179,37,0.25)',
+                                    transition: 'all 0.2s', boxShadow: '0 4px 12px rgba(207,140,54,0.25)',
                                 }}
                                     onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-2px)')}
                                     onMouseLeave={e => (e.currentTarget.style.transform = 'none')}
@@ -218,7 +218,7 @@ export const Footer = () => {
                                 fontFamily: 'Poppins, Inter, sans-serif', marginBottom: '1.5rem',
                                 display: 'flex', alignItems: 'center', gap: '0.5rem',
                             }}>
-                                <div style={{ width: 4, height: 18, borderRadius: 2, background: '#E6B325' }} />
+                                <div style={{ width: 4, height: 18, borderRadius: 2, background: '#CF8C36' }} />
                                 Quick Links
                             </h4>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
@@ -242,7 +242,7 @@ export const Footer = () => {
                                             cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.2s',
                                             borderRadius: 8, width: '100%', marginLeft: '-0.75rem',
                                         }}
-                                        onMouseEnter={e => { e.currentTarget.style.color = '#E6B325'; e.currentTarget.style.background = 'rgba(230,179,37,0.06)'; }}
+                                        onMouseEnter={e => { e.currentTarget.style.color = '#CF8C36'; e.currentTarget.style.background = 'rgba(207,140,54,0.06)'; }}
                                         onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.55)'; e.currentTarget.style.background = 'none'; }}
                                     >
                                         <span style={{ fontSize: '0.7rem', opacity: 0.4 }}>›</span> {l.label}
@@ -258,7 +258,7 @@ export const Footer = () => {
                                 fontFamily: 'Poppins, Inter, sans-serif', marginBottom: '1.5rem',
                                 display: 'flex', alignItems: 'center', gap: '0.5rem',
                             }}>
-                                <div style={{ width: 4, height: 18, borderRadius: 2, background: '#E6B325' }} />
+                                <div style={{ width: 4, height: 18, borderRadius: 2, background: '#CF8C36' }} />
                                 Follow Us
                             </h4>
                             <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
@@ -310,15 +310,15 @@ export const Footer = () => {
                                 fontFamily: 'Poppins, Inter, sans-serif', marginBottom: '1.5rem',
                                 display: 'flex', alignItems: 'center', gap: '0.5rem',
                             }}>
-                                <div style={{ width: 4, height: 18, borderRadius: 2, background: '#E6B325' }} />
+                                <div style={{ width: 4, height: 18, borderRadius: 2, background: '#CF8C36' }} />
                                 Get in Touch
                             </h4>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
                                 {[
                                     { icon: <Mail size={18} />, text: 'connect@arunyaedu.org', gradient: 'linear-gradient(135deg, #123C73, #0B1F3A)' },
-                                    { icon: <Phone size={18} />, text: '+91 82238 34121', gradient: 'linear-gradient(135deg, #E6B325, #C99A1E)' },
+                                    { icon: <Phone size={18} />, text: '+91 82238 34121', gradient: 'linear-gradient(135deg, #CF8C36, #B5772A)' },
                                     { icon: <MapPin size={18} />, text: 'Gwalior, Madhya Pradesh, India', gradient: 'linear-gradient(135deg, #123C73, #0B1F3A)' },
-                                    { icon: <Clock size={18} />, text: 'Sat & Sun: 10 AM – 1 PM', gradient: 'linear-gradient(135deg, #E6B325, #C99A1E)' },
+                                    { icon: <Clock size={18} />, text: 'Sat & Sun: 10 AM – 1 PM', gradient: 'linear-gradient(135deg, #CF8C36, #B5772A)' },
                                 ].map((c, i) => (
                                     <div key={i} style={{ display: 'flex', gap: '0.85rem', alignItems: 'flex-start' }}>
                                         <div style={{
@@ -344,7 +344,7 @@ export const Footer = () => {
                                     transition: 'all 0.2s', display: 'flex',
                                     alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
                                 }}
-                                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(230,179,37,0.15)'; e.currentTarget.style.borderColor = '#E6B325'; e.currentTarget.style.color = '#E6B325'; }}
+                                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(207,140,54,0.15)'; e.currentTarget.style.borderColor = '#CF8C36'; e.currentTarget.style.color = '#CF8C36'; }}
                                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'white'; }}
                             >
                                 <Mail size={16} /> Send Us a Message
@@ -361,7 +361,7 @@ export const Footer = () => {
                     }}>
                         <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.85rem', margin: 0 }}>
                             © 2026 Arunya Foundation. All rights reserved. Made with{' '}
-                            <Heart size={13} fill="#E6B325" color="#E6B325" style={{ display: 'inline', verticalAlign: 'text-bottom' }} />{' '}
+                            <Heart size={13} fill="#CF8C36" color="#CF8C36" style={{ display: 'inline', verticalAlign: 'text-bottom' }} />{' '}
                             for education.
                         </p>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
@@ -370,7 +370,7 @@ export const Footer = () => {
                                     color: 'rgba(255,255,255,0.35)', textDecoration: 'none',
                                     fontSize: '0.85rem', transition: 'color 0.2s',
                                 }}
-                                    onMouseEnter={e => (e.currentTarget.style.color = '#E6B325')}
+                                    onMouseEnter={e => (e.currentTarget.style.color = '#CF8C36')}
                                     onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.35)')}
                                 >{t}</a>
                             ))}
@@ -381,13 +381,13 @@ export const Footer = () => {
                                 aria-label="Back to top"
                                 style={{
                                     width: 40, height: 40, borderRadius: 12,
-                                    background: 'rgba(230,179,37,0.1)', border: '1px solid rgba(230,179,37,0.2)',
+                                    background: 'rgba(207,140,54,0.1)', border: '1px solid rgba(207,140,54,0.2)',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    cursor: 'pointer', color: '#E6B325',
+                                    cursor: 'pointer', color: '#CF8C36',
                                     transition: 'all 0.3s cubic-bezier(0.16,1,0.3,1)',
                                 }}
-                                onMouseEnter={e => { e.currentTarget.style.background = '#E6B325'; e.currentTarget.style.color = '#0B1F3A'; e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(230,179,37,0.3)'; }}
-                                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(230,179,37,0.1)'; e.currentTarget.style.color = '#E6B325'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
+                                onMouseEnter={e => { e.currentTarget.style.background = '#CF8C36'; e.currentTarget.style.color = '#0B1F3A'; e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(207,140,54,0.3)'; }}
+                                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(207,140,54,0.1)'; e.currentTarget.style.color = '#CF8C36'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
                             >
                                 <ArrowUp size={18} />
                             </button>

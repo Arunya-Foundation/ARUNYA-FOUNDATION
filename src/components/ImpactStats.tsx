@@ -29,8 +29,8 @@ const STATS = [
                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
             </svg>
         ),
-        color: '#E6B325',
-        bgLight: 'rgba(230, 179, 37, 0.08)',
+        color: '#CF8C36',
+        bgLight: 'rgba(207, 140, 54, 0.08)',
     },
     {
         value: 1000,
@@ -58,8 +58,8 @@ const STATS = [
                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
             </svg>
         ),
-        color: '#E6B325',
-        bgLight: 'rgba(230, 179, 37, 0.08)',
+        color: '#CF8C36',
+        bgLight: 'rgba(207, 140, 54, 0.08)',
     },
 ];
 
@@ -132,8 +132,8 @@ export const ImpactStats = () => {
                                 className="impact-card-accent"
                                 style={{
                                     background:
-                                        stat.color === '#E6B325'
-                                            ? 'linear-gradient(135deg, #E6B325, #F4C542)'
+                                        stat.color === '#CF8C36'
+                                            ? 'linear-gradient(135deg, #CF8C36, #E7A44D)'
                                             : 'linear-gradient(135deg, #123C73, #0B1F3A)',
                                 }}
                             />
@@ -172,8 +172,8 @@ export const ImpactStats = () => {
                                 className="impact-card-ring"
                                 style={{
                                     borderColor:
-                                        stat.color === '#E6B325'
-                                            ? 'rgba(230,179,37,0.08)'
+                                        stat.color === '#CF8C36'
+                                            ? 'rgba(207,140,54,0.08)'
                                             : 'rgba(18,60,115,0.06)',
                                 }}
                             />

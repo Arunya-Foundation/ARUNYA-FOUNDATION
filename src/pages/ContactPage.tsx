@@ -18,7 +18,7 @@ export const ContactPage = () => {
                     <motion.h2 {...fadeUp} style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, marginBottom: '1rem', color: '#0B1F3A', fontFamily: 'Poppins, Inter, sans-serif' }}>
                         Get in Touch
                     </motion.h2>
-                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #E6B325, #C99A1E)', borderRadius: 2, margin: '1rem auto' }} />
+                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #CF8C36, #B5772A)', borderRadius: 2, margin: '1rem auto' }} />
                     <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} style={{ color: '#6b7280', fontSize: '1.1rem', maxWidth: 600, margin: '0 auto', lineHeight: 1.7 }}>
                         Have questions about our programs, want to donate, or interested in volunteering? We'd love to hear from you.
                     </motion.p>
@@ -35,9 +35,9 @@ export const ContactPage = () => {
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                             {[
                                 { icon: <MapPin size={22} />, title: 'Location', detail: 'Gwalior, Madhya Pradesh, India', gradient: 'linear-gradient(135deg, #123C73, #0B1F3A)' },
-                                { icon: <Phone size={22} />, title: 'Phone', detail: '+91 82238 34121', gradient: 'linear-gradient(135deg, #E6B325, #C99A1E)' },
+                                { icon: <Phone size={22} />, title: 'Phone', detail: '+91 82238 34121', gradient: 'linear-gradient(135deg, #CF8C36, #B5772A)' },
                                 { icon: <Mail size={22} />, title: 'Email', detail: 'arunya.trust@gmail.com', gradient: 'linear-gradient(135deg, #123C73, #0B1F3A)' },
-                                { icon: <Clock size={22} />, title: 'Class Timings', detail: 'Sat & Sun: 10 AM – 1 PM', gradient: 'linear-gradient(135deg, #E6B325, #C99A1E)' },
+                                { icon: <Clock size={22} />, title: 'Class Timings', detail: 'Sat & Sun: 10 AM – 1 PM', gradient: 'linear-gradient(135deg, #CF8C36, #B5772A)' },
                             ].map((item, idx) => (
                                 <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
                                     <div style={{
