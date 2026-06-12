@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Heart, Mail, Phone, MapPin, Clock, Leaf, ArrowUp, Send, ExternalLink } from 'lucide-react';
+import { useNavigate, Link } from 'react-router-dom';
+import { Heart, Mail, Phone, MapPin, Clock, Leaf, ArrowUp, Send } from 'lucide-react';
 import { FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
@@ -28,37 +28,30 @@ export const JoinCommunity = () => {
                         fontSize: 'clamp(1.75rem, 4.5vw, 3rem)', fontWeight: 900, color: 'white',
                         fontFamily: 'Poppins, Inter, sans-serif', marginBottom: '0.75rem', lineHeight: 1.1,
                     }}>
-                        Every Rupee Lights<br /><span style={{ color: '#E6B325' }}>a Child's Future</span>
+                        Become a Catalyst<br /><span style={{ color: '#E6B325' }}>for Social Change</span>
                     </h2>
                     <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', maxWidth: 520, margin: '0 auto', lineHeight: 1.75 }}>
-                        Help us legalise our foundation
-                        Be one of our Founders
-                        Support today
+                        Dedicate your time to teach, mentor, and empower children from underserved communities in Gwalior. Together, we can build a brighter future.
                     </p>
                 </div>
 
                 <div style={{ textAlign: 'center' }}>
-                    <a
-                        href="https://milaap.org/fundraisers/support-underprivileged-communities-14?utm_medium=whatsapp_status_poster&utm_source=app"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <Link
+                        to="/volunteer"
                         style={{
                             padding: 'clamp(0.875rem, 2vw, 1.1rem) clamp(2rem, 5vw, 3rem)',
-                            borderRadius: 9999, background: '#E6B325', color: 'white',
+                            borderRadius: 9999, background: '#E6B325', color: '#0B1F3A',
                             fontWeight: 800, fontSize: 'clamp(1rem, 2.5vw, 1.1rem)',
                             border: 'none', cursor: 'pointer', fontFamily: 'inherit',
-                            boxShadow: '0 8px 28px rgba(212,168,71,0.45)', transition: 'all 0.2s',
+                            boxShadow: '0 8px 28px rgba(230,179,37,0.3)', transition: 'all 0.2s',
                             display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
                             textDecoration: 'none',
                         }}
                         onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-2px)')}
                         onMouseLeave={e => (e.currentTarget.style.transform = 'none')}
                     >
-                        <Heart size={20} fill="currentColor" strokeWidth={2} /> Donate Now — Change a Life
-                    </a>
-                    <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '1rem', marginTop: '0.85rem' }}>
-                        Be a part of founding 100
-                    </p>
+                        <Heart size={20} fill="currentColor" strokeWidth={2} /> Join as Volunteer — Change a Life
+                    </Link>
                 </div>
             </div>
         </section>
@@ -107,7 +100,6 @@ export const Footer = () => {
                     {[
                         { icon: <Heart size={18} />, value: '150+', label: 'Children Educated' },
                         { icon: <Send size={18} />, value: '50+', label: 'Community Sessions' },
-                        { icon: <Leaf size={18} />, value: '1', label: 'Founding 100 Initiative' },
                         { icon: <ArrowUp size={18} />, value: '100%', label: 'Volunteer-Run' },
                     ].map((stat, i) => (
                         <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
@@ -249,7 +241,7 @@ export const Footer = () => {
                             </div>
                         </div>
 
-                        {/* ── Column 3: Programs ── */}
+                        {/* ── Column 3: Follow Us ── */}
                         <div>
                             <h4 style={{
                                 color: 'white', fontWeight: 700, fontSize: '1rem',
@@ -257,54 +249,11 @@ export const Footer = () => {
                                 display: 'flex', alignItems: 'center', gap: '0.5rem',
                             }}>
                                 <div style={{ width: 4, height: 18, borderRadius: 2, background: '#E6B325' }} />
-                                Our Programs
-                            </h4>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                                <a href="https://milaap.org/fundraisers/support-underprivileged-communities-14?utm_medium=whatsapp_status_poster&utm_source=app" target="_blank" rel="noopener noreferrer" style={{
-                                    display: 'flex', alignItems: 'flex-start', gap: '0.75rem',
-                                    background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)',
-                                    borderRadius: 12, padding: '0.85rem 1rem', cursor: 'pointer',
-                                    textAlign: 'left', transition: 'all 0.2s', width: '100%',
-                                    fontFamily: 'inherit', textDecoration: 'none',
-                                }}
-                                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(230,179,37,0.06)'; e.currentTarget.style.borderColor = 'rgba(230,179,37,0.15)'; }}
-                                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; }}
-                                >
-                                    <div style={{
-                                        width: 36, height: 36, borderRadius: 10,
-                                        background: 'rgba(230,179,37,0.1)', display: 'flex',
-                                        alignItems: 'center', justifyContent: 'center',
-                                        color: '#E6B325', flexShrink: 0,
-                                    }}><Heart size={16} fill="#E6B325" strokeWidth={0} /></div>
-                                    <div>
-                                        <div style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 700, fontSize: '0.9rem', marginBottom: 2, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>Founding 100 <ExternalLink size={12} style={{ opacity: 0.5 }} /></div>
-                                        <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem' }}>Support impactful educational initiatives</div>
-                                    </div>
-                                </a>
-                                <a href="https://www.instagram.com/founding100_arunyaa?igsh=eDRqaDlkY2ZmYmN5" target="_blank" rel="noopener noreferrer" style={{
-                                    display: 'flex', alignItems: 'center', gap: '0.6rem',
-                                    background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)',
-                                    borderRadius: 12, padding: '0.7rem 1rem', cursor: 'pointer',
-                                    transition: 'all 0.2s', width: '100%',
-                                    fontFamily: 'inherit', textDecoration: 'none',
-                                    color: 'rgba(255,255,255,0.55)', fontSize: '0.82rem', fontWeight: 600,
-                                }}
-                                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(225,48,108,0.08)'; e.currentTarget.style.borderColor = 'rgba(225,48,108,0.2)'; e.currentTarget.style.color = '#E1306C'; }}
-                                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = 'rgba(255,255,255,0.55)'; }}
-                                >
-                                    <FaInstagram size={16} /> Founding 100 Instagram
-                                </a>
-                            </div>
-
-                            {/* Social Media */}
-                            <h4 style={{
-                                color: 'white', fontWeight: 700, fontSize: '1rem',
-                                fontFamily: 'Poppins, Inter, sans-serif', marginTop: '2rem', marginBottom: '1rem',
-                                display: 'flex', alignItems: 'center', gap: '0.5rem',
-                            }}>
-                                <div style={{ width: 4, height: 18, borderRadius: 2, background: '#E6B325' }} />
                                 Follow Us
                             </h4>
+                            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                                Stay connected with us on social media for daily classroom updates and highlights.
+                            </p>
                             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                                 {[
                                     { label: 'Instagram', icon: <FaInstagram size={22} />, href: 'https://www.instagram.com/arunya_foundation/', color: '#E1306C', glow: 'rgba(225,48,108,0.25)' },

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
-    Eye, HandHeart, Heart, ExternalLink,
+    Eye, HandHeart,
     Rocket, Trophy
 } from 'lucide-react';
-import { FaInstagram } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PageTransition } from '../components/ui/PageTransition';
 import { ModalOverlay } from '../components/ui/ModalOverlay';
@@ -50,11 +50,6 @@ const slideInRight = {
 
 
 
-
-const FOUNDING_100 = {
-    milaapUrl: 'https://milaap.org/fundraisers/support-underprivileged-communities-14?utm_medium=whatsapp_status_poster&utm_source=app',
-    instagramUrl: 'https://www.instagram.com/founding100_arunyaa?igsh=eDRqaDlkY2ZmYmN5',
-};
 
 /* ── Blog / Stories Data ─────────────────────── */
 const blogPosts = [
@@ -244,6 +239,7 @@ const VisionMissionGoal = ({ fadeUp }: { fadeUp: any }) => {
 
 /* ── Component ────────────────────────────────── */
 export const HomePage = () => {
+    const navigate = useNavigate();
     const [scrollY, setScrollY] = useState(0);
     const [expandedBlog, setExpandedBlog] = useState<number | null>(null);
 
@@ -322,8 +318,203 @@ export const HomePage = () => {
                 </div>
             </section>
 
+            {/* ═══════════════════ IMPACT STATISTICS ═══════════════════ */}
+            <div id="next-section">
+                <ImpactStats />
+            </div>
+
+            {/* ═══════════════════ ARUNYA JUNIOR LEADERS 2K26 CAMPAIGN ═══════════════════ */}
+            <section className="section-block" id="campaign" style={{ background: '#F8F5F0', padding: '5rem 2rem' }}>
+                <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                        gap: '4rem',
+                        alignItems: 'center',
+                    }}>
+                        {/* Left: Banner Image */}
+                        <motion.div
+                            {...fadeUp}
+                            transition={{ ...fadeUp.transition, delay: 0.1 }}
+                            style={{
+                                position: 'relative',
+                                borderRadius: 24,
+                                overflow: 'hidden',
+                                boxShadow: '0 4px 24px rgba(11,31,58,0.06), 0 16px 48px rgba(11,31,58,0.12)',
+                                border: '2px solid rgba(230,179,37,0.15)',
+                            }}
+                        >
+                            <img
+                                src="/assets/work/junior_leaders.png"
+                                alt="Arunya Junior Leaders 2K26 Campaign Banner"
+                                loading="lazy"
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                    maxHeight: 480,
+                                    objectFit: 'cover',
+                                    display: 'block',
+                                    transition: 'transform 0.5s ease',
+                                }}
+                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.03)'}
+                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                            />
+                            <div style={{
+                                position: 'absolute',
+                                inset: 0,
+                                background: 'linear-gradient(180deg, rgba(11,31,58,0) 40%, rgba(11,31,58,0.85) 100%)',
+                                pointerEvents: 'none',
+                            }} />
+                            <div style={{
+                                position: 'absolute',
+                                bottom: 24,
+                                left: 24,
+                                right: 24,
+                                color: 'white',
+                            }}>
+                                <span style={{
+                                    background: '#E6B325',
+                                    color: '#0B1F3A',
+                                    padding: '0.3rem 0.8rem',
+                                    borderRadius: 999,
+                                    fontSize: '0.75rem',
+                                    fontWeight: 700,
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '0.05em',
+                                    display: 'inline-block',
+                                    marginBottom: '0.5rem',
+                                }}>New Initiative</span>
+                                <h4 style={{
+                                    color: 'white',
+                                    fontSize: '1.25rem',
+                                    fontWeight: 800,
+                                    fontFamily: 'Poppins, Inter, sans-serif',
+                                    margin: 0,
+                                    textShadow: '0 2px 8px rgba(0,0,0,0.5)',
+                                }}>Empowering Tomorrow's Leaders</h4>
+                            </div>
+                        </motion.div>
+
+                        {/* Right: Content */}
+                        <motion.div
+                            {...fadeUp}
+                            transition={{ ...fadeUp.transition, delay: 0.2 }}
+                            style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
+                        >
+                            <div>
+                                <span style={{
+                                    color: '#123C73',
+                                    fontSize: '0.88rem',
+                                    fontWeight: 700,
+                                    letterSpacing: '0.1em',
+                                    textTransform: 'uppercase',
+                                    display: 'block',
+                                    marginBottom: '0.5rem',
+                                }}>Active Campaign</span>
+                                <h2 style={{
+                                    fontSize: 'clamp(2rem, 4vw, 2.75rem)',
+                                    fontWeight: 800,
+                                    color: '#0B1F3A',
+                                    fontFamily: 'Poppins, Inter, sans-serif',
+                                    lineHeight: 1.15,
+                                    margin: 0,
+                                }}>
+                                    Arunya Junior Leaders<br />
+                                    <span style={{
+                                        background: 'linear-gradient(135deg, #E6B325 0%, #C99A1E 100%)',
+                                        WebkitBackgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                        backgroundClip: 'text',
+                                    }}>2K26 Campaign</span>
+                                </h2>
+                                <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #E6B325, #C99A1E)', borderRadius: 2, margin: '1rem 0' }} />
+                                <p style={{
+                                    color: '#0B1F3A',
+                                    fontWeight: 600,
+                                    fontSize: '1.05rem',
+                                    lineHeight: 1.6,
+                                    marginBottom: '1rem',
+                                }}>
+                                    Empowering the next generation of leaders through education, mentorship, social responsibility, and community engagement.
+                                </p>
+                                <p style={{ color: '#6b7280', fontSize: '0.95rem', lineHeight: 1.7, margin: 0 }}>
+                                    The Arunya Junior Leaders Campaign is designed to cultivate essential leadership qualities and a strong sense of civic duty in young learners. Through active group collaborations, project-based mentorship, and social impact challenges, we guide students to lead, inspire, and build sustainable solutions for their communities.
+                                </p>
+                            </div>
+
+                            {/* Key Highlights Grid */}
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(2, 1fr)',
+                                gap: '1.25rem',
+                                marginTop: '0.5rem',
+                            }}>
+                                {[
+                                    { title: 'Leadership Development', desc: 'Confidence, communication & decision making.' },
+                                    { title: 'Community Impact', desc: 'Real-world solutions for local issues.' },
+                                    { title: 'Team Collaboration', desc: 'Empathy, cooperation & teamwork.' },
+                                    { title: 'Social Responsibility', desc: 'Civic duty & environmental awareness.' },
+                                ].map((highlight, idx) => (
+                                    <div
+                                        key={idx}
+                                        style={{
+                                            background: 'white',
+                                            padding: '1.25rem',
+                                            borderRadius: 16,
+                                            border: '1px solid rgba(11,31,58,0.06)',
+                                            boxShadow: '0 2px 10px rgba(11,31,58,0.02)',
+                                            transition: 'transform 0.25s, box-shadow 0.25s',
+                                        }}
+                                        onMouseEnter={e => {
+                                            e.currentTarget.style.transform = 'translateY(-3px)';
+                                            e.currentTarget.style.boxShadow = '0 6px 18px rgba(18,60,115,0.08)';
+                                        }}
+                                        onMouseLeave={e => {
+                                            e.currentTarget.style.transform = 'none';
+                                            e.currentTarget.style.boxShadow = '0 2px 10px rgba(11,31,58,0.02)';
+                                        }}
+                                    >
+                                        <h4 style={{
+                                            color: '#0B1F3A',
+                                            fontWeight: 700,
+                                            fontSize: '0.95rem',
+                                            marginBottom: '0.25rem',
+                                            fontFamily: 'Poppins, Inter, sans-serif',
+                                        }}>{highlight.title}</h4>
+                                        <p style={{
+                                            color: '#6b7280',
+                                            fontSize: '0.78rem',
+                                            lineHeight: 1.4,
+                                            margin: 0,
+                                        }}>{highlight.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* CTA Button */}
+                            <div style={{ marginTop: '0.5rem' }}>
+                                <button
+                                    onClick={() => navigate('/volunteer')}
+                                    className="hero-volunteer-cta"
+                                    style={{
+                                        padding: '0.95rem 2.5rem',
+                                        fontSize: '1.05rem',
+                                        display: 'inline-flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        width: 'auto',
+                                    }}
+                                >
+                                    Join the Campaign ↗
+                                </button>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
             {/* ═══════════════════ BOUNCE CARDS 3D ═══════════════════ */}
-            <section id="next-section" style={{ background: '#EEF4FB', padding: '5rem 2rem', textAlign: 'center', overflow: 'hidden' }}>
+            <section style={{ background: '#EEF4FB', padding: '5rem 2rem', textAlign: 'center', overflow: 'hidden' }}>
                 <motion.h2 {...fadeUp} style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 800, color: '#0B1F3A', fontFamily: 'Poppins, Inter, sans-serif', marginBottom: '0.5rem' }}>
                     Life Inside Our Classrooms
                 </motion.h2>
@@ -352,9 +543,6 @@ export const HomePage = () => {
                 </motion.div>
             </section>
 
-            {/* ═══════════════════ IMPACT STATISTICS ═══════════════════ */}
-            <ImpactStats />
-
             {/* ═══════════════════ ABOUT / VISION / MISSION / GOAL — Interactive ═══════════════════ */}
             <VisionMissionGoal fadeUp={fadeUp} />
 
@@ -373,94 +561,6 @@ export const HomePage = () => {
                 height={600}
                 {...fadeUp}
             />
-
-            {/* ═══════════════════ FOUNDING 100 ═══════════════════ */}
-            <section className="section-block" style={{ paddingTop: 'clamp(2rem, 3vw, 3rem)' }}>
-                <motion.div
-                    {...fadeUp}
-                    style={{
-                        maxWidth: 560, margin: '0 auto',
-                        background: 'white', borderRadius: 24,
-                        boxShadow: '0 2px 8px rgba(11,31,58,0.04), 0 8px 32px rgba(11,31,58,0.07)',
-                        overflow: 'hidden',
-                        border: '2px solid rgba(230,179,37,0.15)',
-                        transition: 'transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s, border-color 0.3s',
-                    }}
-                    whileHover={{ y: -6, boxShadow: '0 16px 48px rgba(230,179,37,0.15), 0 8px 24px rgba(11,31,58,0.08)' }}
-                >
-                    {/* Gold gradient banner */}
-                    <div style={{
-                        background: 'linear-gradient(135deg, #E6B325 0%, #C99A1E 100%)',
-                        padding: '1.75rem 2rem 1.5rem',
-                        position: 'relative', overflow: 'hidden',
-                    }}>
-                        <div style={{ position: 'absolute', top: -30, right: -30, width: 120, height: 120, borderRadius: '50%', background: 'rgba(255,255,255,0.15)', pointerEvents: 'none' }} />
-                        <div style={{ position: 'absolute', bottom: -20, left: -20, width: 80, height: 80, borderRadius: '50%', background: 'rgba(255,255,255,0.08)', pointerEvents: 'none' }} />
-                        <div style={{ position: 'relative', zIndex: 1 }}>
-                            <div style={{
-                                display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                                background: 'rgba(255,255,255,0.25)', borderRadius: 999,
-                                padding: '0.3rem 0.9rem', marginBottom: '0.75rem',
-                            }}>
-                                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#0B1F3A', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Initiative</span>
-                            </div>
-                            <h3 style={{
-                                color: '#0B1F3A', fontSize: '1.5rem', fontWeight: 900,
-                                fontFamily: 'Poppins, Inter, sans-serif', margin: 0,
-                                display: 'flex', alignItems: 'center', gap: '0.5rem',
-                            }}>
-                                <Heart size={24} fill="#0B1F3A" strokeWidth={0} /> Founding 100
-                            </h3>
-                        </div>
-                    </div>
-
-                    {/* Content */}
-                    <div style={{ padding: '1.75rem 2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                        <p style={{ color: '#6b7280', fontSize: '0.95rem', lineHeight: 1.7, margin: 0 }}>
-                            Support impactful educational initiatives and community development through Founding 100. Your contribution directly empowers underprivileged communities.
-                        </p>
-
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                            <a
-                                href={FOUNDING_100.milaapUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hero-volunteer-cta"
-                                style={{ justifyContent: 'center', width: '100%', padding: '0.95rem 2rem', fontSize: '0.95rem' }}
-                            >
-                                <ExternalLink size={18} /> Support Founding 100
-                            </a>
-                            <a
-                                href={FOUNDING_100.instagramUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{
-                                    width: '100%', padding: '0.8rem', borderRadius: 14,
-                                    background: 'rgba(11,31,58,0.04)',
-                                    border: '1px solid rgba(11,31,58,0.1)',
-                                    color: '#0B1F3A', fontWeight: 600, fontSize: '0.88rem',
-                                    fontFamily: 'inherit', cursor: 'pointer',
-                                    textDecoration: 'none', textAlign: 'center',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
-                                    transition: 'all 0.25s ease',
-                                }}
-                                onMouseEnter={e => {
-                                    e.currentTarget.style.background = 'linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%)';
-                                    e.currentTarget.style.color = 'white';
-                                    e.currentTarget.style.borderColor = 'transparent';
-                                }}
-                                onMouseLeave={e => {
-                                    e.currentTarget.style.background = 'rgba(11,31,58,0.04)';
-                                    e.currentTarget.style.color = '#0B1F3A';
-                                    e.currentTarget.style.borderColor = 'rgba(11,31,58,0.1)';
-                                }}
-                            >
-                                <FaInstagram size={18} /> Follow Founding 100 on Instagram
-                            </a>
-                        </div>
-                    </div>
-                </motion.div>
-            </section>
 
 
 

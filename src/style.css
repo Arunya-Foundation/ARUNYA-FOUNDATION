@@ -239,6 +239,22 @@ h6 {
   height: 100%;
 }
 
+@media (min-width: 901px) {
+  .navbar__container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+  .navbar__brand {
+    justify-self: start;
+  }
+  .navbar__links {
+    justify-self: center;
+  }
+  .navbar__actions {
+    justify-self: end;
+  }
+}
+
 /* ── Brand / Logo ── */
 .navbar__brand {
   display: flex;

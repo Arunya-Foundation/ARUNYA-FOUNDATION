@@ -118,17 +118,6 @@ export const MainLayout = () => {
 
                     {/* ── Right Section ── */}
                     <div className="navbar__actions">
-                        {/* Donate CTA — always visible */}
-                        <a
-                            className="navbar__donate-btn"
-                            href="https://milaap.org/fundraisers/support-underprivileged-communities-14?utm_medium=whatsapp_status_poster&utm_source=app"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Donate to Arunya Foundation"
-                        >
-                            Support Now
-                        </a>
-
                         {/* Hamburger — mobile only */}
                         <button
                             className="navbar__hamburger"
@@ -192,23 +181,7 @@ export const MainLayout = () => {
                                 ))}
                             </nav>
 
-                            {/* Donate CTA in drawer */}
-                            <motion.div
-                                className="mobile-menu__footer"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.35, duration: 0.4 }}
-                            >
-                                <a
-                                    className="mobile-menu__donate"
-                                    href="https://milaap.org/fundraisers/support-underprivileged-communities-14?utm_medium=whatsapp_status_poster&utm_source=app"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Support Now
-                                </a>
-                                <p className="mobile-menu__tagline">Every contribution changes a life.</p>
-                            </motion.div>
+
                         </motion.div>
                     </>
                 )}
