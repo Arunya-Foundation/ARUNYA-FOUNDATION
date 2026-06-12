@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Heart, Mail, Phone, MapPin, Clock, Leaf, ArrowUp, Send } from 'lucide-react';
+import { Heart, Mail, Phone, MapPin, Clock, ArrowUp, Send } from 'lucide-react';
 import { FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
@@ -127,17 +127,27 @@ export const Footer = () => {
                         <div style={{ maxWidth: 320 }}>
                             {/* Brand */}
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
-                                <div style={{
-                                    width: 48, height: 48, borderRadius: 14,
-                                    background: 'linear-gradient(135deg, #E6B325, #C99A1E)',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    color: 'white', flexShrink: 0,
-                                    boxShadow: '0 4px 16px rgba(230,179,37,0.3)',
-                                }}><Leaf size={24} /></div>
-                                <div>
-                                    <div style={{ color: 'white', fontWeight: 900, fontSize: '1.25rem', fontFamily: 'Poppins, Inter, sans-serif', lineHeight: 1, letterSpacing: 1 }}>ARUNYA</div>
-                                    <div style={{ color: '#E6B325', fontWeight: 600, fontSize: '0.7rem', letterSpacing: 3, marginTop: 2 }}>FOUNDATION</div>
-                                </div>
+                                <img
+                                    src="/logo.png"
+                                    alt="Arunya Foundation Logo"
+                                    style={{
+                                        width: 52,
+                                        height: 52,
+                                        objectFit: 'contain',
+                                        flexShrink: 0,
+                                    }}
+                                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                                />
+                                <img
+                                    src="/arunya-typography.png"
+                                    alt="Arunya"
+                                    style={{
+                                        height: 38,
+                                        width: 'auto',
+                                        objectFit: 'contain',
+                                    }}
+                                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                                />
                             </div>
 
                             <p style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, fontSize: '0.92rem', marginBottom: '1.75rem' }}>

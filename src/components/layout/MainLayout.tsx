@@ -100,7 +100,12 @@ export const MainLayout = () => {
                             className="navbar__logo"
                             onError={(e) => { e.currentTarget.style.display = 'none'; }}
                         />
-                        <span className="navbar__brand-name">ARUNYA</span>
+                        <img
+                            src="/arunya-typography.png"
+                            alt="Arunya"
+                            className="navbar__brand-typography"
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                        />
                     </div>
 
                     {/* ── Center Nav Links (desktop) ── */}

@@ -149,11 +149,8 @@ export const LoginPage = () => {
             >
                 {/* Logo */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
-                    <img src="/logo.png" alt="Logo" style={{ width: 44, height: 44, objectFit: 'contain' }} onError={e => { e.currentTarget.style.display = 'none'; }} />
-                    <div>
-                        <span style={{ color: '#0B1F3A', fontWeight: 800, fontSize: '1.2rem', fontFamily: 'Poppins, Inter, sans-serif', display: 'block' }}>Arunya Foundation</span>
-                        <span style={{ color: '#9ca3af', fontSize: '0.75rem', fontWeight: 500 }}>Education for Every Child</span>
-                    </div>
+                    <img src="/logo.png" alt="Logo" style={{ width: 48, height: 48, objectFit: 'contain' }} onError={e => { e.currentTarget.style.display = 'none'; }} />
+                    <img src="/arunya-typography.png" alt="Arunya" style={{ height: 36, width: 'auto', objectFit: 'contain' }} onError={e => { e.currentTarget.style.display = 'none'; }} />
                 </div>
 
                 <h1 style={{ color: '#0B1F3A', fontSize: '2rem', fontWeight: 700, marginBottom: '0.5rem', lineHeight: 1.2, fontFamily: 'Poppins, Inter, sans-serif' }}>

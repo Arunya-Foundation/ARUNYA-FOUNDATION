@@ -259,32 +259,32 @@ h6 {
 .navbar__brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.65rem;
   cursor: pointer;
   flex-shrink: 0;
   text-decoration: none;
 }
 
 .navbar__logo {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
   border-radius: 10px;
   flex-shrink: 0;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.navbar__brand:hover .navbar__logo {
+.navbar__brand-typography {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar__brand:hover .navbar__logo,
+.navbar__brand:hover .navbar__brand-typography {
   transform: scale(1.05);
-}
-
-.navbar__brand-name {
-  font-family: 'Poppins', 'Inter', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: #ffffff;
-  white-space: nowrap;
 }
 
 /* ── Desktop Nav Links ── */
@@ -468,12 +468,12 @@ h6 {
   }
 
   .navbar__logo {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
   }
 
-  .navbar__brand-name {
-    font-size: 1rem;
+  .navbar__brand-typography {
+    height: 30px;
   }
 
   .navbar__donate-btn {
