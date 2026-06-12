@@ -269,19 +269,14 @@ export const HomePage = () => {
 
                 <div className="hero-content">
 
-                    <motion.div
-                        className="hero-tagline-container"
+                    <motion.h1
+                        className="hero-heading"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.3 }}
                     >
-                        <img
-                            src="/shiksha-typography.png"
-                            alt="शिक्षा सर्वार्थसाधिका"
-                            className="hero-tagline-img"
-                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                        />
-                    </motion.div>
+                        शिक्षा सर्वाधिकारिका
+                    </motion.h1>
 
                     <motion.p
                         className="hero-description"
@@ -312,8 +307,9 @@ export const HomePage = () => {
                 </div>
 
                 <div className="hero-bottom-bar">
-                    <div className="hbb-left">Education • Empowerment • Future</div>
-                    <div className="hbb-center">Gwalior, India</div>
+                    <div className="hbb-left">
+                        Education • Empowerment • Future <span className="hbb-separator">|</span> Gwalior, India
+                    </div>
                     <div className="hbb-right">
                         <a href="#next-section" className="scroll-hint-arrow" aria-label="Scroll down">
                            ↓
