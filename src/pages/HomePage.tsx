@@ -349,7 +349,7 @@ export const HomePage = () => {
                                 style={{
                                     width: '100%',
                                     height: 'auto',
-                                    maxHeight: 480,
+                                    maxHeight: 'fit-content',
                                     objectFit: 'cover',
                                     display: 'block',
                                     transition: 'transform 0.5s ease',
