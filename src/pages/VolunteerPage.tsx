@@ -67,7 +67,7 @@ export const VolunteerPage = () => {
                     <motion.h2 {...fadeUp} style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: '#0B1F3A', marginBottom: '1rem', fontFamily: 'Poppins, Inter, sans-serif' }}>
                         Join Our Volunteer Family
                     </motion.h2>
-                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #E6B325, #C99A1E)', borderRadius: 2, margin: '1rem auto' }} />
+                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #CF8C36, #B5772A)', borderRadius: 2, margin: '1rem auto' }} />
                     <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} style={{ color: '#6b7280', fontSize: '1.1rem', maxWidth: 600, margin: '0 auto', lineHeight: 1.7 }}>
                         Dedicate your weekends to teach children, mentor the next generation,
                         and be part of a mission that transforms lives through education.
@@ -84,7 +84,7 @@ export const VolunteerPage = () => {
 
                         {[
                             { icon: <BookOpen size={24} style={{ color: '#123C73' }} />, title: 'Teach & Inspire', desc: 'Conduct weekend classes for children aged 5–16. No teaching degree required — just passion.' },
-                            { icon: <Star size={24} style={{ color: '#E6B325' }} />, title: 'Make Real Impact', desc: 'See students grow, score well, and dream bigger because of your effort.' },
+                            { icon: <Star size={24} style={{ color: '#CF8C36' }} />, title: 'Make Real Impact', desc: 'See students grow, score well, and dream bigger because of your effort.' },
                             { icon: <Handshake size={24} style={{ color: '#10b981' }} />, title: 'Build Community', desc: 'Join volunteers across villages. Network and grow with like-minded youth.' },
                             { icon: <ScrollText size={24} style={{ color: '#8b5cf6' }} />, title: 'Get Certified', desc: 'Receive official volunteering certificates for your resume and college applications.' },
                             { icon: <GraduationCap size={24} style={{ color: '#f43f5e' }} />, title: 'Learn While Teaching', desc: 'Develop leadership, communication, and project management skills.' },
@@ -221,7 +221,7 @@ export const VolunteerPage = () => {
                                     disabled={submitting}
                                     style={{
                                         width: '100%', padding: '1rem', borderRadius: 16, border: 'none',
-                                        background: submitting ? '#9ca3af' : 'linear-gradient(135deg, #E6B325, #C99A1E)',
+                                        background: submitting ? '#9ca3af' : 'linear-gradient(135deg, #CF8C36, #B5772A)',
                                         color: 'white', fontWeight: 700, fontSize: '1rem',
                                         cursor: submitting ? 'not-allowed' : 'pointer', fontFamily: 'inherit',
                                         transition: 'all 0.2s',

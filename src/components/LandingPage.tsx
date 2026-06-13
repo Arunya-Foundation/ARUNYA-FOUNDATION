@@ -91,7 +91,8 @@ const LandingPage = () => {
                     <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-full px-5 py-2.5 flex items-center shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] border border-gray-100 dark:border-slate-800 pointer-events-auto">
                         <img src="/logo.png" alt="Logo" style={{ width: '28px', height: '28px', objectFit: 'contain', marginRight: '12px' }}
                             onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                        <h2 className="font-bold text-lg text-slate-800 dark:text-white mr-2">Arunya</h2>
+                        <img src="/arunya-typography.png" alt="Arunya" style={{ height: '20px', width: 'auto', objectFit: 'contain' }}
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                     </div>
 
                     {/* Navigation Links Pill */}
@@ -122,7 +123,8 @@ const LandingPage = () => {
                         <div className="flex items-center pl-3">
                             <img src="/logo.png" alt="Logo" style={{ width: '26px', height: '26px', objectFit: 'contain', marginRight: '10px' }}
                                 onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                            <h2 className="font-bold text-[1.1rem] text-slate-800 dark:text-white">Arunya</h2>
+                            <img src="/arunya-typography.png" alt="Arunya" style={{ height: '18px', width: 'auto', objectFit: 'contain' }}
+                                onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                         </div>
 
                         {/* Controls & Hamburger */}

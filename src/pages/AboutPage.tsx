@@ -28,7 +28,7 @@ const values = [
         hindi: 'सह-विकास',
         title: 'Mutual Empowerment',
         icon: <Handshake size={24} />,
-        color: '#E6B325',
+        color: '#CF8C36',
         concept: 'True upliftment happens when both the teacher and the student grow.',
         action: 'We foster an environment where our youth volunteers develop real-world leadership and professional skills while delivering life-changing education.',
     },
@@ -44,7 +44,7 @@ const values = [
         hindi: 'निष्ठा',
         title: 'Unwavering Integrity',
         icon: <ShieldCheck size={24} />,
-        color: '#E6B325',
+        color: '#CF8C36',
         concept: 'Trust is the currency of a successful foundation. We operate with complete transparency and discipline.',
         action: 'Whether handling resources, executing programs, or fulfilling our legal obligations as a registered organization, we hold ourselves to the highest ethical standards.',
     },
@@ -108,7 +108,7 @@ export const AboutPage = () => {
                     <motion.h2 {...fadeUp} style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, marginBottom: '1rem', color: '#0B1F3A', fontFamily: 'Poppins, Inter, sans-serif' }}>
                         About Arunya Foundation
                     </motion.h2>
-                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #E6B325, #C99A1E)', borderRadius: 2, margin: '1rem auto' }} />
+                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #CF8C36, #B5772A)', borderRadius: 2, margin: '1rem auto' }} />
                     <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} style={{ color: '#6b7280', maxWidth: 800, margin: '0 auto', fontSize: '1.05rem', textAlign: 'justify', lineHeight: 1.8 }}>
                         <p style={{ marginBottom: '1rem' }}>
                             Arunya Foundation is a youth-driven community initiative based in Gwalior, dedicated to empowering underprivileged children through free education. We believe that every child aged 5–16, regardless of their economic background, deserves the chance to learn, grow, and build a self-sufficient future.
@@ -141,7 +141,7 @@ export const AboutPage = () => {
                         border: '1px solid rgba(11,31,58,0.06)',
                         boxShadow: '0 2px 8px rgba(11,31,58,0.04), 0 8px 24px rgba(11,31,58,0.06)',
                     }}>
-                        <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'linear-gradient(135deg, #E6B325, #C99A1E)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '1.5rem' }}>
+                        <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'linear-gradient(135deg, #CF8C36, #B5772A)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '1.5rem' }}>
                             <Target size={28} />
                         </div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#0B1F3A', fontFamily: 'Poppins, Inter, sans-serif' }}>Our Mission</h3>
@@ -174,7 +174,7 @@ export const AboutPage = () => {
                 {/* ═══════════════ PRIMARY OBJECTIVES ═══════════════ */}
                 <div style={{ maxWidth: 1200, margin: '5rem auto 0' }}>
                     <motion.h3 {...fadeUp} style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '0.75rem', color: '#0B1F3A', fontFamily: 'Poppins, Inter, sans-serif' }}>Primary Objectives</motion.h3>
-                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #E6B325, #C99A1E)', borderRadius: 2, margin: '0 auto 1rem' }} />
+                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #CF8C36, #B5772A)', borderRadius: 2, margin: '0 auto 1rem' }} />
                     <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.05 }} style={{ textAlign: 'center', color: '#6b7280', marginBottom: '3rem', maxWidth: 600, margin: '0 auto 3rem', fontSize: '0.95rem', lineHeight: 1.7 }}>
                         The foundational goals that define why Arunya Foundation exists.
                     </motion.p>
@@ -232,7 +232,7 @@ export const AboutPage = () => {
                 {/* ═══════════════ VALUES ═══════════════ */}
                 <div style={{ maxWidth: 1200, margin: '5rem auto 0' }}>
                     <motion.h3 {...fadeUp} style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '0.75rem', color: '#0B1F3A', fontFamily: 'Poppins, Inter, sans-serif' }}>Our Values</motion.h3>
-                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #E6B325, #C99A1E)', borderRadius: 2, margin: '0 auto 3rem' }} />
+                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #CF8C36, #B5772A)', borderRadius: 2, margin: '0 auto 3rem' }} />
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
                         {values.map((value, idx) => (
@@ -251,9 +251,9 @@ export const AboutPage = () => {
                                     overflow: 'hidden',
                                 }}
                             >
-                                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: value.color === '#E6B325' ? 'linear-gradient(135deg, #E6B325, #C99A1E)' : 'linear-gradient(135deg, #123C73, #0B1F3A)', borderRadius: '20px 20px 0 0' }} />
+                                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: value.color === '#CF8C36' ? 'linear-gradient(135deg, #CF8C36, #B5772A)' : 'linear-gradient(135deg, #123C73, #0B1F3A)', borderRadius: '20px 20px 0 0' }} />
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                                    <div style={{ width: 48, height: 48, borderRadius: '50%', background: value.color === '#E6B325' ? 'linear-gradient(135deg, #E6B325, #C99A1E)' : 'linear-gradient(135deg, #123C73, #0B1F3A)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', flexShrink: 0 }}>
+                                    <div style={{ width: 48, height: 48, borderRadius: '50%', background: value.color === '#CF8C36' ? 'linear-gradient(135deg, #CF8C36, #B5772A)' : 'linear-gradient(135deg, #123C73, #0B1F3A)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', flexShrink: 0 }}>
                                         {value.icon}
                                     </div>
                                     <div>
@@ -277,7 +277,7 @@ export const AboutPage = () => {
                 {/* Team Section */}
                 <div style={{ maxWidth: 1200, margin: '6rem auto 0' }}>
                     <motion.h3 {...fadeUp} style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '0.75rem', color: '#0B1F3A', fontFamily: 'Poppins, Inter, sans-serif' }}>Our Leadership</motion.h3>
-                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #E6B325, #C99A1E)', borderRadius: 2, margin: '0 auto 3rem' }} />
+                    <div style={{ display: 'block', width: 60, height: 4, background: 'linear-gradient(135deg, #CF8C36, #B5772A)', borderRadius: 2, margin: '0 auto 3rem' }} />
                     <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                         {/* ── Prabal — Featured Founder Card ── */}
                         <motion.div
@@ -320,7 +320,7 @@ export const AboutPage = () => {
                             </div>
                             <div style={{ padding: '0 1.5rem 1.5rem' }}>
                                 <h4 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: '0.35rem', color: '#0B1F3A', fontFamily: 'Poppins, Inter, sans-serif' }}>Prabal</h4>
-                                <p style={{ color: '#E6B325', fontSize: '1rem', fontWeight: 700, marginBottom: '0.85rem' }}>Founder</p>
+                                <p style={{ color: '#CF8C36', fontSize: '1rem', fontWeight: 700, marginBottom: '0.85rem' }}>Founder</p>
                                 <p style={{ color: '#6b7280', fontSize: '0.95rem', fontStyle: 'italic', lineHeight: 1.6 }}>"True empowerment doesn't come from simply opening a door, but from lighting the path that leads to it. At the Arunya Foundation, our mission is to be that guiding light, equipping communities with the tools they need to build their own brighter futures."</p>
                             </div>
                         </motion.div>
