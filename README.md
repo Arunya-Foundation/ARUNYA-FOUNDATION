@@ -35,18 +35,5 @@ To empower children in rural areas through accessible and meaningful education b
 
 ---
 
-## 💬 Messages from Our Leadership
-
-### From the President
-> "At Arunya Foundation, we believe that every child deserves the chance to learn, grow, and break the cycle of poverty through quality education. Our mission is to bridge the gap for underprivileged youth by providing the resources and mentorship they need to thrive. Together, we are not just teaching lessons; we are empowering the next generation to rewrite their own futures."
-> 
-> **— Anjali Mishra** (President)
-
-### From the Social Media Head
-> "Every post we create isn’t just content; it’s a story of hope, a request for support, or a celebration of resilience. Every campaign, every post, and every interaction has been a step toward building a community of compassion and change. I've seen how genuine storytelling can turn strangers into supporters and supporters into family. Being here has taught me that digital reach translates into real-world impact."
-> 
-> **— Aaleya** (Social Media Head)
-
----
 
 *"Education is the most powerful weapon which you can use to change the world."*
