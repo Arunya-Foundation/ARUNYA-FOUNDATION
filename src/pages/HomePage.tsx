@@ -238,7 +238,6 @@ const VisionMissionGoal = ({ fadeUp }: { fadeUp: any }) => {
 
 /* ── Component ────────────────────────────────── */
 export const HomePage = () => {
-    const navigate = useNavigate();
     const [scrollY, setScrollY] = useState(0);
     const [expandedBlog, setExpandedBlog] = useState<number | null>(null);
 
