@@ -31,7 +31,7 @@ const children = [
 
 const plans = [
     { amount: '₹500', label: '/month', desc: 'Books & study materials', icon: <BookOpen size={20} />, color: '#123C73' },
-    { amount: '₹1,000', label: '/month', desc: 'School support & tutoring', icon: <GraduationCap size={20} />, color: '#E6B325', featured: true },
+    { amount: '₹1,000', label: '/month', desc: 'School support & tutoring', icon: <GraduationCap size={20} />, color: '#CF8C36', featured: true },
     { amount: '₹2,000', label: '/month', desc: 'Complete educational assistance', icon: <Heart size={20} />, color: '#0B1F3A' },
 ];
 
@@ -47,7 +47,7 @@ export const SponsorChild = () => {
             position: 'relative', overflow: 'hidden',
         }}>
             {/* Decorative */}
-            <div style={{ position: 'absolute', top: '10%', left: -100, width: 300, height: 300, borderRadius: '50%', background: 'rgba(230,179,37,0.05)', pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', top: '10%', left: -100, width: 300, height: 300, borderRadius: '50%', background: 'rgba(207,140,54,0.05)', pointerEvents: 'none' }} />
             <div style={{ position: 'absolute', bottom: '5%', right: -80, width: 220, height: 220, borderRadius: '50%', background: 'rgba(18,60,115,0.04)', pointerEvents: 'none' }} />
 
             <div style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', zIndex: 1 }}>
@@ -55,17 +55,17 @@ export const SponsorChild = () => {
                 <div style={{ textAlign: 'center', marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
                     <motion.div {...fadeUp} style={{
                         display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                        background: 'rgba(230,179,37,0.12)', border: '1px solid rgba(230,179,37,0.25)',
+                        background: 'rgba(207,140,54,0.12)', border: '1px solid rgba(207,140,54,0.25)',
                         borderRadius: 9999, padding: '0.4rem 1.1rem', marginBottom: '1.25rem',
                     }}>
-                        <Heart size={14} color="#E6B325" fill="#E6B325" />
-                        <span style={{ color: '#C99A1E', fontWeight: 700, fontSize: '0.78rem', letterSpacing: 1, textTransform: 'uppercase' }}>Change a Life</span>
+                        <Heart size={14} color="#CF8C36" fill="#CF8C36" />
+                        <span style={{ color: '#B5772A', fontWeight: 700, fontSize: '0.78rem', letterSpacing: 1, textTransform: 'uppercase' }}>Change a Life</span>
                     </motion.div>
                     <motion.h2 {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.05 }} style={{
                         fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', fontWeight: 900, color: '#0B1F3A',
                         fontFamily: 'Poppins, Inter, sans-serif', marginBottom: '0.75rem', lineHeight: 1.15,
                     }}>
-                        Sponsor a <span style={{ color: '#E6B325' }}>Child's Future</span>
+                        Sponsor a <span style={{ color: '#CF8C36' }}>Child's Future</span>
                     </motion.h2>
                     <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} style={{
                         color: '#6b7280', fontSize: 'clamp(0.95rem, 2.5vw, 1.08rem)', maxWidth: 580, margin: '0 auto', lineHeight: 1.75,
@@ -153,7 +153,7 @@ export const SponsorChild = () => {
 
                                         <div style={{ marginBottom: '1rem' }}>
                                             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.6rem' }}>
-                                                <Sparkles size={16} color="#E6B325" style={{ flexShrink: 0, marginTop: 3 }} />
+                                                <Sparkles size={16} color="#CF8C36" style={{ flexShrink: 0, marginTop: 3 }} />
                                                 <p style={{ color: '#6B7280', fontSize: '0.92rem', lineHeight: 1.6, margin: 0 }}>
                                                     <strong style={{ color: '#0B1F3A' }}>Dream:</strong> {child.dream}
                                                 </p>
@@ -166,7 +166,7 @@ export const SponsorChild = () => {
                                             </div>
                                         </div>
 
-                                        <p style={{ color: '#6b7280', fontSize: '0.9rem', lineHeight: 1.75, fontStyle: 'italic', borderLeft: '3px solid #E6B325', paddingLeft: '1rem', margin: 0 }}>
+                                        <p style={{ color: '#6b7280', fontSize: '0.9rem', lineHeight: 1.75, fontStyle: 'italic', borderLeft: '3px solid #CF8C36', paddingLeft: '1rem', margin: 0 }}>
                                             "{child.story}"
                                         </p>
                                     </motion.div>
@@ -178,7 +178,7 @@ export const SponsorChild = () => {
                                         <button key={i} onClick={() => setActiveChild(i)}
                                             style={{
                                                 width: activeChild === i ? 24 : 8, height: 8, borderRadius: 99,
-                                                background: activeChild === i ? '#E6B325' : 'rgba(11,31,58,0.12)',
+                                                background: activeChild === i ? '#CF8C36' : 'rgba(11,31,58,0.12)',
                                                 border: 'none', cursor: 'pointer', transition: 'all 0.3s ease',
                                             }}
                                         />
@@ -208,7 +208,7 @@ export const SponsorChild = () => {
                                     style={{
                                         background: plan.featured ? 'linear-gradient(135deg, #0B1F3A 0%, #2a5080 100%)' : 'white',
                                         borderRadius: 16, padding: '1.25rem 1.5rem',
-                                        border: plan.featured ? '2px solid rgba(230,179,37,0.4)' : '1px solid rgba(11,31,58,0.06)',
+                                        border: plan.featured ? '2px solid rgba(207,140,54,0.4)' : '1px solid rgba(11,31,58,0.06)',
                                         boxShadow: '0 2px 8px rgba(11,31,58,0.04), 0 8px 24px rgba(11,31,58,0.06)',
                                         display: 'flex', alignItems: 'center', gap: '1rem',
                                         cursor: 'pointer', position: 'relative', overflow: 'hidden',
@@ -218,16 +218,16 @@ export const SponsorChild = () => {
                                     {plan.featured && (
                                         <div style={{
                                             position: 'absolute', top: 0, right: 0,
-                                            background: '#E6B325', color: '#0B1F3A',
+                                            background: '#CF8C36', color: '#0B1F3A',
                                             padding: '0.15rem 0.75rem', borderRadius: '0 0 0 12px',
                                             fontSize: '0.68rem', fontWeight: 800, letterSpacing: 0.5,
                                         }}>MOST POPULAR</div>
                                     )}
                                     <div style={{
                                         width: 48, height: 48, borderRadius: 12,
-                                        background: plan.featured ? 'rgba(230,179,37,0.2)' : `${plan.color}10`,
+                                        background: plan.featured ? 'rgba(207,140,54,0.2)' : `${plan.color}10`,
                                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                        color: plan.featured ? '#E6B325' : plan.color, flexShrink: 0,
+                                        color: plan.featured ? '#CF8C36' : plan.color, flexShrink: 0,
                                     }}>{plan.icon}</div>
                                     <div style={{ flex: 1 }}>
                                         <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
@@ -256,14 +256,14 @@ export const SponsorChild = () => {
                             onClick={() => navigate('/login')}
                             style={{
                                 width: '100%', padding: '1.1rem 2rem', borderRadius: 9999, border: 'none',
-                                background: 'linear-gradient(135deg, #E6B325 0%, #F4C542 50%, #E6B325 100%)',
+                                background: 'linear-gradient(135deg, #CF8C36 0%, #E7A44D 50%, #CF8C36 100%)',
                                 color: '#0B1F3A', fontWeight: 800, fontSize: '1.08rem', cursor: 'pointer',
-                                fontFamily: 'inherit', boxShadow: '0 6px 24px rgba(230,179,37,0.35)',
+                                fontFamily: 'inherit', boxShadow: '0 6px 24px rgba(207,140,54,0.35)',
                                 transition: 'all 0.3s cubic-bezier(0.16,1,0.3,1)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
                             }}
-                            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)'; e.currentTarget.style.boxShadow = '0 10px 32px rgba(230,179,37,0.45)'; }}
-                            onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 6px 24px rgba(230,179,37,0.35)'; }}
+                            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)'; e.currentTarget.style.boxShadow = '0 10px 32px rgba(207,140,54,0.45)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 6px 24px rgba(207,140,54,0.35)'; }}
                         >
                             <Heart size={18} fill="currentColor" /> Sponsor a Child Today
                         </button>

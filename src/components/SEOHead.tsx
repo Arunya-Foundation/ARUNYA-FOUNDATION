@@ -10,15 +10,15 @@ interface SEOConfig {
 const SEO_MAP: Record<string, SEOConfig> = {
     '/': {
         title: 'Arunya Foundation — Free Education for Underprivileged Children | NGO Gwalior',
-        description: 'Arunya Foundation empowers underprivileged children aged 5–16 through free education, study materials, and the Founding 100 initiative in Gwalior, India. Donate or volunteer today.',
+        description: 'Arunya Foundation empowers underprivileged children aged 5–16 through free education, study materials, and youth-led community initiatives in Gwalior, India. Volunteer today.',
     },
     '/about': {
         title: 'About Us — Arunya Foundation | Our Vision, Mission & Values',
         description: 'Learn about Arunya Foundation\'s vision to provide free education to every underprivileged child in India. Discover our mission, values, and the team behind the movement.',
     },
     '/causes': {
-        title: 'Our Programs — Founding 100 Initiative | Arunya Foundation',
-        description: 'Explore Arunya Foundation\'s Founding 100 initiative — empowering underprivileged communities through impactful educational programs and sustainable development in Gwalior.',
+        title: 'Our Programs — Key Educational Initiatives | Arunya Foundation',
+        description: 'Explore Arunya Foundation\'s programs — empowering underprivileged communities through impactful educational initiatives and sustainable development in Gwalior.',
     },
     '/blog': {
         title: 'Stories of Impact — Real Stories from Our Classrooms | Arunya Foundation',

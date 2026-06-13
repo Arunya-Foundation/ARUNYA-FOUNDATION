@@ -10,7 +10,7 @@ export const SITE_CONFIG = {
   name: 'Arunya Foundation',
   tagline: 'Preparing Hope',
   description: 'Empowering communities and creating lasting change',
-  logo: '/arunya-logo.svg',
+  logo: '/logo.png',
 };
 
 /**
@@ -23,7 +23,7 @@ export const LOADING_CONFIG = {
 
   // Loading images (add more as needed)
   images: [
-    '/arunya-logo.svg',
+    '/logo.png',
     '/images/work-1.jpg',
     '/images/work-2.jpg',
     '/images/work-3.jpg',
